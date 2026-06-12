@@ -1,0 +1,2492 @@
+<!-- scolars-era/frontend/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scolars Lift | Admissions, Research Support & Career-Focused Learning</title>
+    <link rel="icon" type="image/jpeg" href="/scolar logo.jpeg">
+    <meta name="description"
+        content="Scolars Lift helps students, researchers, and working professionals choose the right UG, PG, PhD, research, publication, and career-focused academic pathways with expert counselling.">
+    <meta name="keywords"
+        content="Scolars Lift, admission guidance, UG admission, PG admission, PhD admission, research support, thesis writing, dissertation help, publication support, honorary doctorate, academic counselling">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Scolars Lift">
+    <link rel="canonical" href="/">
+
+    <meta property="og:title" content="Scolars Lift | Expert Academic & Admission Guidance">
+    <meta property="og:description"
+        content="Professional education consulting for admissions, research support, publication guidance, and career-ready academic growth.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/assets/images/main.jpeg">
+    <meta property="og:url" content="/">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/university.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .brand-logo-img {
+            width: 58px;
+            height: 58px;
+            object-fit: contain;
+            border-radius: 12px;
+            margin-right: 12px;
+        }
+
+        .brand-logo-text {
+            font-size: 30px;
+            font-weight: 800;
+            color: #004D40;
+            letter-spacing: 0;
+        }
+
+        .home-hero {
+            min-height: 720px;
+            background: #051B2B;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .home-hero {
+            min-height: 720px;
+            background: #051B2B;
+            position: relative;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+            z-index: 0;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+            visibility: visible;
+            z-index: 2;
+        }
+
+        .hero-bg-image {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 0;
+            transform: scale(1.05);
+            transition: transform 6s ease-out;
+        }
+
+        .hero-slide.active .hero-bg-image {
+            transform: scale(1);
+        }
+
+        .hero-bg-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(90deg, rgba(5, 27, 43, 0.95), rgba(5, 27, 43, 0.7), rgba(5, 27, 43, 0.2));
+        }
+
+        .hero-carousel-controls {
+            position: absolute;
+            z-index: 999;
+            bottom: 40px;
+            right: 40px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .hero-control-btn {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: 0.3s;
+            pointer-events: auto;
+        }
+
+        .hero-control-btn:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .hero-carousel-indicators {
+            position: absolute;
+            z-index: 999;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+
+        .hero-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .hero-indicator.active {
+            background: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        .home-hero .container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .hero-copy {
+            max-width: 760px;
+            margin-left: 0;
+            text-align: left;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+        }
+
+        .hero-slide.active .hero-copy {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animated-page section {
+            animation: fadeUp 0.72s ease both;
+            animation-timeline: view();
+            animation-range: entry 0% cover 22%;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(22px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-kicker,
+        .eyebrow-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0;
+            text-transform: uppercase;
+        }
+
+        .hero-kicker {
+            background: rgba(255, 193, 7, 0.14);
+            color: #FFC107;
+            padding: 8px 14px;
+            margin-bottom: 22px;
+            border: 1px solid rgba(255, 193, 7, 0.28);
+        }
+
+        .home-hero h1 {
+            max-width: 760px;
+            font-size: 64px;
+            line-height: 1.05;
+            font-weight: 800;
+            margin-bottom: 22px;
+        }
+
+        .home-hero h1 span {
+            color: #FFC107;
+        }
+
+        .hero-lead {
+            max-width: 650px;
+            color: rgba(255, 255, 255, 0.86);
+            font-size: 18px;
+            line-height: 1.75;
+            margin-bottom: 32px;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 34px;
+        }
+
+        .btn-outline-light {
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.42);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .btn-outline-light:hover {
+            background: #fff;
+            color: #1A1A1A;
+        }
+
+        .hero-trust-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .trust-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.11);
+            color: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .trust-pill i {
+            color: #FFC107;
+        }
+
+        .home-services {
+            margin-top: -72px;
+            position: relative;
+            z-index: 5;
+            padding-bottom: 70px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+        }
+
+        .service-card {
+            min-height: 230px;
+            background: #fff;
+            border: 1px solid rgba(0, 77, 64, 0.08);
+            border-radius: 12px;
+            padding: 24px 20px;
+            box-shadow: 0 18px 45px rgba(20, 35, 50, 0.08);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .service-card::before,
+        .process-card::before,
+        .mission-card::before,
+        .partner-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.16), rgba(0, 77, 64, 0.08));
+            opacity: 0;
+            transition: opacity 0.25s ease;
+            pointer-events: none;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 26px 62px rgba(20, 35, 50, 0.15);
+            border-color: rgba(255, 152, 0, 0.34);
+        }
+
+        .service-card h3,
+        .service-card p,
+        .service-card .icon-circle {
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card:hover::before,
+        .process-card:hover::before,
+        .mission-card:hover::before,
+        .partner-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card .icon-circle {
+            margin: 0 0 16px;
+            transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+        }
+
+        .service-card:hover .icon-circle,
+        .process-card:hover .process-icon,
+        .mission-card:hover i {
+            transform: translateY(-3px) scale(1.06);
+            background: #FFC107;
+            color: #fff;
+        }
+
+        .service-card h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        .course-card,
+        .testimonial-card {
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .course-card:hover,
+        .testimonial-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 24px 55px rgba(0, 0, 0, 0.12);
+        }
+
+        .course-card img,
+        .testimonial-card img {
+            transition: transform 0.28s ease, filter 0.28s ease;
+        }
+
+        .course-card:hover img,
+        .testimonial-card:hover img {
+            transform: scale(1.05);
+            filter: saturate(1.08);
+        }
+
+        .professional-section {
+            padding: 90px 0;
+        }
+
+        .split-layout {
+            display: grid;
+            grid-template-columns: 0.95fr 1.05fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .image-panel {
+            position: relative;
+            min-height: 520px;
+        }
+
+        .image-slider {
+            position: relative;
+            height: 520px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.12);
+        }
+
+        .image-slider img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            border-radius: 12px;
+            opacity: 0;
+            animation: sectionImageSlide 15s infinite;
+        }
+
+        .image-slider img:nth-child(2) {
+            animation-delay: 5s;
+        }
+
+        .image-slider img:nth-child(3) {
+            animation-delay: 10s;
+        }
+
+        @keyframes sectionImageSlide {
+            0% {
+                opacity: 0;
+                transform: translateX(24px) scale(1.02);
+            }
+
+            8% {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+
+            32% {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+
+            40% {
+                opacity: 0;
+                transform: translateX(-24px) scale(1.02);
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .metric-card {
+            position: absolute;
+            left: 26px;
+            bottom: 26px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 18px 22px;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.14);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .metric-card i {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: #FFF8E1;
+            color: #FF9800;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .metric-card strong {
+            display: block;
+            font-size: 24px;
+            color: #1A1A1A;
+            line-height: 1;
+        }
+
+        .metric-card span {
+            color: #666;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .why-choose-section {
+            padding: 90px 0;
+            background: #fff;
+        }
+
+        .why-layout {
+            display: grid;
+            grid-template-columns: 0.95fr 1.05fr;
+            gap: 56px;
+            align-items: center;
+        }
+
+        .why-image-grid {
+            display: grid;
+            grid-template-columns: 1fr 0.75fr;
+            gap: 16px;
+            align-items: stretch;
+        }
+
+        .why-image-grid img {
+            width: 100%;
+            height: 100%;
+            min-height: 420px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 20px 55px rgba(0, 0, 0, 0.11);
+        }
+
+        .why-image-stack {
+            display: grid;
+            gap: 16px;
+        }
+
+        .why-image-stack img {
+            min-height: 200px;
+        }
+
+        .why-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 28px;
+        }
+
+        .why-card {
+            background: #FAFAFA;
+            border: 1px solid #eeeeee;
+            border-radius: 12px;
+            padding: 22px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .why-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.2), rgba(0, 77, 64, 0.08));
+            transition: opacity 0.25s ease;
+        }
+
+        .why-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.09);
+            border-color: rgba(255, 152, 0, 0.32);
+        }
+
+        .why-card:hover::before {
+            opacity: 1;
+        }
+
+        .why-card i,
+        .why-card h3,
+        .why-card p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .why-card i {
+            width: 44px;
+            height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #FFF8E1;
+            color: #FF9800;
+            font-size: 18px;
+            margin-bottom: 14px;
+            transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+        }
+
+        .why-card:hover i {
+            transform: scale(1.08) rotate(-4deg);
+            background: #FFC107;
+            color: #fff;
+        }
+
+        .why-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .why-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        .content-list {
+            display: grid;
+            gap: 18px;
+            margin: 28px 0 34px;
+        }
+
+        .content-list li {
+            display: flex;
+            gap: 12px;
+            color: #4f4f4f;
+            line-height: 1.7;
+        }
+
+        .content-list i {
+            color: #FF9800;
+            margin-top: 5px;
+        }
+
+        .stats-section.home-stats {
+            margin-top: 0;
+        }
+
+        .process-section.clean-process,
+        .clean-partners,
+        .partners-section.clean-partners {
+            padding: 90px 0;
+            background: #FAFAFA;
+        }
+
+        #universities-grid {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 22px 0 12px;
+            mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 24px;
+            width: max-content;
+            animation: universityScroll 44s linear infinite;
+        }
+
+        .carousel-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes universityScroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .partner-card-wrapper {
+            width: 290px;
+            min-width: 290px;
+            padding: 1px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.42), rgba(0, 77, 64, 0.12));
+        }
+
+        .partner-card {
+            min-height: 250px;
+            height: 100%;
+            background: #fff;
+            border-radius: 11px;
+            padding: 26px 20px 22px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 14px 38px rgba(0, 0, 0, 0.06);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .partner-card-wrapper:hover .partner-card {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 52px rgba(0, 0, 0, 0.12);
+        }
+
+        .partner-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 10px;
+            border-radius: 999px;
+            background: rgba(0, 77, 64, 0.08);
+            color: #004D40;
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .partner-badge i {
+            color: #FF9800;
+        }
+
+        .partner-logo {
+            width: 82px;
+            height: 82px;
+            object-fit: contain;
+            border-radius: 50%;
+            background: #FAFAFA;
+            padding: 12px;
+            margin: 26px 0 18px;
+            border: 1px solid #f0f0f0;
+        }
+
+        .partner-name {
+            font-size: 18px;
+            font-weight: 800;
+            color: #1A1A1A;
+            line-height: 1.35;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .partner-location {
+            font-size: 13px;
+            color: #666;
+            margin: 10px 0 18px;
+        }
+
+        .partner-location i {
+            color: #FF9800;
+            margin-right: 4px;
+        }
+
+        .btn-view-more {
+            margin-top: auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 38px;
+            padding: 9px 18px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #FFC107, #FF9800);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0;
+        }
+
+        .btn-view-more:hover {
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 152, 0, 0.28);
+        }
+
+        .process-intro {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 42px;
+            color: #666;
+        }
+
+        .process-grid.clean-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            margin-top: 0;
+            position: relative;
+        }
+
+        .process-grid.clean-grid .process-card {
+            width: auto;
+            min-height: 285px;
+            padding: 30px 22px 26px;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            text-align: left;
+            background: #fff;
+            border: 1px solid rgba(0, 77, 64, 0.08);
+            box-shadow: 0 16px 42px rgba(20, 35, 50, 0.07);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .process-grid.clean-grid .process-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 26px 60px rgba(20, 35, 50, 0.13);
+            border-color: rgba(255, 152, 0, 0.32);
+        }
+
+        .process-grid.clean-grid .process-card::after {
+            content: attr(data-step);
+            position: absolute;
+            right: 18px;
+            top: 16px;
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1;
+            color: rgba(0, 77, 64, 0.06);
+            z-index: 0;
+        }
+
+        .process-card .process-icon,
+        .process-card h3,
+        .process-card p,
+        .process-card .process-badge,
+        .mission-card h3,
+        .mission-card p,
+        .mission-card i,
+        .partner-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-card .process-icon {
+            margin: 0 0 24px;
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #FFF8E1, #FFFFFF);
+            color: #FF9800;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 64px;
+            box-shadow: inset 0 0 0 1px rgba(255, 152, 0, 0.16);
+            transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+        }
+
+        .process-card .process-icon i {
+            font-size: 24px;
+            line-height: 1;
+            width: 1em;
+            height: 1em;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .process-card .process-badge {
+            display: inline-flex;
+            align-items: center;
+            min-height: 28px;
+            margin-bottom: 16px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(0, 77, 64, 0.08);
+            color: #004D40;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0;
+        }
+
+        .process-card h3 {
+            font-size: 19px;
+            line-height: 1.28;
+            margin-bottom: 12px;
+            color: #1A1A1A;
+        }
+
+        .process-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .process-card:hover .process-badge {
+            background: rgba(255, 193, 7, 0.18);
+            color: #8A5600;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .mission-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 38px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.04);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 55px rgba(0, 0, 0, 0.1);
+            border-color: rgba(255, 152, 0, 0.28);
+        }
+
+        .mission-card i {
+            width: 58px;
+            height: 58px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #FFF8E1;
+            color: #FF9800;
+            font-size: 24px;
+            margin-bottom: 22px;
+        }
+
+        .mission-card h3 {
+            font-size: 28px;
+            margin-bottom: 14px;
+        }
+
+        .mission-card p {
+            color: #666;
+            line-height: 1.75;
+        }
+
+        .partner-logos {
+            display: flex;
+            gap: 16px;
+            margin-top: 42px;
+            width: max-content;
+            animation: logoStripSlide 26s linear infinite;
+        }
+
+        .partner-logos:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes logoStripSlide {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(calc(-50% - 8px));
+            }
+        }
+
+        .partner-logo-card {
+            width: 180px;
+            min-width: 180px;
+            min-height: 94px;
+            border: 1px solid #ececec;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+            background: #fff;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .partner-logo-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.09);
+        }
+
+        .partner-logo-card img {
+            max-width: 100%;
+            max-height: 42px;
+            object-fit: contain;
+            filter: none;
+            opacity: 1;
+            transition: transform 0.25s ease;
+        }
+
+        .partner-logo-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .logo-carousel-viewport {
+            width: 100%;
+            overflow: hidden;
+            mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+        }
+
+        .global-band {
+            padding: 90px 0;
+            background: linear-gradient(135deg, #003C35, #00695C);
+            color: #fff;
+        }
+
+        .global-layout {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 46px;
+            align-items: center;
+        }
+
+        .country-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 26px;
+        }
+
+        .country-grid span {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .country-grid i {
+            color: #FFC107;
+        }
+
+        .map-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 12px;
+            padding: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-card img {
+            width: 100%;
+            display: block;
+            filter: invert(1);
+            opacity: 0.55;
+        }
+
+        .hq-marker {
+            position: absolute;
+            left: 49%;
+            top: 32%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            z-index: 2;
+            animation: hqFloat 2.8s ease-in-out infinite;
+        }
+
+        .hq-marker::before,
+        .hq-marker::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 193, 7, 0.62);
+            animation: hqPulse 2.4s ease-out infinite;
+        }
+
+        .hq-marker::after {
+            animation-delay: 1.2s;
+        }
+
+        @keyframes hqFloat {
+            0%,
+            100% {
+                transform: translate(-50%, -50%) translateY(0);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) translateY(-8px);
+            }
+        }
+
+        @keyframes hqPulse {
+            0% {
+                opacity: 0.8;
+                transform: scale(0.55);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(1.85);
+            }
+        }
+
+        .hq-marker i {
+            color: #FFC107;
+            
+            font-size: 28px;
+            filter: drop-shadow(0 0 12px rgba(255, 193, 7, 0.75));
+        }
+
+        .hq-marker span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 82px;
+            padding: 5px 9px;
+            border-radius: 999px;
+            background: #FFC107;
+            color: #111;
+            font-size: 11px;
+            font-weight: 900;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22);
+            white-space: nowrap;
+        }
+
+        .faq-section .container {
+            max-width: 900px;
+        }
+
+        .floating-buttons {
+            position: fixed;
+            bottom: 28px;
+            z-index: 999;
+        }
+
+        .float-right {
+            right: 28px;
+        }
+
+        .floating-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 27px;
+            color: #fff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22);
+        }
+
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+
+        .footer-brand-copy {
+            color: #333333;
+            max-width: 320px;
+        }
+
+        @media (max-width: 1100px) {
+            .service-grid,
+            .why-cards,
+            .process-grid.clean-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            
+        }
+
+        @media (max-width: 768px) {
+            .brand-logo-text {
+                font-size: 24px;
+            }
+
+            .brand-logo-img {
+                width: 48px;
+                height: 48px;
+            }
+
+            .home-hero {
+                min-height: 680px;
+            }
+
+            .home-hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-lead {
+                font-size: 16px;
+            }
+
+            .service-grid,
+            .process-grid.clean-grid,
+            .why-layout,
+            .why-cards,
+            .why-image-grid,
+            .mission-grid,
+            .split-layout,
+            .global-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .home-services {
+                margin-top: 0;
+                padding-top: 40px;
+                background: #FAFAFA;
+            }
+
+            .image-panel,
+            .image-slider,
+            .image-slider img {
+                min-height: auto;
+                height: 380px;
+            }
+
+            .metric-card {
+                left: 16px;
+                right: 16px;
+                bottom: 16px;
+            }
+
+            .country-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-image-grid img,
+            .why-image-stack img {
+                min-height: 230px;
+            }
+
+            .partner-card-wrapper {
+                width: 260px;
+                min-width: 260px;
+            }
+
+            .hq-marker {
+                left: 48%;
+                top: 31%;
+            }
+        }
+
+        /* Responsive stability overrides */
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        @media (max-width: 1200px) {
+            .home-hero h1 {
+                font-size: clamp(44px, 6vw, 58px);
+            }
+
+            .service-grid,
+            .process-grid.clean-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .partner-card-wrapper {
+                width: 270px;
+                min-width: 270px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .contact-info {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px 16px;
+            }
+
+            .contact-info span {
+                margin-left: 0;
+            }
+
+            .nav-content {
+                position: relative;
+            }
+
+            .nav-links {
+                position: absolute;
+                left: 20px;
+                right: 20px;
+                top: calc(100% + 16px);
+                display: none;
+                flex-direction: column;
+                gap: 0;
+                background: #fff;
+                border: 1px solid rgba(0, 77, 64, 0.1);
+                border-radius: 12px;
+                box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+                padding: 10px;
+                z-index: 1005;
+            }
+
+            .nav-links li a {
+                display: block;
+                padding: 13px 14px;
+                border-radius: 8px;
+            }
+
+            .nav-links li a:hover,
+            .nav-links li a.nav-active {
+                background: #FFF8E1;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 44px;
+                height: 44px;
+                border-radius: 10px;
+                background: #FFF8E1;
+                color: #004D40;
+            }
+
+            .nav-actions .btn-primary {
+                display: none;
+            }
+
+            .split-layout,
+            .why-layout,
+            .global-layout {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+            .service-grid,
+            .process-grid.clean-grid,
+            .why-cards,
+            .mission-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .contact-container,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .navbar {
+                padding: 12px 0;
+            }
+
+            .brand-logo-img {
+                width: 42px;
+                height: 42px;
+                margin-right: 8px;
+            }
+
+            .brand-logo-text {
+                font-size: 20px;
+            }
+
+            .home-hero {
+                min-height: auto;
+                padding: 92px 0 70px;
+            }
+
+            .home-hero h1 {
+                font-size: 36px;
+                line-height: 1.12;
+            }
+
+            .hero-lead {
+                font-size: 15px;
+                line-height: 1.65;
+            }
+
+            .hero-actions,
+            .hero-trust-row,
+            .about-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-actions .btn,
+            .about-actions .btn,
+            .btn-primary-hero,
+            .btn-outline-light {
+                width: 100%;
+                min-height: 48px;
+            }
+
+            .home-services {
+                padding-top: 34px;
+            }
+
+            .service-grid,
+            .process-grid.clean-grid,
+            .why-cards,
+            .why-image-grid,
+            .mission-grid,
+            .country-grid,
+            .form-row {
+                grid-template-columns: 1fr !important;
+            }
+
+            .service-card,
+            .process-grid.clean-grid .process-card,
+            .why-card,
+            .mission-card {
+                min-height: auto;
+            }
+
+            .process-grid.clean-grid .process-card {
+                padding: 26px 20px;
+            }
+
+            .process-card .process-icon {
+                width: 58px;
+                height: 58px;
+                flex-basis: 58px;
+                border-radius: 16px;
+            }
+
+            .image-panel,
+            .image-slider,
+            .image-slider img {
+                height: 320px;
+            }
+
+            .why-image-grid img,
+            .why-image-stack img {
+                min-height: 220px;
+            }
+
+            .metric-card {
+                position: relative;
+                left: auto;
+                right: auto;
+                bottom: auto;
+                margin-top: -72px;
+                margin-left: 14px;
+                margin-right: 14px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .professional-section,
+            .why-choose-section,
+            .process-section.clean-process,
+            .clean-partners,
+            .partners-section.clean-partners,
+            .global-band,
+            .testimonials-section,
+            .contact-section,
+            .faq-section {
+                padding: 58px 0;
+            }
+
+            .partner-card-wrapper {
+                width: 238px;
+                min-width: 238px;
+            }
+
+            .partner-card {
+                min-height: 235px;
+            }
+
+            .map-card {
+                padding: 18px;
+            }
+
+            .hq-marker {
+                left: 48%;
+                top: 30%;
+            }
+
+            .contact-form-wrapper {
+                padding: 24px;
+            }
+
+            .floating-buttons {
+                bottom: 18px;
+            }
+
+            .float-right {
+                right: 18px;
+            }
+
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .home-hero h1 {
+                font-size: 31px;
+            }
+
+            .brand-logo-text {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .top-bar {
+                font-size: 12px;
+            }
+
+            .partner-card-wrapper {
+                width: 220px;
+                min-width: 220px;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Scolars Lift",
+        "url": "/",
+        "logo": "/scolar logo.jpeg",
+        "email": "info@scolarslift.com",
+        "telephone": "7386814150",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "174 Chesterton Road, Cambridge, United Kingdom, CB4 1DA",
+            "addressCountry": "United Kingdom"
+        },
+        "sameAs": []
+    }
+    </script>
+</head>
+
+<body class="animated-page">
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="social-icons">
+                <span>Follow Us:</span>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="contact-info">
+                <span><i class="fas fa-map-marker-alt"></i> 174 Chesterton Road, Cambridge, United Kingdom, CB4 1DA</span>
+                <span><i class="fas fa-envelope"></i> info@scolarslift.com</span>
+                <span><i class="fas fa-phone-alt"></i> 7386814150</span>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="/" class="logo" aria-label="Scolars Lift Home">
+                <img src="scolar logo.jpeg" alt="Scolars Lift Logo" class="brand-logo-img">
+                <span class="brand-logo-text">Scolars Lift</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about.html">About Us</a></li>
+                <li><a href="/courses.html">Courses</a></li>
+                <li><a href="/university.html">Universities</a></li>
+                <li><a href="/book-appointment.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="/book-appointment.html" class="btn btn-primary">Book Counselling</a>
+                <div class="mobile-menu-toggle" aria-label="Open menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <header class="home-hero" id="mainHeroCarousel">
+            
+            <div class="hero-slide active">
+                <div class="hero-bg-image" style="background-image: url('/assets/images/hero_slide1.png');"></div>
+                <div class="hero-bg-overlay"></div>
+                <div class="container">
+                    <div class="hero-copy">
+                        <h1>Build a stronger academic future with <span>professional</span> support</h1>
+                        <p class="hero-lead">
+                            Scolars Lift guides students, researchers, and working professionals through admissions, PhD
+                            pathways, research writing, publication support, and career-focused learning decisions.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="/courses.html" class="btn btn-primary-hero">Explore Courses</a>
+                            <a href="/book-appointment.html" class="btn btn-outline-light">Talk to a Counsellor</a>
+                        </div>
+                        <div class="hero-trust-row" aria-label="Highlights">
+                            <span class="trust-pill"><i class="fas fa-check-circle"></i> Admission Guidance</span>
+                            <span class="trust-pill"><i class="fas fa-check-circle"></i> Research Support</span>
+                            <span class="trust-pill"><i class="fas fa-check-circle"></i> Global Learning Options</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-slide">
+                <div class="hero-bg-image" style="background-image: url('/assets/images/hero_slide2.png');"></div>
+                <div class="hero-bg-overlay"></div>
+                <div class="container">
+                    <div class="hero-copy">
+                        <h1>Expert <span>Research & Publication</span> Guidance</h1>
+                        <p class="hero-lead">
+                            Elevate your academic profile with professional support for thesis writing, literature reviews, and high-impact journal publications from top-tier researchers.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="/book-appointment.html" class="btn btn-primary-hero">Get Research Help</a>
+                        </div>
+                        <div class="hero-trust-row" aria-label="Highlights">
+                            <span class="trust-pill"><i class="fas fa-check-circle"></i> Thesis Writing</span>
+                            <span class="trust-pill"><i class="fas fa-check-circle"></i> High-Impact Journals</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-slide">
+                <div class="hero-bg-image" style="background-image: url('/assets/images/hero_slide3.png');"></div>
+                <div class="hero-bg-overlay"></div>
+                <div class="container">
+                    <div class="hero-copy">
+                        <h1>Seamless <span>Admissions</span> to Top Universities</h1>
+                        <p class="hero-lead">
+                            From profile evaluation to application submission, we ensure your journey to prestigious global universities is smooth, transparent, and successful.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="/university.html" class="btn btn-primary-hero">View Universities</a>
+                        </div>
+                        <div class="hero-trust-row" aria-label="Highlights">
+                            <span class="trust-pill"><i class="fas fa-check-circle"></i> Profile Evaluation</span>
+                            <span class="trust-pill"><i class="fas fa-check-circle"></i> Application Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-carousel-controls">
+                <button class="hero-control-btn prev" id="heroPrevBtn"><i class="fas fa-chevron-left"></i></button>
+                <button class="hero-control-btn next" id="heroNextBtn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="hero-carousel-indicators">
+                <span class="hero-indicator active" data-slide="0"></span>
+                <span class="hero-indicator" data-slide="1"></span>
+                <span class="hero-indicator" data-slide="2"></span>
+            </div>
+        </header>
+
+        <section class="home-services" aria-label="Core services">
+            <div class="container">
+                <div class="service-grid reveal">
+                    <article class="service-card">
+                        <div class="icon-circle"><i class="fas fa-university"></i></div>
+                        <h3>UG/PG Admission</h3>
+                        <p>Find suitable undergraduate and postgraduate programs with eligibility, documentation, and
+                            application guidance.</p>
+                    </article>
+                    <article class="service-card">
+                        <div class="icon-circle"><i class="fas fa-user-graduate"></i></div>
+                        <h3>PhD Admission</h3>
+                        <p>Get structured support for research areas, university selection, proposals, and doctoral
+                            admission processes.</p>
+                    </article>
+                    <article class="service-card">
+                        <div class="icon-circle"><i class="fas fa-book-open"></i></div>
+                        <h3>Research Support</h3>
+                        <p>Professional help for synopsis, thesis, dissertation, literature review, and academic writing
+                            quality.</p>
+                    </article>
+                    <article class="service-card">
+                        <div class="icon-circle"><i class="fas fa-newspaper"></i></div>
+                        <h3>Publication Support</h3>
+                        <p>Guidance for journal selection, manuscript preparation, formatting, submission, and revision
+                            readiness.</p>
+                    </article>
+                    <article class="service-card">
+                        <div class="icon-circle"><i class="fas fa-award"></i></div>
+                        <h3>Professional Recognition</h3>
+                        <p>Support for honorary doctorate and academic profile-building opportunities suited to your
+                            achievements.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="professional-section" id="about">
+            <div class="container split-layout reveal">
+                <div class="image-panel">
+                    <div class="image-slider">
+                        <img src="/assets/images/clg.jpeg" alt="Students receiving academic counselling">
+                        <img src="/assets/images/00.jpeg" alt="Academic guidance discussion">
+                        <img src="/assets/images/hero-students.jpg" alt="Students planning their education journey">
+                    </div>
+                    <div class="metric-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <div>
+                            <strong>10k+</strong>
+                            <span>Learners Guided</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <!-- <h5 class="section-subtitle"><i class="fas fa-star"></i> About Scolars Lift</h5> -->
+                    <h2 class="section-title">Clear academic direction for serious learners and professionals</h2>
+                    <p class="section-text">
+                        Scolars Lift is an education consulting platform focused on clarity, credibility, and
+                        personalised guidance. We help learners choose practical academic pathways that fit their goals,
+                        background, timeline, and professional responsibilities.
+                    </p>
+                    <ul class="content-list">
+                        <li><i class="fas fa-check-circle"></i><span>One-to-one counselling for course, university, and
+                                research pathway selection.</span></li>
+                        <li><i class="fas fa-check-circle"></i><span>Documentation support for admissions, profile
+                                building, research work, and academic submissions.</span></li>
+                        <li><i class="fas fa-check-circle"></i><span>Guidance designed for students, working
+                                professionals, researchers, and educators.</span></li>
+                    </ul>
+                    <div class="about-actions">
+                        <a href="/about.html" class="btn btn-primary">Read More <i class="fas fa-arrow-right"></i></a>
+                        <div class="contact-action">
+                            <div class="phone-icon"><i class="fas fa-phone"></i></div>
+                            <div class="phone-text">
+                                <span>Call Now</span>
+                                <strong>7386814150</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section home-stats">
+            <div class="container stats-grid reveal">
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-globe"></i></div>
+                    <div class="stat-info">
+                        <h3>50+</h3>
+                        <h2>Countries</h2>
+                        <p>Global reach</p>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-user-graduate"></i></div>
+                    <div class="stat-info">
+                        <h3>5000+</h3>
+                        <h2>Learners</h2>
+                        <p>Guided students</p>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="stat-info">
+                        <h3>98%</h3>
+                        <h2>Satisfaction</h2>
+                        <p>Learner feedback</p>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-award"></i></div>
+                    <div class="stat-info">
+                        <h3>5+</h3>
+                        <h2>Years</h2>
+                        <p>Trusted experience</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="why-choose-section">
+            <div class="container why-layout reveal">
+                <div class="why-image-grid">
+                    <img src="/assets/images/hero-students.jpg" alt="Students discussing academic goals">
+                    <div class="why-image-stack">
+                        <img src="/assets/images/course3.jpeg" alt="Learner working on research material">
+                        <img src="/assets/images/course5.jpeg" alt="Professional education counselling session">
+                    </div>
+                </div>
+                <div>
+                    <!-- <h5 class="section-subtitle"><i class="fas fa-star"></i> Why Choose Us</h5> -->
+                    <h2 class="section-title">A practical partner for admissions, research, and academic growth</h2>
+                    <p class="section-text">
+                        We focus on fit, clarity, and documentation quality. Every recommendation is shaped around your
+                        academic background, career goals, preferred study mode, and long-term professional plans.
+                    </p>
+                    <div class="why-cards">
+                        <article class="why-card">
+                            <i class="fas fa-route"></i>
+                            <h3>Clear Roadmap</h3>
+                            <p>Step-by-step guidance from profile review to admission, research, or publication
+                                planning.</p>
+                        </article>
+                        <article class="why-card">
+                            <i class="fas fa-user-tie"></i>
+                            <h3>Expert Counselling</h3>
+                            <p>Personal support for students, researchers, educators, and working professionals.</p>
+                        </article>
+                        <article class="why-card">
+                            <i class="fas fa-file-signature"></i>
+                            <h3>Document Support</h3>
+                            <p>Help with academic records, application files, research documents, and profile
+                                presentation.</p>
+                        </article>
+                        <article class="why-card">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Transparent Process</h3>
+                            <p>Honest guidance, realistic options, and clear next steps before you commit your time.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="process-section clean-process">
+            <div class="container">
+                <!-- <h5 class="section-subtitle centered"><i class="fas fa-star"></i> Our Process</h5> -->
+                <h2 class="section-title centered">Simple, transparent, and professionally guided</h2>
+                <p class="process-intro">
+                    Every learner starts with a clear evaluation. From there, we recommend the right academic route and
+                    support the steps needed to move forward with confidence.
+                </p>
+                <div class="process-grid clean-grid reveal">
+                    <article class="process-card" data-step="01">
+                        <div class="process-icon"><i class="fas fa-user-check"></i></div>
+                        <div class="process-badge">Step 1</div>
+                        <h3>Profile Review</h3>
+                        <p>We review your education, experience, eligibility, and target outcome before suggesting any
+                            pathway.</p>
+                    </article>
+                    <article class="process-card" data-step="02">
+                        <div class="process-icon"><i class="fas fa-bullseye"></i></div>
+                        <div class="process-badge">Step 2</div>
+                        <h3>Pathway Planning</h3>
+                        <p>You receive suitable course, university, research, or recognition options aligned with your
+                            goals.</p>
+                    </article>
+                    <article class="process-card" data-step="03">
+                        <div class="process-icon"><i class="fas fa-file-alt"></i></div>
+                        <div class="process-badge">Step 3</div>
+                        <h3>Documentation</h3>
+                        <p>Our team helps prepare academic records, application files, research material, and profile
+                            documents.</p>
+                    </article>
+                    <article class="process-card" data-step="04">
+                        <div class="process-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <div class="process-badge">Step 4</div>
+                        <h3>Guided Submission</h3>
+                        <p>We support submission, follow-ups, verification steps, and communication through the process.</p>
+                    </article>
+                    <article class="process-card" data-step="05">
+                        <div class="process-icon"><i class="fas fa-arrow-trend-up"></i></div>
+                        <div class="process-badge">Step 5</div>
+                        <h3>Growth Support</h3>
+                        <p>You get continued guidance for academic progress, professional positioning, and future
+                            opportunities.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="mv-editorial-section">
+            <div class="mv-editorial-bg"></div>
+            <div class="container mv-editorial-inner">
+                <div class="mv-editorial-header">
+                    <span class="mv-editorial-label"><i class="fas fa-compass"></i> What Drives Us</span>
+                    <h2 class="mv-editorial-title">Purpose that powers every decision</h2>
+                </div>
+                <div class="mv-editorial-columns">
+                    <div class="mv-editorial-col">
+                        <div class="mv-editorial-accent-bar" style="background:linear-gradient(180deg,#FFC107,#FF9800);"></div>
+                        <div class="mv-editorial-icon"><i class="fas fa-bullseye"></i></div>
+                        <h3>Our Mission</h3>
+                        <p>To make quality academic guidance accessible, practical, and trustworthy for learners who want better admissions, stronger research outcomes, and long-term professional growth.</p>
+                        <div class="mv-editorial-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <span>Guidance you can trust. Growth you can see.</span>
+                        </div>
+                    </div>
+                    <div class="mv-editorial-divider">
+                        <div class="mv-divider-line"></div>
+                        <div class="mv-divider-dot"></div>
+                        <div class="mv-divider-line"></div>
+                    </div>
+                    <div class="mv-editorial-col">
+                        <div class="mv-editorial-accent-bar" style="background:linear-gradient(180deg,#26A69A,#00695C);"></div>
+                        <div class="mv-editorial-icon" style="background:rgba(38,166,154,0.15);color:#26A69A;"><i class="fas fa-eye"></i></div>
+                        <h3>Our Vision</h3>
+                        <p>To become a reliable global education partner for ambitious students, researchers, and professionals who need direction, support, and credible academic opportunities.</p>
+                        <div class="mv-editorial-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <span>A world where the right support meets the right ambition.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            .mv-editorial-section {
+                position: relative;
+                padding: 100px 0;
+                overflow: hidden;
+            }
+            .mv-editorial-bg {
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(135deg, #002B25 0%, #004D40 40%, #00695C 100%);
+                z-index: 0;
+            }
+            .mv-editorial-bg::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.04) 1px, transparent 0);
+                background-size: 32px 32px;
+            }
+            .mv-editorial-inner {
+                position: relative;
+                z-index: 1;
+            }
+            .mv-editorial-header {
+                text-align: center;
+                margin-bottom: 56px;
+            }
+            .mv-editorial-label {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: rgba(255,193,7,0.12);
+                border: 1px solid rgba(255,193,7,0.25);
+                color: #FFC107;
+                padding: 7px 18px;
+                border-radius: 999px;
+                font-size: 12px;
+                font-weight: 700;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+                margin-bottom: 18px;
+            }
+            .mv-editorial-title {
+                font-size: 42px;
+                font-weight: 800;
+                color: #fff;
+                line-height: 1.15;
+                margin: 0;
+            }
+            .mv-editorial-columns {
+                display: flex;
+                gap: 0;
+                align-items: stretch;
+            }
+            .mv-editorial-col {
+                flex: 1;
+                padding: 44px 40px;
+                position: relative;
+                background: rgba(255,255,255,0.04);
+                border-radius: 16px;
+                border: 1px solid rgba(255,255,255,0.08);
+                backdrop-filter: blur(4px);
+                transition: background 0.3s ease, border-color 0.3s ease;
+            }
+            .mv-editorial-col:hover {
+                background: rgba(255,255,255,0.07);
+                border-color: rgba(255,255,255,0.14);
+            }
+            .mv-editorial-accent-bar {
+                width: 4px;
+                height: 48px;
+                border-radius: 4px;
+                margin-bottom: 24px;
+            }
+            .mv-editorial-icon {
+                width: 56px;
+                height: 56px;
+                border-radius: 16px;
+                background: rgba(255,193,7,0.12);
+                color: #FFC107;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 22px;
+                margin-bottom: 22px;
+                transition: transform 0.3s ease;
+            }
+            .mv-editorial-col:hover .mv-editorial-icon {
+                transform: scale(1.08) rotate(-3deg);
+            }
+            .mv-editorial-col h3 {
+                font-size: 28px;
+                font-weight: 800;
+                color: #fff;
+                margin-bottom: 16px;
+            }
+            .mv-editorial-col p {
+                font-size: 15px;
+                color: rgba(255,255,255,0.72);
+                line-height: 1.8;
+                margin-bottom: 28px;
+            }
+            .mv-editorial-quote {
+                display: flex;
+                align-items: flex-start;
+                gap: 10px;
+                padding: 16px 20px;
+                background: rgba(255,255,255,0.05);
+                border-radius: 10px;
+                border-left: 3px solid rgba(255,193,7,0.4);
+            }
+            .mv-editorial-quote i {
+                color: rgba(255,193,7,0.5);
+                font-size: 16px;
+                margin-top: 2px;
+                flex-shrink: 0;
+            }
+            .mv-editorial-quote span {
+                font-size: 14px;
+                color: rgba(255,255,255,0.6);
+                font-style: italic;
+                line-height: 1.6;
+            }
+            .mv-editorial-divider {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 0;
+                padding: 0 32px;
+                flex-shrink: 0;
+            }
+            .mv-divider-line {
+                width: 2px;
+                flex: 1;
+                background: linear-gradient(180deg, transparent, rgba(255,193,7,0.35), transparent);
+                min-height: 60px;
+            }
+            .mv-divider-dot {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: #FFC107;
+                box-shadow: 0 0 18px rgba(255,193,7,0.5);
+                flex-shrink: 0;
+                margin: 8px 0;
+                animation: mvDotPulse 2.5s ease-in-out infinite;
+            }
+            @keyframes mvDotPulse {
+                0%, 100% { box-shadow: 0 0 18px rgba(255,193,7,0.5); }
+                50% { box-shadow: 0 0 28px rgba(255,193,7,0.8); }
+            }
+            @media (max-width: 768px) {
+                .mv-editorial-columns {
+                    flex-direction: column;
+                    gap: 24px;
+                }
+                .mv-editorial-divider {
+                    flex-direction: row;
+                    padding: 12px 0;
+                }
+                .mv-divider-line {
+                    width: auto;
+                    height: 2px;
+                    min-height: auto;
+                    min-width: 40px;
+                    flex: 1;
+                    background: linear-gradient(90deg, transparent, rgba(255,193,7,0.35), transparent);
+                }
+                .mv-editorial-col {
+                    padding: 32px 24px;
+                }
+                .mv-editorial-title {
+                    font-size: 32px;
+                }
+                .mv-editorial-section {
+                    padding: 60px 0;
+                }
+            }
+        </style>
+
+        <!-- Courses section removed from homepage as requested -->
+
+        <section class="clean-partners">
+            <div class="container">
+                <h5 class="section-subtitle centered"><i class="fas fa-check-circle"></i> Career Network</h5>
+                <h2 class="section-title centered">Learning built for professional outcomes</h2>
+                <p class="section-text centered">Our programs and guidance help learners build stronger academic and
+                    career profiles for competitive opportunities.</p>
+                <div class="logo-carousel-viewport" aria-label="Hiring partner logo carousel">
+                    <div class="partner-logos">
+                        <div class="partner-logo-card"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
+                                alt="Google"></div>
+                        <div class="partner-logo-card"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+                                alt="Microsoft"></div>
+                        <div class="partner-logo-card"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+                        </div>
+                        <div class="partner-logo-card"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/5/1b/IBM_2022.svg" alt="IBM"></div>
+                        <div class="partner-logo-card"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg"
+                                alt="Meta"></div>
+                        <div class="partner-logo-card"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+                                alt="Netflix"></div>
+                        <div class="partner-logo-card"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Adobe_Corporate_Logo.png"
+                                alt="Adobe"></div>
+                        <div class="partner-logo-card"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg"
+                                alt="Salesforce"></div>
+                        <div class="partner-logo-card"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg"
+                                alt="Oracle"></div>
+                        <div class="partner-logo-card"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg"
+                                alt="Samsung"></div>
+                        <div class="partner-logo-card"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/5/56/Deloitte.svg"
+                                alt="Deloitte"></div>
+                        <div class="partner-logo-card"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg"
+                                alt="Accenture"></div>
+                        <div class="partner-logo-card" aria-hidden="true"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
+                                alt=""></div>
+                        <div class="partner-logo-card" aria-hidden="true"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="">
+                        </div>
+                        <div class="partner-logo-card" aria-hidden="true"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="">
+                        </div>
+                        <div class="partner-logo-card" aria-hidden="true"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/5/1b/IBM_2022.svg" alt=""></div>
+                        <div class="partner-logo-card" aria-hidden="true"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg"
+                                alt=""></div>
+                        <div class="partner-logo-card" aria-hidden="true"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+                                alt=""></div>
+                        <div class="partner-logo-card" aria-hidden="true"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Adobe_Corporate_Logo.png"
+                                alt=""></div>
+                        <div class="partner-logo-card" aria-hidden="true"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg"
+                                alt=""></div>
+                        <div class="partner-logo-card" aria-hidden="true"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg"
+                                alt=""></div>
+                        <div class="partner-logo-card" aria-hidden="true"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg"
+                                alt=""></div>
+                        <div class="partner-logo-card" aria-hidden="true"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/5/56/Deloitte.svg" alt=""></div>
+                        <div class="partner-logo-card" aria-hidden="true"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="partners-section clean-partners">
+            <div class="container">
+                <div class="partners-header">
+                    <!-- <h5 class="section-subtitle centered"><i class="fas fa-globe"></i> University Network</h5> -->
+                    <h2 class="section-title centered">Explore our university partners</h2>
+                    <p class="section-text centered">Browse partner institutions and choose the route that fits your
+                        academic goals, eligibility, and preferred study mode.</p>
+                </div>
+            </div>
+            <div id="universities-grid"></div>
+        </section>
+
+        <section class="global-band">
+            <div class="container global-layout">
+                <div>
+                    <!-- <h5 class="section-subtitle" style="color:#FFC107;"><i class="fas fa-globe"></i> Global Reach</h5> -->
+                    <h2 class="section-title" style="color:#fff;">Academic support across major global regions</h2>
+                    <p style="color:rgba(255,255,255,0.86);line-height:1.75;">
+                        Scolars Lift works with learners across countries and time zones, helping them access academic
+                        counselling, program guidance, research support, and professional education options.
+                    </p>
+                    <!-- Country names removed as requested -->
+                </div>
+                <div class="map-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg"
+                        alt="World map showing international academic guidance reach">
+                    <div class="hq-marker" aria-label="Headquarters in the United Kingdom">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>HQ - UK</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-section">
+            <div class="container">
+                <!-- <h5 class="section-subtitle centered"><i class="fas fa-star"></i> Testimonials</h5> -->
+                <h2 class="section-title centered">What our learners say</h2>
+                <div id="testimonials-grid" class="testimonials-grid reveal"></div>
+            </div>
+        </section>
+
+        <section class="contact-section reveal" id="contact">
+            <div class="container contact-container">
+                <div class="contact-text">
+                    <!-- <h5 class="section-subtitle"><i class="fas fa-star"></i> Contact Us</h5> -->
+                    <h2 class="section-title">Speak with an academic counsellor</h2>
+                    <p>Share your goals and our team will help you understand suitable courses, admission options,
+                        research support, and next steps.</p>
+                    <div class="contact-details">
+                        <div class="cd-item">
+                            <div class="icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@scolarslift.com</p>
+                            </div>
+                        </div>
+                        <div class="cd-item">
+                            <div class="icon"><i class="fas fa-phone"></i></div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>7386814150</p>
+                            </div>
+                        </div>
+                        <div class="cd-item">
+                            <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>174 Chesterton Road, Cambridge, United Kingdom, CB4 1DA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form">
+                        <div class="form-row">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="tel" name="phone" placeholder="Phone Number">
+                            <select name="qualification" class="form-select">
+                                <option value="" disabled selected>Current Qualification</option>
+                                <option value="High School">High School</option>
+                                <option value="Undergraduate">Undergraduate</option>
+                                <option value="Postgraduate">Postgraduate</option>
+                                <option value="Working Professional">Working Professional</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <input type="text" name="subject" placeholder="What guidance do you need?" required>
+                        <textarea name="message" rows="5" placeholder="Tell us about your academic goal"
+                            required></textarea>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="container">
+                <!-- <h5 class="section-subtitle centered"><i class="fas fa-star"></i> FAQ</h5> -->
+                <h2 class="section-title centered">Frequently asked questions</h2>
+                <div class="faq-wrapper">
+                    <div class="faq-item">
+                        <details open>
+                            <summary>How can Scolars Lift help with admissions?</summary>
+                            <div class="faq-content">
+                                <p>We review your profile, suggest suitable programs, explain eligibility, and guide you
+                                    through documentation and application steps.</p>
+                            </div>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>Do you support PhD and research work?</summary>
+                            <div class="faq-content">
+                                <p>Yes. We support research topic planning, synopsis, thesis, dissertation, manuscript
+                                    preparation, and publication readiness.</p>
+                            </div>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>Can working professionals apply?</summary>
+                            <div class="faq-content">
+                                <p>Yes. Our counselling is suitable for working professionals who need flexible academic
+                                    routes and guided documentation support.</p>
+                            </div>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>How do I start?</summary>
+                            <div class="faq-content">
+                                <p>Book a counselling session or send your query through the contact form. Our team will
+                                    review your requirement and suggest the next steps.</p>
+                            </div>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>What programs does Scolars Lift offer guidance for?</summary>
+                            <div class="faq-content">
+                                <p>We offer guidance for a wide range of programs including B.Ed, B.Sc, M.Ed, M.Sc, M.Tech, PhD pathways, honorary doctorates, and professional certifications across multiple disciplines.</p>
+                            </div>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>Is Scolars Lift a university?</summary>
+                            <div class="faq-content">
+                                <p>No. Scolars Lift is an education consulting and academic facilitation platform. We partner with accredited universities and institutions to help learners find the right academic pathways.</p>
+                            </div>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>How long does the admission process typically take?</summary>
+                            <div class="faq-content">
+                                <p>The timeline varies depending on the program and university. On average, the process takes 2–6 weeks from profile review to final admission confirmation. Our team keeps you updated throughout.</p>
+                            </div>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>Do you provide support for international students?</summary>
+                            <div class="faq-content">
+                                <p>Absolutely. We work with learners across countries and time zones, offering personalised guidance for international admissions, documentation, and program selection.</p>
+                            </div>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>What documents do I need for the application?</summary>
+                            <div class="faq-content">
+                                <p>Typical requirements include academic transcripts, identity proof, passport-size photographs, a statement of purpose, and relevant work experience certificates. Our counsellors will provide a complete checklist based on your chosen program.</p>
+                            </div>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>Is the initial counselling session free?</summary>
+                            <div class="faq-content">
+                                <p>Yes. Your first counselling session is completely free. We use this session to understand your goals, evaluate your profile, and recommend the most suitable academic pathways for you.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="floating-buttons float-right">
+        <a href="https://wa.me/917386814150" class="floating-btn whatsapp-btn" title="Chat on WhatsApp"
+            aria-label="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-grid" style="grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr;">
+                <div class="footer-col">
+                    <a href="/" class="logo footer-logo">
+                        <img src="/scolar logo.jpeg" alt="Scolars Lift Logo" class="brand-logo-img">
+                        <span class="logo-text">Scolars Lift</span>
+                    </a>
+                    <p class="footer-brand-copy">Professional education guidance for admissions, research support,
+                        publication assistance, and career-focused academic growth.</p>
+                    <div class="social-icons footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/university.html">Universities</a></li>
+                        <li><a href="/book-appointment.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Programs</h3>
+                    <ul>
+                        <li><a href="/b-ed-course.html">B.Ed</a></li>
+                        <li><a href="/b-sc-course.html">B.Sc</a></li>
+                        <li><a href="/m-ed-course.html">M.Ed</a></li>
+                        <li><a href="/m-sc-course.html">M.Sc</a></li>
+                        <li><a href="/m-tech-course.html">M.Tech</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="/courses.html">UG/PG Admissions</a></li>
+                        <li><a href="/courses.html">PhD Guidance</a></li>
+                        <li><a href="/courses.html">Research Support</a></li>
+                        <li><a href="/courses.html">Publication Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:info@scolarslift.com">info@scolarslift.com</a></li>
+                        <li><a href="tel:7386814150">7386814150</a></li>
+                        <li>174 Chesterton Road, Cambridge, United Kingdom, CB4 1DA</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Scolars Lift. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/api.js?v=2"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/courses.js"></script>
+    <script src="/assets/js/testimonials.js" defer></script>
+    <script src="/assets/js/universities.js" defer></script>
+    <script src="/assets/js/contact.js?v=2"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll(".hero-slide");
+            const indicators = document.querySelectorAll(".hero-indicator");
+            const prevBtn = document.getElementById("heroPrevBtn");
+            const nextBtn = document.getElementById("heroNextBtn");
+            let slideInterval;
+
+            function updateCarousel() {
+                slides.forEach((s, i) => {
+                    s.classList.toggle("active", i === currentSlide);
+                });
+                indicators.forEach((ind, i) => {
+                    ind.classList.toggle("active", i === currentSlide);
+                });
+            }
+
+            function moveHeroSlide(step) {
+                currentSlide = (currentSlide + step + slides.length) % slides.length;
+                updateCarousel();
+                resetInterval();
+            }
+
+            function setHeroSlide(index) {
+                currentSlide = index;
+                updateCarousel();
+                resetInterval();
+            }
+
+            function resetInterval() {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(() => {
+                    moveHeroSlide(1);
+                }, 6000);
+            }
+
+            if (prevBtn) prevBtn.addEventListener("click", () => moveHeroSlide(-1));
+            if (nextBtn) nextBtn.addEventListener("click", () => moveHeroSlide(1));
+            indicators.forEach((ind, i) => {
+                ind.addEventListener("click", () => setHeroSlide(i));
+            });
+
+            resetInterval();
+        });
+    </script>
+</body>
+
+</html>

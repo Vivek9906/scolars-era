@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - Scolars Lift</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: #F9F9F9;
+        }
+        .error-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .error-code {
+            font-size: 120px;
+            font-weight: 800;
+            color: var(--primary-color, #FFC107);
+            line-height: 1;
+            margin-bottom: 20px;
+            text-shadow: 4px 4px 0px rgba(0,0,0,0.05);
+        }
+        .error-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--text-dark, #1A1A1A);
+            margin-bottom: 16px;
+        }
+        .error-text {
+            font-size: 18px;
+            color: var(--text-grey, #666);
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+        .home-btn {
+            background: linear-gradient(90deg, #FFC107 0%, #FF9800 100%);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+        }
+        .home-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 152, 0, 0.4);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Looks like this page went to study abroad 📚</h1>
+        <p class="error-text">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+        <a href="/" class="home-btn">
+            <i class="fas fa-home"></i> Back to Homepage
+        </a>
+    </div>
+</body>
+</html>
