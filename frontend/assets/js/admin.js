@@ -55,7 +55,7 @@ function showToast(message, type = "success") {
 }
 
 function openModal(type) {
-  console.log("Opening modal:", type);
+  
   const modal = document.getElementById(`${type}-modal`);
   const overlay = document.querySelector(".modal-overlay");
   if (modal && overlay) {
@@ -83,7 +83,7 @@ function escapeHtml(str) {
 
 // ── Initialization ───────────────────────────────────────────────────────────
 function initAdminPanel() {
-  console.log("Admin Panel Initializing...");
+  
 
   // Sidebar navigation
   document.querySelectorAll(".nav-link").forEach(link => {

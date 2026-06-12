@@ -1849,10 +1849,7 @@ ul {
     }
 
     .nav-actions .btn {
-        padding: 8px 15px;
-        /* Smaller join button in nav */
-        font-size: 11px;
-        width: auto;
+        display: none !important;
     }
 }
 .image-container {
@@ -2154,4 +2151,156 @@ ul {
 @media (max-width: 320px) {
   .hero-text-wrapper h1 { font-size: 24px; }
   .btn { font-size: 11px; padding: 8px 12px; }
+}
+
+
+/* Global Mobile Fixes (Added for FULL Responsiveness) */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    /* Make grids single column */
+    .grid, 
+    .features-grid, 
+    .services-grid,
+    .about-features,
+    .process-grid.clean-grid,
+    .choose-grid,
+    .footer-grid,
+    .mv-container,
+    .mission-grid {
+        grid-template-columns: 1fr !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    /* Make flex containers wrap */
+    .row,
+    .split-layout,
+    .about-container,
+    .hero-content,
+    .hero-buttons {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 20px !important;
+    }
+
+    /* Ensure children of row or split-layout don't overflow */
+    .col-text, .col-image, .image-panel {
+        width: 100% !important;
+        flex: none !important;
+    }
+
+    /* Padding & Margin Scaling */
+    .section, 
+    section,
+    .about-page-section,
+    .mission-vision-section,
+    .research-support-section,
+    .services-section,
+    .global-section,
+    .choose-us-section {
+        padding: 40px 0 !important;
+    }
+    
+    .container {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    
+    .hero-text-wrapper, .hero-copy {
+        margin-left: 0 !important;
+        padding: 0 15px !important;
+        text-align: center !important;
+        transform: translateY(0) !important;
+    }
+    
+    h1, .hero-text-wrapper h1, .page-title, .hero-copy h1 {
+        font-size: 32px !important;
+    }
+    
+    h2, .section-title {
+        font-size: 26px !important;
+    }
+
+    /* Ensure text doesn't overflow */
+    p, span, div {
+        max-width: 100%;
+        word-wrap: break-word;
+    }
+
+    /* Admin tables / Any table scrolling */
+    table {
+        display: block !important;
+        overflow-x: auto !important;
+        width: 100% !important;
+    }
+    
+    /* Buttons full width on mobile if inside form or specific areas */
+    .btn, .btn-primary, .btn-primary-hero {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .hero-actions {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .hero-actions a.btn {
+        width: 100%;
+    }
+}
+
+
+/* Top Bar Moving Banner (Marquee) */
+.top-bar {
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+    width: 100%;
+}
+
+.top-bar .container {
+    max-width: none !important;
+    width: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.top-bar-content {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 40px !important;
+    padding-left: 100vw !important; /* Start off-screen right */
+    animation: marqueeBanner 25s linear infinite !important;
+}
+
+.top-bar-content:hover {
+    animation-play-state: paused !important;
+}
+
+.top-bar .social-icons, 
+.top-bar .contact-info {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+}
+
+@keyframes marqueeBanner {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
 }

@@ -181,9 +181,9 @@ async function loadCourses() {
   try {
     // Fetch all active courses. We increase the limit to ensure all courses show up.
     const res  = await fetch("/api/courses?limit=100");
-    console.log("[courses.js] API status:", res.status);
+    
     const json = await res.json();
-    console.log("[courses.js] Data received:", json.data?.length, "courses");
+    
     const data = json.data || [];
 
     if (!data.length) {

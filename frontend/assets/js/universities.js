@@ -39,12 +39,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         <div class="carousel-container">
           <div class="carousel-track">
             ${[...universities, ...universities, ...universities, ...universities].map((u, i) => {
-              let logoSrc = u.logo || '/assets/images/00.jpeg';
+              let logoSrc = u.logo || '/assets/images/placeholder-university.png';
               return `
               <div class="partner-card-wrapper">
                 <div class="partner-card">
                   <div class="partner-badge"><i class="fas fa-check-circle"></i> UGC Approved</div>
-                  <img src="${logoSrc}" class="partner-logo" onerror="this.src='/assets/images/00.jpeg';" alt="${u.name}">
+                  <img src="${logoSrc}" class="partner-logo" onerror="this.src='/assets/images/placeholder-university.png';" alt="${u.name}">
                   <div class="partner-name">${u.name}</div>
                   <div class="partner-location"><i class="fas fa-map-marker-alt"></i> ${u.country || "Global"}</div>
                   <a href="/university-detail.html?id=${u._id}" class="btn-view-more">View Details</a>
@@ -58,10 +58,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     } else {
       grid.classList.add("universities-list-grid");
       grid.innerHTML = universities.map((u, i) => {
-        let logoSrc = u.logo || '/assets/images/00.jpeg';
+        let logoSrc = u.logo || '/assets/images/placeholder-university.png';
         return `
         <div class="university-card" onclick="window.location.href='/university-detail.html?id=${u._id}'">
-          <img src="${logoSrc}" class="uni-logo" onerror="this.src='/assets/images/00.jpeg';" alt="${u.name}">
+          <img src="${logoSrc}" class="uni-logo" onerror="this.src='/assets/images/placeholder-university.png';" alt="${u.name}">
           <h3>${u.name}</h3>
           <p><i class="fas fa-map-marker-alt"></i> ${u.country || "Global"}</p>
           <a href="/university-detail.html?id=${u._id}" class="btn-view-details">View Details &rarr;</a>
