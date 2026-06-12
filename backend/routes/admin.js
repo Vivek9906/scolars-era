@@ -8,8 +8,10 @@ const path = require("path");
 const fs = require("fs");
 const { protect, restrictTo } = require("../middleware/auth");
 
-// Ensure upload directory exists
-const uploadDir = path.join(__dirname, "../../frontend/assets/images");
+const uploadDir = process.env.VERCEL 
+  ? path.join("/tmp", "uploads") 
+  : path.join(__dirname, "../../frontend/assets/images");
+
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
 }
