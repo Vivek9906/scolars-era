@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -38,7 +38,7 @@
     <nav class="navbar">
         <div class="container nav-content">
             <a href="/" class="logo">
-                <img src="/assets/images/scolar-logo.jpeg" alt="Scolars Lift Logo" class="brand-logo-img"><span class="logo-text">Scolars Lift</span>
+                <img src="assets/images/scolar-logo.jpeg" alt="Scolars Lift Logo" class="brand-logo-img"><span class="logo-text">Scolars Lift</span>
             </a>
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
@@ -66,72 +66,282 @@
     </header>
 
     <!-- About Content Section -->
-    <section class="about-page-section" style="padding: 80px 0;">
+    <section class="about-modern-section">
         <div class="container">
-            <div class="row" style="display: flex; gap: 50px; align-items: center;">
-                <div class="col-text" style="flex: 1;">
-                    <!-- <h5 class="section-subtitle"><i class="fas fa-star"></i> WHO WE ARE</h5> -->
-                    <h2 class="section-title">Empowering Future Leaders Through Education</h2>
-                    <p class="section-text">
-                       
-
-<h2><br>Who We Are ?<br></h2><br>
-Scolars Lift is an education platform built for people who take their learning seriously. We are not just another name in the edtech space — we are a team that genuinely believes the right guidance, at the right time, can completely change the direction of a person's life.
-We started with a simple question: why do so many motivated learners still struggle to find the right academic path? The answer was never a lack of ambition. It was always a lack of the right support. That is the gap Scolars Lift was built to close.<br>
-
-<br><h2>How We Work ? </h2><br>
-We do not hand you a brochure and disappear. From the very first conversation, we take the time to understand where you are, where you want to go, and what is standing between the two.
-Once we understand your story, we match you with programs and academic pathways that genuinely fit your goals — not just what looks impressive on paper. Our counsellors stay with you through every step, every doubt, and every decision until you get where you are going.
-Simple. Personal. Effective.<br>
-
-<br><h2>Why Scolars Lift ?</h2><br>
-There are plenty of platforms that offer programs. We offer something more — we offer clarity. The kind that helps someone stop second-guessing themselves and actually take the next step in their education journey.
-We have seen what happens when the right person gets the right support. Careers change. Confidence grows. Lives shift in ways that ripple far beyond just a degree or a certificate.
-That is what drives us. And that is what Scolars Lift is here for.<bR>
-
-<br><h2>Our Values</h2><br>
-Clarity over confusion — We cut through the noise so our learners always know exactly where they stand and what comes next.
-People over numbers — Every learner is a person with a real story, not a lead to be converted or a target to be met.
-Honesty over hype — We would rather tell you something you need to hear than something that just sounds good.
-Growth over shortcuts — We are in this for outcomes that actually last, not quick fixes that fade.
-                    </p>
-                    <p class="section-text">
-                        
-                    </p>
-                    <a href="/about.html" class="btn btn-primary">READ MORE <i class="fas fa-arrow-right"></i></a>
+            <div class="about-intro-grid">
+                <div class="about-intro-text">
+                    <h5 class="section-subtitle"><i class="fas fa-info-circle"></i> Our Story</h5>
+                    <h2 class="section-title">We believe the right guidance changes lives</h2>
+                    <p class="lead-text">Scolars Lift is an education platform built for people who take their learning seriously. We are not just another name in the edtech space — we are a team that genuinely believes the right guidance, at the right time, can completely change the direction of a person's life.</p>
+                    <p>We started with a simple question: why do so many motivated learners still struggle to find the right academic path? The answer was never a lack of ambition. It was always a lack of the right support. That is the gap Scolars Lift was built to close.</p>
                 </div>
-                <div class="col-image" style="flex: 1;">
-                    <div class="image-stack" style="position: relative;">
-                        <img src="/assets/images/clg.jpeg" alt="Campus"
-                            style="width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                <div class="about-intro-image">
+                    <img src="assets/images/clg.jpeg" alt="Campus">
+                    <div class="about-experience-badge">
+                        <span class="number">5+</span>
+                        <span class="text">Years of<br>Excellence</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-features-grid">
+                <div class="about-feature-card">
+                    <div class="icon"><i class="fas fa-hands-helping"></i></div>
+                    <h3>How We Work</h3>
+                    <p>We do not hand you a brochure and disappear. From the very first conversation, we take the time to understand where you are, where you want to go, and what is standing between the two. Once we understand your story, we match you with programs that genuinely fit your goals.</p>
+                    <span class="highlight-text">Simple. Personal. Effective.</span>
+                </div>
+                <div class="about-feature-card">
+                    <div class="icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Why Scolars Lift?</h3>
+                    <p>There are plenty of platforms that offer programs. We offer something more — we offer clarity. The kind that helps someone stop second-guessing themselves and actually take the next step. We have seen what happens when the right person gets the right support.</p>
+                    <span class="highlight-text">Careers change. Confidence grows.</span>
+                </div>
+            </div>
+
+            <div class="about-values-section">
+                <h3 class="text-center">Our Core Values</h3>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <i class="fas fa-search"></i>
+                        <h4>Clarity over confusion</h4>
+                        <p>We cut through the noise so our learners always know exactly where they stand and what comes next.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-users"></i>
+                        <h4>People over numbers</h4>
+                        <p>Every learner is a person with a real story, not a lead to be converted or a target to be met.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Honesty over hype</h4>
+                        <p>We would rather tell you something you need to hear than something that just sounds good.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-seedling"></i>
+                        <h4>Growth over shortcuts</h4>
+                        <p>We are in this for outcomes that actually last, not quick fixes that fade.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <style>
+        .about-modern-section {
+            padding: 100px 0;
+            background: #FAFAFA;
+        }
+        .about-intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        .about-intro-text .lead-text {
+            font-size: 18px;
+            font-weight: 500;
+            color: #004D40;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .about-intro-text p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .about-intro-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .about-intro-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .about-intro-image:hover img {
+            transform: scale(1.05);
+        }
+        .about-experience-badge {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: #FFC107;
+            padding: 30px;
+            border-radius: 50%;
+            width: 140px;
+            height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(255, 193, 7, 0.3);
+            border: 6px solid #fff;
+        }
+        .about-experience-badge .number {
+            font-size: 32px;
+            font-weight: 800;
+            color: #004D40;
+            line-height: 1;
+        }
+        .about-experience-badge .text {
+            font-size: 12px;
+            font-weight: 600;
+            color: #004D40;
+            margin-top: 4px;
+        }
+        
+        .about-features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+        .about-feature-card {
+            background: #fff;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .about-feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #004D40, #26A69A);
+            z-index: -1;
+        }
+        .about-feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+        .about-feature-card .icon {
+            font-size: 40px;
+            color: #26A69A;
+            margin-bottom: 20px;
+        }
+        .about-feature-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1A1A1A;
+        }
+        .about-feature-card p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .about-feature-card .highlight-text {
+            font-weight: 700;
+            color: #004D40;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-values-section {
+            background: #004D40;
+            border-radius: 24px;
+            padding: 60px;
+            color: #fff;
+            box-shadow: 0 20px 40px rgba(0, 77, 64, 0.2);
+        }
+        .about-values-section h3 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 50px;
+        }
+        .text-center { text-align: center; }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        .value-item {
+            text-align: center;
+        }
+        .value-item i {
+            font-size: 36px;
+            color: #FFC107;
+            margin-bottom: 20px;
+            background: rgba(255, 193, 7, 0.1);
+            width: 80px; height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+        }
+        .value-item h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+        .value-item p {
+            color: rgba(255,255,255,0.8);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 992px) {
+            .about-intro-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .about-experience-badge {
+                left: 20px;
+                bottom: 20px;
+            }
+            .about-features-grid {
+                grid-template-columns: 1fr;
+            }
+            .values-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 576px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-values-section {
+                padding: 40px 20px;
+            }
+        }
+    </style>    </section>
+
     <!-- Mission & Vision -->
-    <section class="mission-vision-section" style="background: #f9f9f9; padding: 80px 0;">
+    <section class="mission-vision-section">
         <div class="container">
-            <div class="mission-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-                <div class="mv-card"
-                    style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; gap: 20px;">
-                    <div class="mv-icon" style="font-size: 40px; color: #FFC107;"><i class="fas fa-bullseye"></i></div>
-                    <div>
-                        <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 15px;">Our Mission</h3>
-                        <p style="color: #666; line-height: 1.6;">To provide transformative education that equips
-                            students with the knowledge, skills, and values needed to thrive in a dynamic global
-                            society.</p>
+            <div class="mission-grid">
+                <!-- Mission Card -->
+                <div class="mv-premium-card mission-bg">
+                    <div class="mv-icon-wrapper">
+                        <i class="fas fa-bullseye"></i>
                     </div>
+                    <div class="mv-content">
+                        <h3>Our Mission</h3>
+                        <p>To provide transformative education that equips students with the knowledge, skills, and values needed to thrive in a dynamic global society.</p>
+                    </div>
+                    <i class="fas fa-bullseye bg-icon"></i>
                 </div>
-                <div class="mv-card"
-                    style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; gap: 20px;">
-                    <div class="mv-icon" style="font-size: 40px; color: #004D40;"><i class="fas fa-eye"></i></div>
-                    <div>
-                        <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 15px;">Our Vision</h3>
-                        <p style="color: #666; line-height: 1.6;">To be a globally recognized center of excellence,
-                            fostering innovation, leadership, and positive social change through education.</p>
+
+                <!-- Vision Card -->
+                <div class="mv-premium-card vision-bg">
+                    <div class="mv-icon-wrapper">
+                        <i class="fas fa-eye"></i>
                     </div>
+                    <div class="mv-content">
+                        <h3>Our Vision</h3>
+                        <p>To be a globally recognized center of excellence, fostering innovation, leadership, and positive social change through education.</p>
+                    </div>
+                    <i class="fas fa-eye bg-icon"></i>
                 </div>
             </div>
         </div>
@@ -140,33 +350,157 @@ Growth over shortcuts — We are in this for outcomes that actually last, not qu
     <!-- Mission & Vision Section CSS -->
     <style>
         .mission-vision-section {
-            padding: 80px 0;
-            background: #FFFFFF; /* Light background */
+            padding: 100px 0;
+            background: #FFFFFF;
         }
         
-        .mv-container {
-            display: flex;
-            flex-direction: row; /* One left, one right */
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 40px;
+            align-items: center; /* For staggered effect */
         }
         
-        .mv-card {
-            flex: 1;
+        .mv-premium-card {
+            position: relative;
+            border-radius: 24px;
+            padding: 60px 50px;
+            overflow: hidden;
+            background: #FFFFFF;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
             gap: 30px;
-            background: #FAFAFA;
-            padding: 50px;
-            border-radius: var(--border-radius, 16px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-            border: 1px solid #f0f0f0;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 1;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0,0,0,0.03);
         }
         
-        .mv-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08); /* Shadow increase on hover */
+        /* Staggered layout - push second card down */
+        .vision-bg {
+            transform: translateY(30px);
+        }
+        
+        .mv-premium-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 4px;
+            transition: width 0.6s ease;
+        }
+
+        .mission-bg::before { background: #FFC107; }
+        .vision-bg::before { background: #004D40; }
+
+        .mv-premium-card:hover::before {
+            width: 100%;
+        }
+        
+        .mission-bg:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(255, 193, 7, 0.12);
+            border-color: rgba(255, 193, 7, 0.2);
+        }
+
+        .vision-bg:hover {
+            transform: translateY(20px); /* 30px - 10px */
+            box-shadow: 0 25px 50px rgba(0, 77, 64, 0.12);
+            border-color: rgba(0, 77, 64, 0.2);
+        }
+
+        /* Organic Morphing Blob Shape */
+        .mv-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background: #FAFAFA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: inset 0 4px 15px rgba(0, 0, 0, 0.04);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            transition: all 0.6s ease-in-out;
+            animation: morphBlob 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes morphBlob {
+            0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+            67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
+            100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+        }
+
+        .mv-premium-card:hover .mv-icon-wrapper {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .mission-bg .mv-icon-wrapper {
+            color: #FFC107;
+            background: rgba(255, 193, 7, 0.08);
+        }
+
+        .vision-bg .mv-icon-wrapper {
+            color: #004D40;
+            background: rgba(0, 77, 64, 0.05);
+        }
+
+        .mv-content h3 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+            color: #1A1A1A;
+        }
+
+        .mv-content p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #666666;
+            font-weight: 400;
+        }
+
+        .bg-icon {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            font-size: 180px;
+            z-index: 0;
+            transform: rotate(-15deg);
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.6s ease;
+        }
+
+        .mission-bg .bg-icon {
+            color: rgba(255, 193, 7, 0.04);
+        }
+
+        .mission-bg:hover .bg-icon {
+            color: rgba(255, 193, 7, 0.08);
+        }
+
+        .vision-bg .bg-icon {
+            color: rgba(0, 77, 64, 0.03);
+        }
+
+        .vision-bg:hover .bg-icon {
+            color: rgba(0, 77, 64, 0.06);
+        }
+
+        .mv-premium-card:hover .bg-icon {
+            transform: rotate(0deg) scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .mission-grid {
+                grid-template-columns: 1fr;
+            }
+            .vision-bg {
+                transform: translateY(0);
+            }
+            .vision-bg:hover {
+                transform: translateY(-10px);
+            }
         }
         
         .mv-content {
@@ -356,37 +690,32 @@ Growth over shortcuts — We are in this for outcomes that actually last, not qu
 
     <!-- Global Presence - Minimal representation -->
     <section class="global-section"
-        style="padding: 80px 0; background: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; position: relative;">
+        style="padding: 80px 0; background: url('assets/images/images.unsplash.com_photo_1524178232363_1fb2b075b6.jpg') center/cover no-repeat; position: relative;">
         <div class="overlay"
             style="position: absolute; top:0; left:0; right:0; bottom:0; background: rgba(255,255,255,0.9);"></div>
-        <div class="container" style="position: relative; z-index: 2;">
-            <div class="row" style="display: flex; align-items: center; gap: 50px;">
-                <div style="flex: 1;">
-                    <!-- <h5 class="section-subtitle"><i class="fas fa-star"></i> GLOBAL REACH</h5> -->
-                    <h2 class="section-title">Our Global Presence <span class="highlight"></span></h2>
-                    <p class="section-text">
+        <div class="container" style="position: relative; z-index: 2; background-image: url('assets/images/world_map.svg'); background-position: center bottom; background-size: contain; background-repeat: no-repeat;">
+            <div class="row" style="display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 900px; margin: 0 auto; min-height: 400px; justify-content: center; background-color: rgba(255,255,255,0.6); padding: 40px; border-radius: 20px;">
+                <div style="width: 100%; position: relative; z-index: 10;">
+                    <h2 class="section-title" style="color: #1A1A1A; margin-bottom: 15px;">Our Global Presence</h2>
+                    <p class="section-text" style="margin: 0 auto 20px auto; max-width: 700px; color: #555;">
                         We have established a strong network of educational partnerships across the globe.
                         Our students have access to international exchange programs, joint research initiatives,
                         and global career opportunities.
                     </p>
-                    <div class="stats-row" style="display: flex; gap: 40px; margin-top: 30px;">
+                    <div class="stats-row" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 40px;">
                         <div>
                             <h3 style="font-size: 36px; color: #004D40; font-weight: 800;">50+</h3>
-                            <p style="font-weight: 600;">Countries</p>
+                            <p style="font-weight: 600; color: #111;">Countries</p>
                         </div>
                         <div>
                             <h3 style="font-size: 36px; color: #004D40; font-weight: 800;">50+</h3>
-                            <p style="font-weight: 600;">Corporates Partners </p>
+                            <p style="font-weight: 600; color: #111;">Corporates Partners</p>
                         </div>
                         <div>
                             <h3 style="font-size: 36px; color: #004D40; font-weight: 800;">5k+</h3>
-                            <p style="font-weight: 600;">Active Learners</p>
+                            <p style="font-weight: 600; color: #111;">Active Learners</p>
                         </div>
                     </div>
-                </div>
-                <div style="flex: 1;">
-                    <img src="https://simplemaps.com/static/demos/resources/svg-library/svgs/world.svg" alt="World Map"
-                        style="width: 100%; opacity: 0.6;">
                 </div>
             </div>
         </div>
@@ -437,7 +766,7 @@ Growth over shortcuts — We are in this for outcomes that actually last, not qu
             <div class="footer-grid" style="grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr;">
                 <div class="footer-col">
                     <a href="/" class="logo footer-logo">
-                        <img src="/assets/images/scolar-logo.jpeg" alt="Scolars Lift Logo" class="brand-logo-img"><span class="logo-text">Scolars Lift</span>
+                        <img src="assets/images/scolar-logo.jpeg" alt="Scolars Lift Logo" class="brand-logo-img"><span class="logo-text">Scolars Lift</span>
                     </a>
                     <p class="footer-brand-copy">Professional education guidance for admissions, research support,
                         publication assistance, and career-focused academic growth.</p>
@@ -491,7 +820,37 @@ Growth over shortcuts — We are in this for outcomes that actually last, not qu
         </div>
     </footer>
 
-    <script src="/assets/js/main.js"></script>
-<script src="/assets/js/api.js"></script><script src="/assets/js/contact.js"></script></body>
+    <script src="assets/js/main.js"></script>
+<script src="assets/js/api.js"></script><script src="assets/js/contact.js"></script></body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

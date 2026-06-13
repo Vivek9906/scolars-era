@@ -17,7 +17,7 @@ const universitySeedData = [
   {
     name: "Harvard University",
     slug: "harvard-university",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b1/Harvard_University_shield.svg/120px-Harvard_University_shield.svg.png",
+    logo: "/assets/images/harvard.png",
     websiteUrl: "https://www.harvard.edu",
     country: "USA",
     location: "Cambridge, Massachusetts, USA",
@@ -31,7 +31,7 @@ const universitySeedData = [
   {
     name: "Massachusetts Institute of Technology (MIT)",
     slug: "mit",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/4/44/MIT_Seal.svg/120px-MIT_Seal.svg.png",
+    logo: "/assets/images/stanford.png",
     websiteUrl: "https://www.mit.edu",
     country: "USA",
     location: "Cambridge, Massachusetts, USA",
@@ -45,7 +45,7 @@ const universitySeedData = [
   {
     name: "University of Oxford",
     slug: "oxford-university",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/e/e4/University_of_Oxford_Mathematical_Institute.svg/120px-University_of_Oxford_Mathematical_Institute.svg.png",
+    logo: "/assets/images/oxford.png",
     websiteUrl: "https://www.ox.ac.uk",
     country: "UK",
     location: "Oxford, Oxfordshire, United Kingdom",
@@ -59,7 +59,7 @@ const universitySeedData = [
   {
     name: "University of Cambridge",
     slug: "cambridge-university",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/e/e2/University_of_Cambridge_coat_of_arms.svg/120px-University_of_Cambridge_coat_of_arms.svg.png",
+    logo: "/assets/images/cambridge.png",
     websiteUrl: "https://www.cam.ac.uk",
     country: "UK",
     location: "Cambridge, Cambridgeshire, United Kingdom",
@@ -73,7 +73,7 @@ const universitySeedData = [
   {
     name: "Stanford University",
     slug: "stanford-university",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b8/Stanford_University_seal_2003.svg/120px-Stanford_University_seal_2003.svg.png",
+    logo: "/assets/images/stanford.png",
     websiteUrl: "https://www.stanford.edu",
     country: "USA",
     location: "Stanford, California, USA",
@@ -87,7 +87,7 @@ const universitySeedData = [
   {
     name: "University of Toronto",
     slug: "university-of-toronto",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/e/e1/University_of_Toronto_crest.svg/120px-University_of_Toronto_crest.svg.png",
+    logo: "/assets/images/toronto.png",
     websiteUrl: "https://www.utoronto.ca",
     country: "Canada",
     location: "Toronto, Ontario, Canada",
@@ -364,3 +364,5 @@ if (process.argv[2] === "--import") {
   console.log("  node backend/utils/seeder.js --delete   Delete all data");
   process.exit(0);
 }
+
+

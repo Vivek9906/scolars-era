@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scolars Lift | Admissions, Research Support & Career-Focused Learning</title>
-    <link rel="icon" type="image/jpeg" href="/assets/images/scolar-logo.jpeg">
+    <link rel="icon" type="image/jpeg" href="assets/images/scolar-logo.jpeg">
     <meta name="description"
         content="Scolars Lift helps students, researchers, and working professionals choose the right UG, PG, PhD, research, publication, and career-focused academic pathways with expert counselling.">
     <meta name="keywords"
@@ -19,15 +19,15 @@
     <meta property="og:description"
         content="Professional education consulting for admissions, research support, publication guidance, and career-ready academic growth.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="/assets/images/main.jpeg">
+    <meta property="og:image" content="assets/images/main.jpeg">
     <meta property="og:url" content="/">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/university.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="university.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -106,24 +106,28 @@
         .hero-carousel-controls {
             position: absolute;
             z-index: 999;
-            bottom: 40px;
-            right: 40px;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
             display: flex;
-            gap: 12px;
+            justify-content: space-between;
+            padding: 0 20px;
+            pointer-events: none;
         }
 
         .hero-control-btn {
             background: rgba(255,255,255,0.15);
             border: 1px solid rgba(255,255,255,0.3);
             color: white;
-            width: 48px;
-            height: 48px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
+            font-size: 14px;
             transition: 0.3s;
             pointer-events: auto;
         }
@@ -647,7 +651,7 @@
             display: flex;
             gap: 24px;
             width: max-content;
-            animation: universityScroll 44s linear infinite;
+            animation: universityScroll 25s linear infinite;
         }
 
         .carousel-track:hover {
@@ -937,7 +941,7 @@
             gap: 16px;
             margin-top: 42px;
             width: max-content;
-            animation: logoStripSlide 26s linear infinite;
+            animation: logoStripSlide 15s linear infinite;
         }
 
         .partner-logos:hover {
@@ -1537,7 +1541,7 @@
         "@type": "EducationalOrganization",
         "name": "Scolars Lift",
         "url": "/",
-        "logo": "/assets/images/scolar-logo.jpeg",
+        "logo": "assets/images/scolar-logo.jpeg",
         "email": "info@scolarslift.com",
         "telephone": "+44 7386814150",
         "address": {
@@ -1703,14 +1707,14 @@
             <div class="container split-layout reveal">
                 <div class="image-panel">
                     <div class="image-slider">
-                        <img src="/assets/images/clg.jpeg" alt="Students receiving academic counselling">
-                        <img src="/assets/images/00.jpeg" alt="Academic guidance discussion">
-                        <img src="/assets/images/hero-students.jpg" alt="Students planning their education journey">
+                        <img src="assets/images/clg.jpeg" alt="Students receiving academic counselling">
+                        <img src="assets/images/00.jpeg" alt="Academic guidance discussion">
+                        <img src="assets/images/hero-students.jpg" alt="Students planning their education journey">
                     </div>
                     <div class="metric-card">
                         <i class="fas fa-graduation-cap"></i>
                         <div>
-                            <strong>10k+</strong>
+                            <strong>5k+</strong>
                             <span>Learners Guided</span>
                         </div>
                     </div>
@@ -1785,10 +1789,10 @@
         <section class="why-choose-section">
             <div class="container why-layout reveal">
                 <div class="why-image-grid">
-                    <img src="/assets/images/hero-students.jpg" alt="Students discussing academic goals">
+                    <img src="assets/images/hero-students.jpg" alt="Students discussing academic goals">
                     <div class="why-image-stack">
-                        <img src="/assets/images/course3.jpeg" alt="Learner working on research material">
-                        <img src="/assets/images/course5.jpeg" alt="Professional education counselling session">
+                        <img src="assets/images/course3.jpeg" alt="Learner working on research material">
+                        <img src="assets/images/course5.jpeg" alt="Professional education counselling session">
                     </div>
                 </div>
                 <div>
@@ -1837,28 +1841,24 @@
                 <div class="process-grid clean-grid reveal">
                     <article class="process-card" data-step="01">
                         <div class="process-icon"><i class="fas fa-user-check"></i></div>
-                        <div class="process-badge">Step 1</div>
                         <h3>Profile Review</h3>
                         <p>We review your education, experience, eligibility, and target outcome before suggesting any
                             pathway.</p>
                     </article>
                     <article class="process-card" data-step="02">
                         <div class="process-icon"><i class="fas fa-bullseye"></i></div>
-                        <div class="process-badge">Step 2</div>
                         <h3>Pathway Planning</h3>
                         <p>You receive suitable course, university, research, or recognition options aligned with your
                             goals.</p>
                     </article>
                     <article class="process-card" data-step="03">
                         <div class="process-icon"><i class="fas fa-file-alt"></i></div>
-                        <div class="process-badge">Step 3</div>
                         <h3>Documentation</h3>
                         <p>Our team helps prepare academic records, application files, research material, and profile
                             documents.</p>
                     </article>
                     <article class="process-card" data-step="04">
                         <div class="process-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-                        <div class="process-badge">Step 4</div>
                         <h3>Guided Submission</h3>
                         <p>We support submission, follow-ups, verification steps, and communication through the process.</p>
                     </article>
@@ -2088,80 +2088,79 @@
 
         <section class="clean-partners">
             <div class="container">
-                <h5 class="section-subtitle centered"><i class="fas fa-check-circle"></i> Career Network</h5>
                 <h2 class="section-title centered">Learning built for professional outcomes</h2>
                 <p class="section-text centered">Our programs and guidance help learners build stronger academic and
                     career profiles for competitive opportunities.</p>
                 <div class="logo-carousel-viewport" aria-label="Hiring partner logo carousel">
                     <div class="partner-logos">
                         <div class="partner-logo-card"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
+                                src="assets/images/upload.wikimedia.org_wikipedia_commons_2_2f_Google.svg"
                                 alt="Google"></div>
                         <div class="partner-logo-card"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+                                src="assets/images/upload.wikimedia.org_wikipedia_commons_4_44_Micros.svg"
                                 alt="Microsoft"></div>
                         <div class="partner-logo-card"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+                                src="assets/images/upload.wikimedia.org_wikipedia_commons_a_a9_Amazon.svg" alt="Amazon">
                         </div>
                         <div class="partner-logo-card"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/5/1b/IBM_2022.svg" alt="IBM"></div>
+                                src="assets/images/upload.wikimedia.org_wikipedia_commons_a_a9_Amazon.svg" alt="IBM"></div>
                         <div class="partner-logo-card"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg"
+                                src="assets/images/upload.wikimedia.org_wikipedia_commons_7_7b_Meta_P.svg"
                                 alt="Meta"></div>
                         <div class="partner-logo-card"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+                                src="assets/images/upload.wikimedia.org_wikipedia_commons_0_08_Netfli.svg"
                                 alt="Netflix"></div>
                         <div class="partner-logo-card"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Adobe_Corporate_Logo.png"
+                                src="assets/images/upload.wikimedia.org_wikipedia_commons_8_8d_Adobe_.png"
                                 alt="Adobe"></div>
                         <div class="partner-logo-card"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg"
+                                src="assets/images/upload.wikimedia.org_wikipedia_commons_f_f9_Salesf.svg"
                                 alt="Salesforce"></div>
                         <div class="partner-logo-card"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg"
+                                src="assets/images/upload.wikimedia.org_wikipedia_commons_5_50_Oracle.svg"
                                 alt="Oracle"></div>
                         <div class="partner-logo-card"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg"
+                                src="assets/images/upload.wikimedia.org_wikipedia_commons_2_2f_Google.svg"
                                 alt="Samsung"></div>
                         <div class="partner-logo-card"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/5/56/Deloitte.svg"
+                                src="assets/images/upload.wikimedia.org_wikipedia_commons_4_44_Micros.svg"
                                 alt="Deloitte"></div>
                         <div class="partner-logo-card"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg"
+                                src="assets/images/upload.wikimedia.org_wikipedia_commons_7_7b_Meta_P.svg"
                                 alt="Accenture"></div>
                         <div class="partner-logo-card" aria-hidden="true"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
+                                src="assets/images/upload.wikimedia.org_wikipedia_commons_2_2f_Google.svg"
                                 alt=""></div>
                         <div class="partner-logo-card" aria-hidden="true"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="">
+                                src="assets/images/upload.wikimedia.org_wikipedia_commons_4_44_Micros.svg" alt="">
                         </div>
                         <div class="partner-logo-card" aria-hidden="true"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="">
+                                src="assets/images/upload.wikimedia.org_wikipedia_commons_a_a9_Amazon.svg" alt="">
                         </div>
                         <div class="partner-logo-card" aria-hidden="true"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/5/1b/IBM_2022.svg" alt=""></div>
+                                src="assets/images/upload.wikimedia.org_wikipedia_commons_a_a9_Amazon.svg" alt=""></div>
                         <div class="partner-logo-card" aria-hidden="true"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg"
+                                src="assets/images/upload.wikimedia.org_wikipedia_commons_7_7b_Meta_P.svg"
                                 alt=""></div>
                         <div class="partner-logo-card" aria-hidden="true"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+                                src="assets/images/upload.wikimedia.org_wikipedia_commons_0_08_Netfli.svg"
                                 alt=""></div>
                         <div class="partner-logo-card" aria-hidden="true"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Adobe_Corporate_Logo.png"
+                                src="assets/images/upload.wikimedia.org_wikipedia_commons_8_8d_Adobe_.png"
                                 alt=""></div>
                         <div class="partner-logo-card" aria-hidden="true"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg"
+                                src="assets/images/upload.wikimedia.org_wikipedia_commons_f_f9_Salesf.svg"
                                 alt=""></div>
                         <div class="partner-logo-card" aria-hidden="true"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg"
+                                src="assets/images/upload.wikimedia.org_wikipedia_commons_5_50_Oracle.svg"
                                 alt=""></div>
                         <div class="partner-logo-card" aria-hidden="true"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg"
+                                src="assets/images/upload.wikimedia.org_wikipedia_commons_2_2f_Google.svg"
                                 alt=""></div>
                         <div class="partner-logo-card" aria-hidden="true"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/5/56/Deloitte.svg" alt=""></div>
+                                src="assets/images/upload.wikimedia.org_wikipedia_commons_4_44_Micros.svg" alt=""></div>
                         <div class="partner-logo-card" aria-hidden="true"><img
-                                src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg" alt=""></div>
+                                src="assets/images/upload.wikimedia.org_wikipedia_commons_7_7b_Meta_P.svg" alt=""></div>
                     </div>
                 </div>
             </div>
@@ -2191,7 +2190,7 @@
                     <!-- Country names removed as requested -->
                 </div>
                 <div class="map-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg"
+                    <img src="assets/images/world_map.svg"
                         alt="World map showing international academic guidance reach">
                     <div class="hq-marker" aria-label="Headquarters in the United Kingdom">
                         <i class="fas fa-map-marker-alt"></i>
@@ -2372,7 +2371,7 @@
             <div class="footer-grid" style="grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr;">
                 <div class="footer-col">
                     <a href="/" class="logo footer-logo">
-                        <img src="/assets/images/scolar-logo.jpeg" alt="Scolars Lift Logo" class="brand-logo-img">
+                        <img src="assets/images/scolar-logo.jpeg" alt="Scolars Lift Logo" class="brand-logo-img">
                         <span class="logo-text">Scolars Lift</span>
                     </a>
                     <p class="footer-brand-copy">Professional education guidance for admissions, research support,
@@ -2427,12 +2426,12 @@
         </div>
     </footer>
 
-    <script src="/assets/js/api.js?v=2"></script>
-    <script src="/assets/js/main.js"></script>
-    <script src="/assets/js/courses.js"></script>
-    <script src="/assets/js/testimonials.js" defer></script>
-    <script src="/assets/js/universities.js" defer></script>
-    <script src="/assets/js/contact.js?v=2"></script>
+    <script src="assets/js/api.js?v=2"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/courses.js"></script>
+    <script src="assets/js/testimonials.js" defer></script>
+    <script src="assets/js/universities.js" defer></script>
+    <script src="assets/js/contact.js?v=2"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             let currentSlide = 0;
@@ -2482,3 +2481,33 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
