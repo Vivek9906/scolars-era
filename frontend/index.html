@@ -1,32 +1,24 @@
-<!-- scolars-era/frontend/index.html -->
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!-- scolars-era/frontend/index.html --><!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scolars Lift | Admissions, Research Support & Career-Focused Learning</title>
-    <link rel="icon" type="image/jpeg" href="assets/images/scolar-logo.jpeg">
-    <meta name="description"
-        content="Scolars Lift helps students, researchers, and working professionals choose the right UG, PG, PhD, research, publication, and career-focused academic pathways with expert counselling.">
-    <meta name="keywords"
-        content="Scolars Lift, admission guidance, UG admission, PG admission, PhD admission, research support, thesis writing, dissertation help, publication support, honorary doctorate, academic counselling">
+    <title>Scolars Lift | Admissions, Research Support &amp; Career-Focused Learning</title>
+    
+    <meta name="description" content="Scolars Lift helps students, researchers, and working professionals choose the right UG, PG, PhD, research, publication, and career-focused academic pathways with expert counselling.">
+    <meta name="keywords" content="Scolars Lift, admission guidance, UG admission, PG admission, PhD admission, research support, thesis writing, dissertation help, publication support, honorary doctorate, academic counselling">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Scolars Lift">
     <link rel="canonical" href="/">
 
-    <meta property="og:title" content="Scolars Lift | Expert Academic & Admission Guidance">
-    <meta property="og:description"
-        content="Professional education consulting for admissions, research support, publication guidance, and career-ready academic growth.">
+    <meta property="og:title" content="Scolars Lift | Expert Academic &amp; Admission Guidance">
+    <meta property="og:description" content="Professional education consulting for admissions, research support, publication guidance, and career-ready academic growth.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="assets/images/main.jpeg">
     <meta property="og:url" content="/">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1781470800761">
     <link rel="stylesheet" href="university.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -261,7 +253,8 @@
 
         .hero-trust-row {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
+            justify-content: center;
             gap: 14px;
         }
 
@@ -669,6 +662,18 @@
         }
 
         @media (max-width: 768px) {
+            
+.partner-logos {
+    display: flex !important;
+    gap: 20px !important;
+    width: max-content !important;
+    animation: scrollLogos 20s linear infinite !important;
+}
+@keyframes scrollLogos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 10px)); }
+}
+
             .carousel-track {
                 animation-duration: 10s;
             }
@@ -942,13 +947,18 @@
             line-height: 1.75;
         }
 
-        .partner-logos {
-            display: flex;
-            gap: 16px;
-            margin-top: 42px;
-            width: max-content;
-            animation: logoStripSlide 15s linear infinite;
-        }
+        
+.partner-logos {
+    display: flex !important;
+    gap: 20px !important;
+    width: max-content !important;
+    animation: scrollLogos 20s linear infinite !important;
+}
+@keyframes scrollLogos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 10px)); }
+}
+
 
         .partner-logos:hover {
             animation-play-state: paused;
@@ -960,7 +970,7 @@
             }
 
             to {
-                transform: translateX(calc(-50% - 8px));
+                transform: translateX(calc(-50% 8px));
             }
         }
 
@@ -983,14 +993,13 @@
             box-shadow: 0 14px 34px rgba(0, 0, 0, 0.09);
         }
 
-        .partner-logo-card img {
-            max-width: 100%;
-            max-height: 42px;
-            object-fit: contain;
-            filter: none;
-            opacity: 1;
-            transition: transform 0.25s ease;
-        }
+        
+.partner-logo-card img {
+    max-width: 100px !important;
+    max-height: 50px !important;
+    object-fit: contain !important;
+}
+
 
         .partner-logo-card:hover img {
             transform: scale(1.05);
@@ -1539,6 +1548,85 @@
                 min-width: 220px;
             }
         }
+    
+        
+.universities-list-grid {
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 30px !important;
+    max-width: 1000px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+}
+.university-card {
+    width: calc(50% - 15px) !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+    flex: 0 0 auto !important;
+}
+@media (max-width: 768px) {
+    .university-card {
+        width: 100% !important;
+    }
+}
+
+    
+    .ticker-track {
+        animation: tickerScroll 20s linear infinite;
+    }
+    @keyframes tickerScroll {
+        0% { transform: translate3d(0, 0, 0); }
+        100% { transform: translate3d(-100%, 0, 0); }
+    }
+    .ticker-wrapper:hover .ticker-track {
+        animation-play-state: paused;
+    }
+    
+    /* OVERRIDE DROPDOWN CSS */
+    .nav-item.has-dropdown {
+        position: relative !important;
+    }
+    .nav-dropdown {
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        background: #ffffff !important;
+        border-radius: 8px !important;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+        min-width: 220px !important;
+        padding: 10px 0 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transform: translateY(10px) !important;
+        transition: all 0.3s ease !important;
+        z-index: 9999 !important;
+        display: block !important;
+        list-style: none !important;
+        margin: 0 !important;
+    }
+    .nav-item.has-dropdown:hover .nav-dropdown {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+    }
+    .nav-dropdown li a {
+        display: block !important;
+        padding: 10px 20px !important;
+        color: #333 !important;
+        text-decoration: none !important;
+        font-weight: 500 !important;
+        font-size: 15px !important;
+    }
+    .nav-dropdown li a:hover {
+        background: #f4fdfa !important;
+        color: #0d5c4a !important;
+    }
+    .nav-dropdown li a .drop-title {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
     </style>
 
     <script type="application/ld+json">
@@ -1558,53 +1646,140 @@
         "sameAs": []
     }
     </script>
+
+<style>
+  .uni-logo-text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 22px;
+    border: 2px solid #0d5c4a;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 15px;
+    color: #0d5c4a;
+    background: #ffffff;
+    max-width: 240px;
+    text-align: center;
+    line-height: 1.4;
+  }
+</style>
+
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+  <link rel="shortcut icon" href="/assets/images/favicon.png">
+
+<style>
+/* ── GUARANTEED GLOBAL FIXES ──────────────────────────────────────────────── */
+.nav-item.has-dropdown {
+    position: relative !important;
+}
+.nav-dropdown {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    background: #ffffff !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+    min-width: 220px !important;
+    padding: 10px 0 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(10px) !important;
+    transition: all 0.3s ease !important;
+    z-index: 9999 !important;
+    display: block !important;
+    list-style: none !important;
+    margin: 0 !important;
+}
+.nav-item.has-dropdown:hover .nav-dropdown {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
+.nav-dropdown li a {
+    display: block !important;
+    padding: 10px 20px !important;
+    color: #333 !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    font-size: 15px !important;
+    border-radius: 6px !important;
+}
+.nav-dropdown li a:hover {
+    background: #f4fdfa !important;
+    color: #0d5c4a !important;
+}
+.nav-dropdown li a .drop-title {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+.ticker-track {
+    animation: tickerScroll 20s linear infinite !important;
+}
+@keyframes tickerScroll {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+}
+.ticker-wrapper:hover .ticker-track {
+    animation-play-state: paused !important;
+}
+</style>
+
+
+<style>
+/* ── SEAMLESS TICKER FIX ──────────────────────────────────────────────── */
+.seamless-track {
+    animation: seamlessScroll 25s linear infinite !important;
+}
+@keyframes seamlessScroll {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+}
+.ticker-wrapper:hover .seamless-track {
+    animation-play-state: paused !important;
+}
+</style>
+
 </head>
 
 <body class="animated-page">
-    <div class="top-bar">
-        <div class="container top-bar-content">
-            <div class="social-icons">
-                <span>Follow Us:</span>
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            <div class="contact-info">
-                <span><i class="fas fa-map-marker-alt"></i> 174 Chesterton Road, Cambridge, United Kingdom, CB4 1DA</span>
-                <span><i class="fas fa-envelope"></i> info@scolarslift.com</span>
-                <span><i class="fas fa-phone-alt"></i> +44 7386814150</span>
-            </div>
-        </div>
-    </div>
+    
 
-    <nav class="navbar">
-        <div class="container nav-content">
-            <a href="/" class="logo" aria-label="Scolars Lift Home">
-                <img src="assets/images/scolar-logo.jpeg" alt="Scolars Lift Logo" class="brand-logo-img">
-                <span class="brand-logo-text">Scolars Lift</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about.html">About Us</a></li>
-                <li><a href="/courses.html">Courses</a></li>
-                <li><a href="/university.html">Universities</a></li>
-                <li><a href="/book-appointment.html">Contact</a></li>
-            </ul>
-            <div class="nav-actions">
-                <a href="/book-appointment.html" class="btn btn-primary">Book Counselling</a>
-                <div class="mobile-menu-toggle" aria-label="Open menu">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <!-- Top Bar -->
+  
+  <!-- Top Bar -->
+    <!-- Top Bar -->
+    <!-- Top Bar -->
+  <div class="ticker-wrapper" style="background: #0d5c4a; color: #fff; padding: 8px 0; overflow: hidden; width: 100%; position: relative; z-index: 1000; display: flex; height: 35px; box-sizing: border-box;">
+    <div class="ticker-track seamless-track" style="display: flex; white-space: nowrap; width: max-content;">
+        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #f0a500;"></i> 174 Chesterton Road, Cambridge</span>
+        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scolarslift.com</span>
+        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-phone-alt" style="margin-right: 5px; color: #f0a500;"></i> +44 7386814150</span>
+        
+        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #f0a500;"></i> 174 Chesterton Road, Cambridge</span>
+        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scolarslift.com</span>
+        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-phone-alt" style="margin-right: 5px; color: #f0a500;"></i> +44 7386814150</span>
+        
+        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #f0a500;"></i> 174 Chesterton Road, Cambridge</span>
+        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scolarslift.com</span>
+        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-phone-alt" style="margin-right: 5px; color: #f0a500;"></i> +44 7386814150</span>
+        
+        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #f0a500;"></i> 174 Chesterton Road, Cambridge</span>
+        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scolarslift.com</span>
+        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-phone-alt" style="margin-right: 5px; color: #f0a500;"></i> +44 7386814150</span>
+    </div>
+  </div>
+
+
+  <div id="header-placeholder"></div>
 
     <main>
         <header class="home-hero" id="mainHeroCarousel">
             
             <div class="hero-slide active">
-                <div class="hero-bg-image" style="background-image: url('/assets/images/hero_slide1.png');"></div>
+                <div class="hero-bg-image" style="background-image: url('/assets/images/hero_slide1.png');; background-color: #0d5c4a;"></div>
                 <div class="hero-bg-overlay"></div>
                 <div class="container">
                     <div class="hero-copy">
@@ -1614,8 +1789,8 @@
                             pathways, research writing, publication support, and career-focused learning decisions.
                         </p>
                         <div class="hero-actions">
-                            <a href="/courses.html" class="btn btn-primary-hero">Explore Courses</a>
-                            <a href="/book-appointment.html" class="btn btn-outline-light">Talk to a Counsellor</a>
+                            <a href="/programs/bachelor.html" class="btn btn-primary-hero">Explore Courses</a>
+                            <a href="/contact.html" class="btn btn-outline-light">Talk to a Counsellor</a>
                         </div>
                         <div class="hero-trust-row" aria-label="Highlights">
                             <span class="trust-pill"><i class="fas fa-check-circle"></i> Admission Guidance</span>
@@ -1627,16 +1802,16 @@
             </div>
 
             <div class="hero-slide">
-                <div class="hero-bg-image" style="background-image: url('/assets/images/hero_slide2.png');"></div>
+                <div class="hero-bg-image" style="background-image: url('/assets/images/hero_slide2.png');; background-color: #0d5c4a;"></div>
                 <div class="hero-bg-overlay"></div>
                 <div class="container">
                     <div class="hero-copy">
-                        <h1>Expert <span>Research & Publication</span> Guidance</h1>
+                        <h1>Expert <span>Research &amp; Publication</span> Guidance</h1>
                         <p class="hero-lead">
                             Elevate your academic profile with professional support for thesis writing, literature reviews, and high-impact journal publications from top-tier researchers.
                         </p>
                         <div class="hero-actions">
-                            <a href="/book-appointment.html" class="btn btn-primary-hero">Get Research Help</a>
+                            <a href="/contact.html" class="btn btn-primary-hero">Get Research Help</a>
                         </div>
                         <div class="hero-trust-row" aria-label="Highlights">
                             <span class="trust-pill"><i class="fas fa-check-circle"></i> Thesis Writing</span>
@@ -1647,7 +1822,7 @@
             </div>
 
             <div class="hero-slide">
-                <div class="hero-bg-image" style="background-image: url('/assets/images/hero_slide3.png');"></div>
+                <div class="hero-bg-image" style="background-image: url('/assets/images/hero_slide3.png');; background-color: #0d5c4a;"></div>
                 <div class="hero-bg-overlay"></div>
                 <div class="container">
                     <div class="hero-copy">
@@ -1713,9 +1888,9 @@
             <div class="container split-layout reveal">
                 <div class="image-panel">
                     <div class="image-slider">
-                        <img src="assets/images/clg.jpeg" alt="Students receiving academic counselling">
-                        <img src="assets/images/00.jpeg" alt="Academic guidance discussion">
-                        <img src="assets/images/hero-students.jpg" alt="Students planning their education journey">
+                        <img src="/assets/images/clg.jpeg" alt="Students receiving academic counselling" loading="lazy"  width="736" height="981">
+                        <img src="/assets/images/00.jpeg" alt="Academic guidance discussion" loading="lazy"  width="501" height="416">
+                        <img src="/assets/images/hero-students.jpg" alt="Students planning their education journey" loading="lazy"  width="644" height="300">
                     </div>
                     <div class="metric-card">
                         <i class="fas fa-graduation-cap"></i>
@@ -1795,10 +1970,10 @@
         <section class="why-choose-section">
             <div class="container why-layout reveal">
                 <div class="why-image-grid">
-                    <img src="assets/images/hero-students.jpg" alt="Students discussing academic goals">
+                    <img src="/assets/images/hero-students.jpg" alt="Students discussing academic goals" loading="lazy"  width="644" height="300">
                     <div class="why-image-stack">
-                        <img src="assets/images/course3.jpeg" alt="Learner working on research material">
-                        <img src="assets/images/course5.jpeg" alt="Professional education counselling session">
+                        <img src="/assets/images/course3.jpeg" alt="Learner working on research material" loading="lazy"  width="735" height="410">
+                        <img src="/assets/images/course5.jpeg" alt="Professional education counselling session" loading="lazy"  width="735" height="490">
                     </div>
                 </div>
                 <div>
@@ -2100,45 +2275,67 @@
             </div>
             <div class="logo-carousel-viewport" aria-label="Hiring partner logo carousel">
                     <div class="partner-logos">
-                        <div class="partner-logo-card"><img src="https://logo.clearbit.com/google.com" alt="Google"></div>
-                        <div class="partner-logo-card"><img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft"></div>
-                        <div class="partner-logo-card"><img src="https://logo.clearbit.com/amazon.com" alt="Amazon"></div>
-                        <div class="partner-logo-card"><img src="https://logo.clearbit.com/ibm.com" alt="IBM"></div>
-                        <div class="partner-logo-card"><img src="https://logo.clearbit.com/meta.com" alt="Meta"></div>
-                        <div class="partner-logo-card"><img src="https://logo.clearbit.com/netflix.com" alt="Netflix"></div>
-                        <div class="partner-logo-card"><img src="https://logo.clearbit.com/adobe.com" alt="Adobe"></div>
-                        <div class="partner-logo-card"><img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce"></div>
-                        <div class="partner-logo-card"><img src="https://logo.clearbit.com/oracle.com" alt="Oracle"></div>
-                        <div class="partner-logo-card"><img src="https://logo.clearbit.com/samsung.com" alt="Samsung"></div>
-                        <div class="partner-logo-card"><img src="https://logo.clearbit.com/deloitte.com" alt="Deloitte"></div>
-                        <div class="partner-logo-card"><img src="https://logo.clearbit.com/accenture.com" alt="Accenture"></div>
+                        <div class="partner-logo-card"><img src="https://www.google.com/s2/favicons?domain=google.com&sz=128" alt="Google" loading="eager" ></div>
+                        <div class="partner-logo-card"><img src="https://www.google.com/s2/favicons?domain=microsoft.com&sz=128" alt="Microsoft" loading="eager" ></div>
+                        <div class="partner-logo-card"><img src="https://www.google.com/s2/favicons?domain=amazon.com&sz=128" alt="Amazon" loading="eager" ></div>
+                        <div class="partner-logo-card"><img src="https://www.google.com/s2/favicons?domain=ibm.com&sz=128" alt="IBM" loading="eager" ></div>
+                        <div class="partner-logo-card"><img src="https://www.google.com/s2/favicons?domain=meta.com&sz=128" alt="Meta" loading="eager" ></div>
+                        <div class="partner-logo-card"><img src="https://www.google.com/s2/favicons?domain=netflix.com&sz=128" alt="Netflix" loading="eager" ></div>
+                        <div class="partner-logo-card"><img src="https://www.google.com/s2/favicons?domain=adobe.com&sz=128" alt="Adobe" loading="eager" ></div>
+                        <div class="partner-logo-card"><img src="https://www.google.com/s2/favicons?domain=salesforce.com&sz=128" alt="Salesforce" loading="eager" ></div>
+                        <div class="partner-logo-card"><img src="https://www.google.com/s2/favicons?domain=oracle.com&sz=128" alt="Oracle" loading="eager" ></div>
+                        <div class="partner-logo-card"><img src="https://www.google.com/s2/favicons?domain=samsung.com&sz=128" alt="Samsung" loading="eager" ></div>
+                        <div class="partner-logo-card"><img src="https://www.google.com/s2/favicons?domain=deloitte.com&sz=128" alt="Deloitte" loading="eager" ></div>
+                        <div class="partner-logo-card"><img src="https://www.google.com/s2/favicons?domain=accenture.com&sz=128" alt="Accenture" loading="eager" ></div>
                         
-                        <div class="partner-logo-card" aria-hidden="true"><img src="https://logo.clearbit.com/google.com" alt="Google"></div>
-                        <div class="partner-logo-card" aria-hidden="true"><img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft"></div>
-                        <div class="partner-logo-card" aria-hidden="true"><img src="https://logo.clearbit.com/amazon.com" alt="Amazon"></div>
-                        <div class="partner-logo-card" aria-hidden="true"><img src="https://logo.clearbit.com/ibm.com" alt="IBM"></div>
-                        <div class="partner-logo-card" aria-hidden="true"><img src="https://logo.clearbit.com/meta.com" alt="Meta"></div>
-                        <div class="partner-logo-card" aria-hidden="true"><img src="https://logo.clearbit.com/netflix.com" alt="Netflix"></div>
-                        <div class="partner-logo-card" aria-hidden="true"><img src="https://logo.clearbit.com/adobe.com" alt="Adobe"></div>
-                        <div class="partner-logo-card" aria-hidden="true"><img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce"></div>
-                        <div class="partner-logo-card" aria-hidden="true"><img src="https://logo.clearbit.com/oracle.com" alt="Oracle"></div>
-                        <div class="partner-logo-card" aria-hidden="true"><img src="https://logo.clearbit.com/samsung.com" alt="Samsung"></div>
-                        <div class="partner-logo-card" aria-hidden="true"><img src="https://logo.clearbit.com/deloitte.com" alt="Deloitte"></div>
-                        <div class="partner-logo-card" aria-hidden="true"><img src="https://logo.clearbit.com/accenture.com" alt="Accenture"></div>
+                        <div class="partner-logo-card" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=google.com&sz=128" alt="Google" loading="eager" ></div>
+                        <div class="partner-logo-card" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=microsoft.com&sz=128" alt="Microsoft" loading="eager" ></div>
+                        <div class="partner-logo-card" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=amazon.com&sz=128" alt="Amazon" loading="eager" ></div>
+                        <div class="partner-logo-card" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=ibm.com&sz=128" alt="IBM" loading="eager" ></div>
+                        <div class="partner-logo-card" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=meta.com&sz=128" alt="Meta" loading="eager" ></div>
+                        <div class="partner-logo-card" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=netflix.com&sz=128" alt="Netflix" loading="eager" ></div>
+                        <div class="partner-logo-card" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=adobe.com&sz=128" alt="Adobe" loading="eager" ></div>
+                        <div class="partner-logo-card" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=salesforce.com&sz=128" alt="Salesforce" loading="eager" ></div>
+                        <div class="partner-logo-card" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=oracle.com&sz=128" alt="Oracle" loading="eager" ></div>
+                        <div class="partner-logo-card" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=samsung.com&sz=128" alt="Samsung" loading="eager" ></div>
+                        <div class="partner-logo-card" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=deloitte.com&sz=128" alt="Deloitte" loading="eager" ></div>
+                        <div class="partner-logo-card" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=accenture.com&sz=128" alt="Accenture" loading="eager" ></div>
                     </div>
                 </div>
         </section>
 
         <section class="partners-section clean-partners">
             <div class="container">
-                <div class="partners-header">
+                <div class="partners-header align-items center">
                     <!-- <h5 class="section-subtitle centered"><i class="fas fa-globe"></i> University Network</h5> -->
                     <h2 class="section-title centered">Explore our university partners</h2>
                     <p class="section-text centered">Browse partner institutions and choose the route that fits your
                         academic goals, eligibility, and preferred study mode.</p>
                 </div>
             </div>
-            <div id="universities-grid"></div>
+            <div id="universities-grid" class="universities-list-grid">
+        <div class="university-card">
+            <img src="/assets/images/kennedy_logo.jpeg" class="uni-logo" onerror="this.outerHTML='<div class=\'uni-logo-text\'>Kennedy University</div>'" loading="eager">
+            <div class="uni-meta" style="margin-top: 15px; font-size: 13px; color: #666;">
+                <span class="uni-type">Private International University</span>
+            </div>
+            <h3>Kennedy University</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Europe</p>
+            <p style="font-size: 14px; line-height: 1.6; color: #555; margin-bottom: 20px;">Kennedy University is an internationally recognised institution offering accredited programmes across business, education, health, law and social sciences. Its diverse global community and research-led environment attract students from over 60 countries worldwide.</p>
+            <a href="/university-detail.html?slug=kennedy-university" class="btn-view-details" style="position: relative; z-index: 100; pointer-events: auto;">View Details &rarr;</a>
+        </div>
+    
+        <div class="university-card">
+            <img src="/assets/images/kennedy_baptist_logo.png" class="uni-logo" onerror="this.outerHTML='<div class=\'uni-logo-text\'>Kennedy University of Baptist</div>'" loading="eager">
+            <div class="uni-meta" style="margin-top: 15px; font-size: 13px; color: #666;">
+                <span class="uni-type">Accredited Private University</span>
+            </div>
+            <h3>Kennedy University of Baptist</h3>
+            <p><i class="fas fa-map-marker-alt"></i> International</p>
+            <p style="font-size: 14px; line-height: 1.6; color: #555; margin-bottom: 20px;">Kennedy University of Baptist delivers academically rigorous programmes with a foundation in ethical leadership, research excellence and professional development. Students benefit from dedicated faculty mentorship and a strong academic community.</p>
+            <a href="/university-detail.html?slug=kennedy-university-of-baptist" class="btn-view-details" style="position: relative; z-index: 100; pointer-events: auto;">View Details &rarr;</a>
+        </div>
+    </div>
         </section>
 
         <section class="global-band">
@@ -2153,11 +2350,10 @@
                     <!-- Country names removed as requested -->
                 </div>
                 <div class="map-card">
-                    <img src="assets/images/world_map.svg"
-                        alt="World map showing international academic guidance reach">
+                    <img src="/assets/images/world_map.svg" alt="World map showing international academic guidance reach" loading="lazy" >
                     <div class="hq-marker" aria-label="Headquarters in the United Kingdom">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>HQ - UK</span>
+                        <span>HQ UK</span>
                     </div>
                 </div>
             </div>
@@ -2205,13 +2401,13 @@
                 <div class="contact-form-wrapper">
                     <form class="contact-form">
                         <div class="form-row">
-                            <input type="text" name="name" placeholder="Your Name" required>
-                            <input type="email" name="email" placeholder="Your Email" required>
+                            <input type="text" name="name" placeholder="Your Name" required="">
+                            <input type="email" name="email" placeholder="Your Email" required="">
                         </div>
                         <div class="form-row">
                             <input type="tel" name="phone" placeholder="Phone Number">
                             <select name="qualification" class="form-select">
-                                <option value="" disabled selected>Current Qualification</option>
+                                <option value="" disabled="" selected="">Current Qualification</option>
                                 <option value="High School">High School</option>
                                 <option value="Undergraduate">Undergraduate</option>
                                 <option value="Postgraduate">Postgraduate</option>
@@ -2219,9 +2415,8 @@
                                 <option value="Other">Other</option>
                             </select>
                         </div>
-                        <input type="text" name="subject" placeholder="What guidance do you need?" required>
-                        <textarea name="message" rows="5" placeholder="Tell us about your academic goal"
-                            required></textarea>
+                        <input type="text" name="subject" placeholder="What guidance do you need?" required="">
+                        <textarea name="message" rows="5" placeholder="Tell us about your academic goal" required=""></textarea>
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
                 </div>
@@ -2234,7 +2429,7 @@
                 <h2 class="section-title centered">Frequently asked questions</h2>
                 <div class="faq-wrapper">
                     <div class="faq-item">
-                        <details open>
+                        <details open="">
                             <summary>How can Scolars Lift help with admissions?</summary>
                             <div class="faq-content">
                                 <p>We review your profile, suggest suitable programs, explain eligibility, and guide you
@@ -2289,7 +2484,7 @@
                         <details>
                             <summary>How long does the admission process typically take?</summary>
                             <div class="faq-content">
-                                <p>The timeline varies depending on the program and university. On average, the process takes 2–6 weeks from profile review to final admission confirmation. Our team keeps you updated throughout.</p>
+                                <p>The timeline varies depending on the program and university. On average, the process takes 2 6 weeks from profile review to final admission confirmation. Our team keeps you updated throughout.</p>
                             </div>
                         </details>
                     </div>
@@ -2323,78 +2518,19 @@
     </main>
 
     <div class="floating-buttons float-right">
-        <a href="https://wa.me/91+44 7386814150" class="floating-btn whatsapp-btn" title="Chat on WhatsApp"
-            aria-label="Chat on WhatsApp">
+        <a href="https://wa.me/91+44 7386814150" class="floating-btn whatsapp-btn" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
 
-    <footer class="footer-section">
-        <div class="container">
-            <div class="footer-grid" style="grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr;">
-                <div class="footer-col">
-                    <a href="/" class="logo footer-logo">
-                        <img src="assets/images/scolar-logo.jpeg" alt="Scolars Lift Logo" class="brand-logo-img">
-                        <span class="logo-text">Scolars Lift</span>
-                    </a>
-                    <p class="footer-brand-copy">Professional education guidance for admissions, research support,
-                        publication assistance, and career-focused academic growth.</p>
-                    <div class="social-icons footer-social">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="/about.html">About Us</a></li>
-                        <li><a href="/university.html">Universities</a></li>
-                        <li><a href="/book-appointment.html">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Programs</h3>
-                    <ul>
-                        <li><a href="/b-ed-course.html">B.Ed</a></li>
-                        <li><a href="/b-sc-course.html">B.Sc</a></li>
-                        <li><a href="/m-ed-course.html">M.Ed</a></li>
-                        <li><a href="/m-sc-course.html">M.Sc</a></li>
-                        <li><a href="/m-tech-course.html">M.Tech</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="/courses.html">UG/PG Admissions</a></li>
-                        <li><a href="/courses.html">PhD Guidance</a></li>
-                        <li><a href="/courses.html">Research Support</a></li>
-                        <li><a href="/courses.html">Publication Support</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Contact</h3>
-                    <ul>
-                        <li><a href="mailto:info@scolarslift.com">info@scolarslift.com</a></li>
-                        <li><a href="tel:+44+44 7386814150">+44 7386814150</a></li>
-                        <li>174 Chesterton Road, Cambridge, United Kingdom, CB4 1DA</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Scolars Lift. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
-    <script src="assets/js/api.js?v=2"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/courses.js"></script>
-    <script src="assets/js/testimonials.js" defer></script>
-    <script src="assets/js/universities.js" defer></script>
-    <script src="assets/js/contact.js?v=2"></script>
+    <script src="/assets/js/api.js?v=2"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/courses.js"></script>
+    <script src="/assets/js/testimonials.js" defer=""></script>
+    
+    <script src="/assets/js/contact.js?v=2"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             let currentSlide = 0;
@@ -2441,9 +2577,6 @@
             resetInterval();
         });
     </script>
-</body>
-
-</html>
 
 
 
@@ -2474,3 +2607,8 @@
 
 
 
+
+
+
+
+<script src="/assets/js/components.js"></script></body></html>

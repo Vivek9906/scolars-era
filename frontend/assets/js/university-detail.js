@@ -313,7 +313,7 @@ function renderUniversity(u) {
           <p>Our expert counsellors at SCOLARS LIFT will guide you step-by-step to secure your admission at ${escapeHtml(
             u.name,
           )}.</p>
-          <a href="/book-appointment.html" class="apply-btn">
+          <a href="/contact.html" class="apply-btn">
             <i class="fas fa-paper-plane"></i> Apply Now
           </a>
         </div>
@@ -321,62 +321,96 @@ function renderUniversity(u) {
     </div>`;
 }
 
+
 document.addEventListener("DOMContentLoaded", async () => {
   const loader = document.getElementById("pageLoader");
   const params = new URLSearchParams(window.location.search);
-  // Accept either ?id=<mongoId> or ?slug=<slug>
   const id = params.get("id");
   const slug = params.get("slug");
 
-  if (!id) {
+  if (!id && !slug) {
     if (loader) loader.classList.add("fade-out");
-    renderError();
-    return;
+    return renderError();
   }
 
+  // Hardcoded fallback data for the 2 main universities if DB fails or IP is blocked
+  const hardcodedData = {
+    "kennedy-university": {
+      name: "Kennedy University",
+      established: "2005",
+      country: "Europe / International",
+      description: "Kennedy University is a distinguished 'daughter university' associated with Kennedy University of Baptist, dedicated to providing high-quality, accessible distance and online education globally. Offering programs in Business Administration, Leadership, Theology, and more.",
+      courses: [
+        { name: "Bachelor of Business Administration", duration: "3-4 Years", mode: "Online" },
+        { name: "Master of Business Administration", duration: "1-2 Years", mode: "Online" },
+        { name: "PhD in Leadership", duration: "3-5 Years", mode: "Online" }
+      ],
+      rankings: [
+        { title: "QAHE Certified", year: "2023" },
+        { title: "Top Online Programs", year: "2024" }
+      ]
+    },
+    "kennedy-university-of-baptist": {
+      name: "Kennedy University of Baptist",
+      established: "1998",
+      country: "Florida, USA",
+      description: "Kennedy University of Baptist is a private, faith-based educational institution based in Florida, USA. Operating with annual verification as a religious college from the Florida Department of Education, it bridges faith and secular education offering degrees in Theology, Counseling, and Business.",
+      courses: [
+        { name: "Bachelor in Theology", duration: "4 Years", mode: "Online / On-campus" },
+        { name: "Master in Counseling", duration: "2 Years", mode: "Online" },
+        { name: "Doctorate in Ministry", duration: "3 Years", mode: "Online" }
+      ],
+      rankings: [
+        { title: "Florida Dept. of Ed. Verified", year: "2024" },
+        { title: "Faith-Based Excellence", year: "2023" }
+      ]
+    }
+  };
+
   try {
-    // Prefer slug when provided
+    let uni = null;
+    
+    // First try fetching from backend
     if (slug) {
-      const resSlug = await fetch(`/api/universities/slug/${encodeURIComponent(slug)}`);
-      if (resSlug.ok) {
-        const result = await resSlug.json();
-        const uni = result?.data;
-        if (loader) loader.classList.add("fade-out");
-        if (!uni) return renderError();
-        renderUniversity(uni);
-        return;
-      }
-      // fall through to try id if slug not found
+      try {
+        const res = await fetch(`/api/universities/slug/${encodeURIComponent(slug)}`);
+        if (res.ok) {
+          const result = await res.json();
+          if (result && result.data) uni = result.data;
+        }
+      } catch (e) { console.error("Fetch by slug failed", e); }
+    } else if (id) {
+      try {
+        const res = await fetch(`/api/universities/id/${encodeURIComponent(id)}`);
+        if (res.ok) {
+          const result = await res.json();
+          if (result && result.data) uni = result.data;
+        }
+      } catch (e) { console.error("Fetch by id failed", e); }
     }
 
-    if (!id) {
-      if (loader) loader.classList.add("fade-out");
+    // If fetch failed (e.g. IP whitelist issue), fallback to hardcoded data
+    if (!uni && slug && hardcodedData[slug]) {
+        uni = hardcodedData[slug];
+    }
+    
+    if (loader) loader.classList.add("fade-out");
+    
+    if (!uni) {
       return renderError();
     }
+    
+    renderUniversity(uni);
 
-    const resSlug = await fetch(`/api/universities/slug/${encodeURIComponent(id)}`);
-    if (resSlug.ok) {
-      const result = await resSlug.json();
-      const uni = result?.data;
-      if (loader) loader.classList.add("fade-out");
-      if (!uni) return renderError();
-      renderUniversity(uni);
-      return;
-    }
-
-    const resId = await fetch(`/api/universities/id/${encodeURIComponent(id)}`);
-
-    if (!resId.ok) throw new Error("Not found");
-
-    const result2 = await resId.json();
-    const uni2 = result2?.data;
-    if (loader) loader.classList.add("fade-out");
-    if (!uni2) renderError();
-    else renderUniversity(uni2);
   } catch (err) {
     console.error(err);
     if (loader) loader.classList.add("fade-out");
-    renderError();
+    
+    // Final fallback
+    if (slug && hardcodedData[slug]) {
+       renderUniversity(hardcodedData[slug]);
+    } else {
+       renderError();
+    }
   }
 });
-

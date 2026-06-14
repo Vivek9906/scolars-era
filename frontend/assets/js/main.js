@@ -264,3 +264,13 @@ function initAdminAccess() {
   }
 }
 
+
+document.querySelectorAll('.has-dropdown > .nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        if (window.innerWidth < 992) {
+            e.preventDefault();
+            const dropdown = this.nextElementSibling;
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+});
