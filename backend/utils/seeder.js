@@ -316,7 +316,7 @@ async function importData() {
     console.log(`✅ ${testimonialSeedData.length} testimonials seeded`);
 
     // Seed admin user
-    const adminEmail = process.env.ADMIN_EMAIL || "admin@scolarsfix.com";
+    const adminEmail = process.env.ADMIN_EMAIL || "admin@scholarslift.com";
     const adminUser = new User({
       name: "Scolars Fix Admin",
       email: adminEmail,
@@ -364,5 +364,6 @@ if (process.argv[2] === "--import") {
   console.log("  node backend/utils/seeder.js --delete   Delete all data");
   process.exit(0);
 }
+
 
 
