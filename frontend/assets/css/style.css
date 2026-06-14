@@ -1206,7 +1206,7 @@ ul {
 .footer-bottom {
     padding: 25px 0;
     text-align: center;
-    color: #222222;
+    color: #ffffff;
 }
 
 .courses-grid {
@@ -2303,4 +2303,46 @@ img {
 @keyframes marqueeBanner {
     0% { transform: translateX(0); }
     100% { transform: translateX(-100%); }
+}
+
+/* Logo Carousel */
+.logo-carousel-viewport {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    padding: 20px 0;
+}
+
+.partner-logos {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scrollLogos 20s linear infinite;
+}
+
+.partner-logos:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scrollLogos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 10px)); }
+}
+
+.partner-logo-card {
+    width: 150px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    flex-shrink: 0;
+}
+
+.partner-logo-card img {
+    max-width: 100px;
+    max-height: 50px;
+    object-fit: contain;
 }
