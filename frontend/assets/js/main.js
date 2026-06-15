@@ -40,10 +40,70 @@ function initMobileMenu() {
   const toggle = document.querySelector(".mobile-menu-toggle");
   const links = document.querySelector(".nav-links");
   if (!toggle || !links) return;
+  
+  // Toggle links active class
   toggle.addEventListener("click", () => {
     links.classList.toggle("active");
     const icon = toggle.querySelector("i");
-    if (icon) icon.className = links.classList.contains("active") ? "fas fa-times" : "fas fa-bars";
+    if (icon) {
+      icon.className = links.classList.contains("active") ? "fas fa-times" : "fas fa-bars";
+    }
+    document.body.classList.toggle("menu-open", links.classList.contains("active"));
+  });
+
+  // Close menu when clicking a nav link
+  const navItems = links.querySelectorAll("a");
+  navItems.forEach(item => {
+    item.addEventListener("click", (e) => {
+      // Check if it's the dropdown toggle link on mobile
+      if (item.classList.contains('nav-link') && item.closest('.has-dropdown') && window.innerWidth < 992) {
+        return; // Don't close mobile menu when clicking the parent menu of a dropdown
+      }
+      links.classList.remove("active");
+      const icon = toggle.querySelector("i");
+      if (icon) icon.className = "fas fa-bars";
+      document.body.classList.remove("menu-open");
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (links.classList.contains("active") && !links.contains(e.target) && !toggle.contains(e.target)) {
+      links.classList.remove("active");
+      const icon = toggle.querySelector("i");
+      if (icon) icon.className = "fas fa-bars";
+      document.body.classList.remove("menu-open");
+    }
+  });
+
+  // Dropdown toggle on mobile (click instead of hover)
+  const dropdownToggles = document.querySelectorAll('.has-dropdown > .nav-link');
+  dropdownToggles.forEach(link => {
+    link.addEventListener('click', function(e) {
+      if (window.innerWidth < 992) {
+        e.preventDefault();
+        e.stopPropagation();
+        const parent = this.parentElement;
+        const isOpen = parent.classList.contains('open');
+        
+        // Close other dropdowns
+        document.querySelectorAll('.has-dropdown').forEach(d => {
+          d.classList.remove('open');
+          const dd = d.querySelector('.nav-dropdown');
+          if (dd) dd.style.display = ''; // Reset display style
+        });
+        
+        if (!isOpen) {
+          parent.classList.add('open');
+          const dd = parent.querySelector('.nav-dropdown');
+          if (dd) dd.style.display = 'block';
+        } else {
+          parent.classList.remove('open');
+          const dd = parent.querySelector('.nav-dropdown');
+          if (dd) dd.style.display = 'none';
+        }
+      }
+    });
   });
 }
 
@@ -105,6 +165,24 @@ function initNewsletter() {
   });
 }
 
+let headerFooterInitialized = false;
+function initHeaderFooterDependencies() {
+  if (headerFooterInitialized) return;
+  
+  // Verify that the navbar/footer actually exists in DOM before starting
+  const toggle = document.querySelector(".mobile-menu-toggle");
+  const footer = document.querySelector(".footer-bottom p");
+  
+  // Wait if elements are not present yet
+  if (!toggle && !footer) return;
+  
+  headerFooterInitialized = true;
+  initNavbar();
+  initMobileMenu();
+  initAdminAccess();
+  initUXEnhancements();
+}
+
 /* ── Initialise all ──────────────────────────────────────────────── */
 document.addEventListener("DOMContentLoaded", () => {
   // Page load experience (Part 3E)
@@ -114,14 +192,18 @@ document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => loader.remove(), 700);
 
   initWordRotator();
-  initNavbar();
-  initMobileMenu();
   initScrollReveal();
   initSmoothScroll();
   initCounters();
   initNewsletter();
-  initAdminAccess();
-  initUXEnhancements();
+
+  // Try to initialize header/footer if they are already in the DOM
+  initHeaderFooterDependencies();
+});
+
+// Listen for dynamic components loaded event
+document.addEventListener("componentsLoaded", () => {
+  initHeaderFooterDependencies();
 });
 
 /* ── UX Enhancements (Part 3C) ───────────────────────────────────── */
@@ -265,12 +347,4 @@ function initAdminAccess() {
 }
 
 
-document.querySelectorAll('.has-dropdown > .nav-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-        if (window.innerWidth < 992) {
-            e.preventDefault();
-            const dropdown = this.nextElementSibling;
-            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-        }
-    });
-});
+// Dropdown click handlers are initialized within initMobileMenu once components are loaded.

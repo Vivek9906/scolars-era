@@ -1177,63 +1177,6 @@
   <link rel="apple-touch-icon" href="/assets/images/favicon.png">
   <link rel="shortcut icon" href="/assets/images/favicon.png">
 
-<style>
-/* ── GUARANTEED GLOBAL FIXES ──────────────────────────────────────────────── */
-.nav-item.has-dropdown {
-    position: relative !important;
-}
-.nav-dropdown {
-    position: absolute !important;
-    top: 100% !important;
-    left: 0 !important;
-    background: #ffffff !important;
-    border-radius: 8px !important;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
-    min-width: 220px !important;
-    padding: 10px 0 !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    transform: translateY(10px) !important;
-    transition: all 0.3s ease !important;
-    z-index: 9999 !important;
-    display: block !important;
-    list-style: none !important;
-    margin: 0 !important;
-}
-.nav-item.has-dropdown:hover .nav-dropdown {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateY(0) !important;
-}
-.nav-dropdown li a {
-    display: block !important;
-    padding: 10px 20px !important;
-    color: #333 !important;
-    text-decoration: none !important;
-    font-weight: 500 !important;
-    font-size: 15px !important;
-    border-radius: 6px !important;
-}
-.nav-dropdown li a:hover {
-    background: #f4fdfa !important;
-    color: #0d5c4a !important;
-}
-.nav-dropdown li a .drop-title {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-}
-.ticker-track {
-    animation: tickerScroll 20s linear infinite !important;
-}
-@keyframes tickerScroll {
-    0% { transform: translate3d(0, 0, 0); }
-    100% { transform: translate3d(-100%, 0, 0); }
-}
-.ticker-wrapper:hover .ticker-track {
-    animation-play-state: paused !important;
-}
-</style>
 
 
 <style>
@@ -1258,7 +1201,7 @@
   <meta name="description" content="Professional education guidance for admissions, research support, and career-focused academic growth.">
   <meta name="robots" content="index, follow">
   <meta property="og:title" content="University Details SCOLARS LIFT">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&amp;q=80">
+  <meta property="og:image" content="/assets/images/cambridge.png">
   <meta property="og:description" content="Professional education guidance for admissions, research support, and career-focused academic growth.">
 
 
@@ -1299,7 +1242,41 @@
   <div id="header-placeholder"></div>
 
   <div class="container" style="padding: 100px 0;">
-    <div id="universitiesGrid" class="universities-list-grid"></div>
+            <div id="universities-grid" class="universities-list-grid">
+                <div class="university-card">
+                    <img src="/assets/images/kennedy_logo.jpeg" class="uni-logo"
+                        onerror="this.outerHTML='<div class=\'uni-logo-text\'>Kennedy University</div>'"
+                        loading="eager">
+                    <div class="uni-meta" style="margin-top: 15px; font-size: 13px; color: #666;">
+                        <span class="uni-type">Private International University</span>
+                    </div>
+                    <h3>Kennedy University</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Europe</p>
+                    <p style="font-size: 14px; line-height: 1.6; color: #555; margin-bottom: 20px;">Kennedy University
+                        is an internationally recognised institution offering accredited programmes across business,
+                        education, health, law and social sciences. Its diverse global community and research-led
+                        environment attract students from over 60 countries worldwide.</p>
+                    <a href="/university-detail.html?slug=kennedy-university" class="btn-view-details"
+                        style="position: relative; z-index: 100; pointer-events: auto;">View Details &rarr;</a>
+                </div>
+
+                <div class="university-card">
+                    <img src="/assets/images/kennedy_baptist_logo.png" class="uni-logo"
+                        onerror="this.outerHTML='<div class=\'uni-logo-text\'>Kennedy University of Baptist</div>'"
+                        loading="eager">
+                    <div class="uni-meta" style="margin-top: 15px; font-size: 13px; color: #666;">
+                        <span class="uni-type">Accredited Private University</span>
+                    </div>
+                    <h3>Kennedy University of Baptist</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> International</p>
+                    <p style="font-size: 14px; line-height: 1.6; color: #555; margin-bottom: 20px;">Kennedy University
+                        of Baptist delivers academically rigorous programmes with a foundation in ethical leadership,
+                        research excellence and professional development. Students benefit from dedicated faculty
+                        mentorship and a strong academic community.</p>
+                    <a href="/university-detail.html?slug=kennedy-university-of-baptist" class="btn-view-details"
+                        style="position: relative; z-index: 100; pointer-events: auto;">View Details &rarr;</a>
+                </div>
+            </div>
   </div>
 
   <!-- FOOTER -->
@@ -1311,4 +1288,4 @@
 
 
 
-<script src="/assets/js/components.js"></script><script src=" /assets/js/university.js"></script></body></html> 
+<script src="/assets/js/components.js"></script><script src="/assets/js/university.js"></script></body></html> 
