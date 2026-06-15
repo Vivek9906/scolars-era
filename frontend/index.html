@@ -26,7 +26,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/style.css?v=1781470800761">
+    <link rel="stylesheet" href="/assets/css/style.css?v=20260616">
     <link rel="stylesheet" href="university.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -182,12 +182,10 @@
             transform: translateY(0);
         }
 
-        .animated-page section {
-            animation: fadeUp 0.72s ease both;
-            animation-timeline: view();
-            animation-range: entry 0% cover 22%;
-        }
-
+        /* animation-timeline: view() creates a new stacking context on
+           every section, which traps position:fixed mobile menu behind
+           the hero. Use IntersectionObserver in JS instead (already in
+           main.js initScrollReveal). Keeping @keyframes for manual use. */
         @keyframes fadeUp {
             from {
                 opacity: 0;
@@ -1274,10 +1272,15 @@
         }
 
         /* Responsive stability overrides */
-        html,
-        body {
+        /* NOTE: overflow-x ONLY on html — NOT on body.
+           Putting overflow:hidden on body makes it a containing block
+           for position:fixed elements, which breaks the mobile navbar. */
+        html {
             max-width: 100%;
             overflow-x: hidden;
+        }
+        body {
+            max-width: 100%;
         }
 
         img {
@@ -1339,11 +1342,16 @@
                 border-radius: 12px;
                 box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
                 padding: 10px;
-                z-index: 99999;
+                /* Must be above hero z-index (999), ticker (1000),
+                   navbar (1000) AND any stacking contexts from
+                   animation-timeline on section elements */
+                z-index: 999999;
+                isolation: isolate;
             }
 
             .nav-links.active {
                 display: flex !important;
+                z-index: 999999 !important;
             }
 
             .nav-links li a {
@@ -1681,6 +1689,43 @@
 
 <body class="animated-page">
 
+    <div id="header-placeholder">
+        <nav class="navbar">
+            <div class="container nav-content">
+                <a href="/" class="logo" aria-label="Scolars Lift Home">
+                    <img src="/assets/images/scolar-logo.jpeg" alt="Scolars Lift Logo" class="brand-logo-img" loading="eager" onerror="this.onerror=null;this.src='/assets/images/placeholder.png'" width="1280" height="1280">
+                    <span class="brand-logo-text">Scolars Lift</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li class="nav-item has-dropdown">
+                        <a href="javascript:void(0)" class="nav-link">
+                            Programs
+                            <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                            </svg>
+                        </a>
+                        <ul class="nav-dropdown">
+                            <li><a href="/programs/bachelor.html"><div class="drop-title">Bachelor <i class="fas fa-arrow-right drop-arrow"></i></div></a></li>
+                            <li><a href="/programs/master.html"><div class="drop-title">Master <i class="fas fa-arrow-right drop-arrow"></i></div></a></li>
+                            <li><a href="/programs/doctoral.html"><div class="drop-title">Doctoral <i class="fas fa-arrow-right drop-arrow"></i></div></a></li>
+                            <li><a href="/programs/honorary-awards.html"><div class="drop-title">Honorary Awards <i class="fas fa-arrow-right drop-arrow"></i></div></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/university.html">Universities</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="/contact.html" class="btn btn-primary">Book Counselling</a>
+                    <div class="mobile-menu-toggle" aria-label="Open menu">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
 
     <!-- Top Bar -->
 
@@ -1720,8 +1765,6 @@
         </div>
     </div>
 
-
-    <div id="header-placeholder"></div>
 
     <main>
         <header class="home-hero" id="mainHeroCarousel">
@@ -2596,8 +2639,9 @@
 
     <div id="footer-placeholder"></div>
 
+    <script src="/assets/js/components.js"></script>
     <script src="/assets/js/api.js?v=2"></script>
-    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/main.js?v=20260616"></script>
     <script src="/assets/js/courses.js"></script>
     <script src="/assets/js/testimonials.js" defer=""></script>
 
@@ -2682,7 +2726,6 @@
 
 
 
-    <script src="/assets/js/components.js"></script>
 </body>
 
 </html>

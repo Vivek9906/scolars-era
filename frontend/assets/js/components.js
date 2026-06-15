@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     async function loadComponent(id, url) {
         const el = document.getElementById(id);
         if (el) {
+            // Agar pehle se content hai (inline embed) toh fetch skip karo
+            if (el.innerHTML.trim() !== '') return;
             try {
                 const response = await fetch(url);
                 if (response.ok) {
