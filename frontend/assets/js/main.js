@@ -165,22 +165,35 @@ function initNewsletter() {
   });
 }
 
-let headerFooterInitialized = false;
-function initHeaderFooterDependencies() {
-  if (headerFooterInitialized) return;
-  
-  // Verify that the navbar/footer actually exists in DOM before starting
+let headerInitialized = false;
+let footerInitialized = false;
+
+function initHeaderDependencies() {
+  if (headerInitialized) return;
   const toggle = document.querySelector(".mobile-menu-toggle");
-  const footer = document.querySelector(".footer-bottom p");
+  const navbar = document.querySelector(".navbar");
   
-  // Wait if elements are not present yet
-  if (!toggle && !footer) return;
+  if (!toggle && !navbar) return;
   
-  headerFooterInitialized = true;
+  headerInitialized = true;
   initNavbar();
   initMobileMenu();
-  initAdminAccess();
   initUXEnhancements();
+}
+
+function initFooterDependencies() {
+  if (footerInitialized) return;
+  const footer = document.querySelector(".footer-bottom p");
+  
+  if (!footer) return;
+  
+  footerInitialized = true;
+  initAdminAccess();
+}
+
+function initHeaderFooterDependencies() {
+  initHeaderDependencies();
+  initFooterDependencies();
 }
 
 /* ── Initialise all ──────────────────────────────────────────────── */
