@@ -471,6 +471,12 @@
                 flex: 1;
                 padding-top: 12px;
             }
+
+            .award-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 40px rgba(13, 92, 74, 0.1) !important;
+                border-color: #0d5c4a !important;
+            }
         </style>
 
         <section class="section-intro">
@@ -489,45 +495,39 @@
             </div>
         </section>
 
-        <section class="section-disciplines" style="background: #f7f7f7;">
+        <section class="section-disciplines" style="background: #fdfdfd;">
             <div class="container">
-                <h2>Categories of recognition</h2>
-                <div class="disc-list" style="border-top: none; gap: 20px;">
-                    <div class="req-col" style="background: #fff;">
-                        <div
-                            style="font-size: 13px; font-weight: 700; color: #f0a500; letter-spacing: 1px; margin-bottom: 5px;">
-                            HONORARY DOCTORATE</div>
-                        <h3 style="font-size: 24px; font-weight: 700; color: #0d5c4a; margin-bottom: 15px;">Honoris
-                            Causa</h3>
-                        <p style="font-size: 15px; line-height: 1.7; color: #555;">The honorary doctorate is the highest
-                            academic honour an institution can bestow. It is typically awarded to individuals of
-                            international standing whose work has had a demonstrable and lasting impact. Recipients are
-                            addressed with the title of Doctor in recognition of their contribution.</p>
+                <div style="text-align: center; margin-bottom: 50px;">
+                    <h2 style="font-size: 36px; font-weight: 800; color: #0d5c4a; margin-bottom: 15px;">The titles available for nomination</h2>
+                    <div style="width: 60px; height: 3px; background: #f0a500; margin: 0 auto;"></div>
+                </div>
+                
+                <div class="disc-list" style="display: grid; grid-template-columns: 1fr; gap: 30px; max-width: 800px; margin: 0 auto; border: none;">
+                    <div class="award-card" style="background: #fff; padding: 40px 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border: 1px solid #f0f0f0; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; cursor: pointer;">
+                        <div style="width: 80px; height: 80px; background: #f4fdfa; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: #0d5c4a; font-size: 32px;">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 style="font-size: 24px; font-weight: 700; color: #333; margin: 0 0 15px;">Honorary Doctorate</h3>
+                        <span style="display: inline-block; padding: 6px 20px; background: #fdf5e6; color: #f0a500; font-weight: 800; font-size: 15px; border-radius: 30px; letter-spacing: 1px; border: 1px solid rgba(240, 165, 0, 0.2);">Dr. h.c.</span>
                     </div>
-                    <div class="req-col" style="background: #fff;">
-                        <div
-                            style="font-size: 13px; font-weight: 700; color: #f0a500; letter-spacing: 1px; margin-bottom: 5px;">
-                            HONORARY FELLOWSHIP</div>
-                        <h3 style="font-size: 24px; font-weight: 700; color: #0d5c4a; margin-bottom: 15px;">Fellow of
-                            the Institution</h3>
-                        <p style="font-size: 15px; line-height: 1.7; color: #555;">An honorary fellowship recognises
-                            distinguished contribution to a specific discipline or professional domain. It connects the
-                            recipient to the academic community of the awarding institution and acknowledges expertise
-                            that goes beyond formal qualification.</p>
-                    </div>
-                    <div class="req-col" style="background: #fff;">
-                        <div
-                            style="font-size: 13px; font-weight: 700; color: #f0a500; letter-spacing: 1px; margin-bottom: 5px;">
-                            DISTINGUISHED ACHIEVEMENT</div>
-                        <h3 style="font-size: 24px; font-weight: 700; color: #0d5c4a; margin-bottom: 15px;">
-                            Distinguished Achievement Award</h3>
-                        <p style="font-size: 15px; line-height: 1.7; color: #555;">This award recognises individuals
-                            whose work has produced exceptional outcomes within a defined field. It is awarded to
-                            practitioners, researchers, and public figures whose achievements serve as a benchmark for
-                            others in their domain.</p>
+                    
+                    <div class="award-card" style="background: #fff; padding: 40px 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border: 1px solid #f0f0f0; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; cursor: pointer;">
+                        <div style="width: 80px; height: 80px; background: #f4fdfa; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: #0d5c4a; font-size: 32px;">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3 style="font-size: 24px; font-weight: 700; color: #333; margin: 0 0 15px;">Honorary Professorship</h3>
+                        <span style="display: inline-block; padding: 6px 20px; background: #fdf5e6; color: #f0a500; font-weight: 800; font-size: 15px; border-radius: 30px; letter-spacing: 1px; border: 1px solid rgba(240, 165, 0, 0.2);">Prof.</span>
                     </div>
                 </div>
             </div>
+            
+            <style>
+                @media(min-width: 768px) {
+                    .disc-list {
+                        grid-template-columns: 1fr 1fr !important;
+                    }
+                }
+            </style>
         </section>
 
         <section class="section-req" style="background: #fff;">

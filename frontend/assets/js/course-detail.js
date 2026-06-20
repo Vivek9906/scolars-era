@@ -26,7 +26,7 @@
     const enrollBtn = document.getElementById("enroll-btn");
     if (!enrollBtn) return;
 
-    enrollBtn.addEventListener("click", async (e) => {
+    if (enrollBtn) enrollBtn.addEventListener("click", async (e) => {
       e.preventDefault();
       enrollBtn.disabled = true;
       enrollBtn.textContent = "Checking...";

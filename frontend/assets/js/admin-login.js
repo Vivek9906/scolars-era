@@ -4,7 +4,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const toggleBtn = document.querySelector('.toggle-pass');
   if (toggleBtn) {
-    toggleBtn.addEventListener('click', togglePass);
+    if (toggleBtn) toggleBtn.addEventListener('click', togglePass);
   }
 
   function togglePass() {
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const loginForm = document.getElementById('loginForm');
   if (loginForm) {
-    loginForm.addEventListener('submit', async (e) => {
+    if (loginForm) loginForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = document.getElementById('loginBtn');
       const errBox = document.getElementById('errBox');

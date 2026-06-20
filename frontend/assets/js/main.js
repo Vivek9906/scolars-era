@@ -40,70 +40,10 @@ function initMobileMenu() {
   const toggle = document.querySelector(".mobile-menu-toggle");
   const links = document.querySelector(".nav-links");
   if (!toggle || !links) return;
-  
-  // Toggle links active class
-  toggle.addEventListener("click", () => {
+  if (toggle) toggle.addEventListener("click", () => {
     links.classList.toggle("active");
     const icon = toggle.querySelector("i");
-    if (icon) {
-      icon.className = links.classList.contains("active") ? "fas fa-times" : "fas fa-bars";
-    }
-    document.body.classList.toggle("menu-open", links.classList.contains("active"));
-  });
-
-  // Close menu when clicking a nav link
-  const navItems = links.querySelectorAll("a");
-  navItems.forEach(item => {
-    item.addEventListener("click", (e) => {
-      // Check if it's the dropdown toggle link on mobile
-      if (item.classList.contains('nav-link') && item.closest('.has-dropdown') && window.innerWidth < 992) {
-        return; // Don't close mobile menu when clicking the parent menu of a dropdown
-      }
-      links.classList.remove("active");
-      const icon = toggle.querySelector("i");
-      if (icon) icon.className = "fas fa-bars";
-      document.body.classList.remove("menu-open");
-    });
-  });
-
-  // Close menu when clicking outside
-  document.addEventListener("click", (e) => {
-    if (links.classList.contains("active") && !links.contains(e.target) && !toggle.contains(e.target)) {
-      links.classList.remove("active");
-      const icon = toggle.querySelector("i");
-      if (icon) icon.className = "fas fa-bars";
-      document.body.classList.remove("menu-open");
-    }
-  });
-
-  // Dropdown toggle on mobile (click instead of hover)
-  const dropdownToggles = document.querySelectorAll('.has-dropdown > .nav-link');
-  dropdownToggles.forEach(link => {
-    link.addEventListener('click', function(e) {
-      if (window.innerWidth < 992) {
-        e.preventDefault();
-        e.stopPropagation();
-        const parent = this.parentElement;
-        const isOpen = parent.classList.contains('open');
-        
-        // Close other dropdowns
-        document.querySelectorAll('.has-dropdown').forEach(d => {
-          d.classList.remove('open');
-          const dd = d.querySelector('.nav-dropdown');
-          if (dd) dd.style.display = ''; // Reset display style
-        });
-        
-        if (!isOpen) {
-          parent.classList.add('open');
-          const dd = parent.querySelector('.nav-dropdown');
-          if (dd) dd.style.display = 'block';
-        } else {
-          parent.classList.remove('open');
-          const dd = parent.querySelector('.nav-dropdown');
-          if (dd) dd.style.display = 'none';
-        }
-      }
-    });
+    if (icon) icon.className = links.classList.contains("active") ? "fas fa-times" : "fas fa-bars";
   });
 }
 
@@ -153,7 +93,7 @@ function initCounters() {
 /* ── Newsletter form ─────────────────────────────────────────────── */
 function initNewsletter() {
   document.querySelectorAll(".newsletter-form").forEach((form) => {
-    form.addEventListener("submit", (e) => {
+    if (form) form.addEventListener("submit", (e) => {
       e.preventDefault();
       const input = form.querySelector("input[type=email]");
       if (input && input.value) {
@@ -165,37 +105,6 @@ function initNewsletter() {
   });
 }
 
-let headerInitialized = false;
-let footerInitialized = false;
-
-function initHeaderDependencies() {
-  if (headerInitialized) return;
-  const toggle = document.querySelector(".mobile-menu-toggle");
-  const navbar = document.querySelector(".navbar");
-  
-  if (!toggle && !navbar) return;
-  
-  headerInitialized = true;
-  initNavbar();
-  initMobileMenu();
-  initUXEnhancements();
-}
-
-function initFooterDependencies() {
-  if (footerInitialized) return;
-  const footer = document.querySelector(".footer-bottom p");
-  
-  if (!footer) return;
-  
-  footerInitialized = true;
-  initAdminAccess();
-}
-
-function initHeaderFooterDependencies() {
-  initHeaderDependencies();
-  initFooterDependencies();
-}
-
 /* ── Initialise all ──────────────────────────────────────────────── */
 document.addEventListener("DOMContentLoaded", () => {
   // Page load experience (Part 3E)
@@ -205,18 +114,14 @@ document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => loader.remove(), 700);
 
   initWordRotator();
+  initNavbar();
+  initMobileMenu();
   initScrollReveal();
   initSmoothScroll();
   initCounters();
   initNewsletter();
-
-  // Try to initialize header/footer if they are already in the DOM
-  initHeaderFooterDependencies();
-});
-
-// Listen for dynamic components loaded event
-document.addEventListener("componentsLoaded", () => {
-  initHeaderFooterDependencies();
+  initAdminAccess();
+  initUXEnhancements();
 });
 
 /* ── UX Enhancements (Part 3C) ───────────────────────────────────── */
@@ -240,7 +145,7 @@ function initUXEnhancements() {
   backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
   document.body.appendChild(backToTop);
 
-  backToTop.addEventListener("click", () => {
+  if (backToTop) backToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
@@ -305,14 +210,14 @@ function initAdminAccess() {
     // Add event listeners for hover and click
     const closeBtn = toast.querySelector('.btn-close-toast');
     if (closeBtn) {
-      closeBtn.addEventListener('click', function() {
+      if (closeBtn) closeBtn.addEventListener('click', function() {
         toast.remove();
       });
     }
     
     const adminLink = toast.querySelector('.admin-toast-link');
     if (adminLink) {
-      adminLink.addEventListener('mouseover', function() {
+      if (adminLink) adminLink.addEventListener('mouseover', function() {
         this.style.background = 'rgba(255,255,255,.25)';
       });
       adminLink.addEventListener('mouseout', function() {
@@ -347,7 +252,7 @@ function initAdminAccess() {
   if (footer) {
     let clickCount = 0, clickTimer = null;
     footer.style.cursor = "default";
-    footer.addEventListener("click", () => {
+    if (footer) footer.addEventListener("click", () => {
       clickCount++;
       clearTimeout(clickTimer);
       clickTimer = setTimeout(() => { clickCount = 0; }, 600);
@@ -360,4 +265,13 @@ function initAdminAccess() {
 }
 
 
-// Dropdown click handlers are initialized within initMobileMenu once components are loaded.
+document.querySelectorAll('.has-dropdown > .nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        if (window.innerWidth < 992) {
+            e.preventDefault();
+            const dropdown = this.nextElementSibling;
+            dropdown.classList.toggle('show');
+        }
+    });
+});
+

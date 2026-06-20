@@ -74,7 +74,7 @@ async function handleContactSubmit(e) {
   const qual = form.querySelector('[name="qualification"]')?.value || "";
   let subj = form.querySelector('[name="subject"]')?.value.trim() || "";
   if (qual && qual !== "") {
-    subj = qual + (subj ? " - " + subj : "");
+    subj = qual + (subj ? " " + subj : "");
   }
 
   const body = {
@@ -115,6 +115,6 @@ async function handleContactSubmit(e) {
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".contact-form, .apply-form").forEach((form) => {
     initCharCounter(form);
-    form.addEventListener("submit", handleContactSubmit);
+    if (form) form.addEventListener("submit", handleContactSubmit);
   });
 });
