@@ -45,20 +45,23 @@ function processFiles() {
 
     // Create courses.html based on index.html
     if (indexContent) {
-        // Extract header
-        const headerMatch = indexContent.match(/([\s\S]*?)<!-- Courses Header -->/);
-        // Extract footer part - basically from Process section onwards or just before Footer
-        // We'll just take the top part and bottom part of index.html
-        
-        const topPart = indexContent.substring(0, indexContent.indexOf('<!-- Hero Section -->'));
-        
-        // We need the courses section itself
-        const coursesStart = indexContent.indexOf('<!-- Courses Header -->');
-        const processStart = indexContent.indexOf('<!-- Process Section -->'); // or whatever comes after courses
-        
-        // Actually the process section is wrapped weirdly in index.html, let's check view_file output
-        // "    <!-- Courses Grid --> ...  </section>\n    </div>\n\n    </div>\n\n    </section>\n\n    <style>\n    /* ============================\n       Process Section Styles"
-        // Let's use regex to extract everything up to nav, then put courses, then the footer.
+        try {
+            const navEndIndex = indexContent.indexOf('</nav>');
+            const headPart = navEndIndex !== -1 ? indexContent.substring(0, navEndIndex + 6) : '';
+            
+            const footerStartIndex = indexContent.indexOf('<footer');
+            const footerPart = footerStartIndex !== -1 ? indexContent.substring(footerStartIndex) : '</body></html>';
+            
+            const coursesMatch = indexContent.match(/<!-- Courses Header -->[\s\S]*?<!-- Process Section -->/);
+            let coursesBody = coursesMatch ? coursesMatch[0] : '<section class="courses-header"><h2>Our Courses</h2></section>';
+            
+            const finalHtml = `<!DOCTYPE html>\n<html lang="en">\n${headPart}\n<main>\n${coursesBody}\n</main>\n${footerPart}`;
+            
+            fs.writeFileSync(path.join(frontendDir, 'courses.html'), finalHtml);
+            console.log("✅ courses.html successfully generated from index.html");
+        } catch (err) {
+            console.error("❌ Error generating courses.html:", err.message);
+        }
     }
 }
 

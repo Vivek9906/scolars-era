@@ -11,7 +11,11 @@ function escapeHtml(str) {
 
 document.addEventListener("DOMContentLoaded", async () => {
   const grid = document.getElementById("universitiesGrid");
-  if (!grid) return;
+  if (!grid) {
+    const loader = document.getElementById("pageLoader");
+    if (loader) loader.classList.add("fade-out");
+    return;
+  }
   
   grid.innerHTML = '<div style="text-align:center;width:100%;padding:40px;">Loading universities...</div>';
 

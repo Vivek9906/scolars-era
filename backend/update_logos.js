@@ -1,7 +1,14 @@
 const mongoose = require('mongoose');
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
 
 async function run() {
-  await mongoose.connect('mongodb+srv://barkhurdarworks_db_user:scolarfixmerizindagifixkrdo@scolar-fix.nj5stnu.mongodb.net/scolar-fix');
+  const uri = process.env.MONGO_URI || process.env.MONGODB_URI;
+  if (!uri) {
+    console.error("❌ MONGO_URI missing in .env");
+    return;
+  }
+  await mongoose.connect(uri);
   const University = require('./models/University');
 
   // Update Kennedy University
