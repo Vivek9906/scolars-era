@@ -1,187 +1,321 @@
-<!DOCTYPE html><html lang="en"><head>
-    
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bachelor Programmes | Scolars Lift</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/style.css?v=1781470800773">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="canonical" href="https://scolarslift.com/bachelor.html">
-    <title>Business Administration | Scolars Lift</title>
-
-  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
-  <link rel="apple-touch-icon" href="/assets/images/favicon.png">
-  <link rel="shortcut icon" href="/assets/images/favicon.png">
-
-<style>
-/* ── GUARANTEED GLOBAL FIXES ──────────────────────────────────────────────── */
-.nav-item.has-dropdown {
-    position: relative !important;
-}
-.nav-dropdown {
-    position: absolute !important;
-    top: 100% !important;
-    left: 0 !important;
-    background: #ffffff !important;
-    border-radius: 8px !important;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
-    min-width: 220px !important;
-    padding: 10px 0 !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    transform: translateY(10px) !important;
-    transition: all 0.3s ease !important;
-    z-index: 9999 !important;
-    display: block !important;
-    list-style: none !important;
-    margin: 0 !important;
-}
-.nav-item.has-dropdown:hover .nav-dropdown {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateY(0) !important;
-}
-.nav-dropdown li a {
-    display: block !important;
-    padding: 10px 20px !important;
-    color: #333 !important;
-    text-decoration: none !important;
-    font-weight: 500 !important;
-    font-size: 15px !important;
-    border-radius: 6px !important;
-}
-.nav-dropdown li a:hover {
-    background: #f4fdfa !important;
-    color: #0d5c4a !important;
-}
-.nav-dropdown li a .drop-title {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-}
-.ticker-track {
-    animation: tickerScroll 20s linear infinite !important;
-}
-@keyframes tickerScroll {
-    0% { transform: translate3d(0, 0, 0); }
-    100% { transform: translate3d(-100%, 0, 0); }
-}
-.ticker-wrapper:hover .ticker-track {
-    animation-play-state: paused !important;
-}
-</style>
-
-
-<style>
-/* ── SEAMLESS TICKER FIX ──────────────────────────────────────────────── */
-.seamless-track {
-    animation: seamlessScroll 25s linear infinite !important;
-}
-@keyframes seamlessScroll {
-    0% { transform: translate3d(0, 0, 0); }
-    100% { transform: translate3d(-50%, 0, 0); }
-}
-.ticker-wrapper:hover .seamless-track {
-    animation-play-state: paused !important;
-}
-</style>
-
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <style>
+        .detail-section {
+            padding: 60px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .detail-section:nth-child(even) {
+            background-color: #fcfcfc;
+        }
+        .detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media(min-width: 900px) {
+            .detail-container {
+                grid-template-columns: 350px 1fr;
+                gap: 60px;
+            }
+        }
+        .detail-label {
+            font-size: 16px;
+            font-weight: 800;
+            color: #0d5c4a;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .detail-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #444;
+        }
+        .detail-content p {
+            margin-bottom: 16px;
+        }
+        .detail-content ul {
+            padding-left: 20px;
+            margin-bottom: 16px;
+        }
+        .detail-content li {
+            margin-bottom: 10px;
+        }
+        .course-list {
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            border-top: 1px solid #eee;
+        }
+        .course-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 0 !important;
+        }
+        .course-code {
+            font-weight: 700;
+            color: #0d5c4a;
+            width: 120px;
+            flex-shrink: 0;
+        }
+        .course-name {
+            flex: 1;
+        }
+        .course-credits {
+            font-weight: 700;
+            color: #f0a500;
+            width: 80px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+    </style>
 </head>
 <body>
-    
-    <!-- Top Bar -->
-      <!-- Top Bar -->
-    <!-- Top Bar -->
-  <div class="ticker-wrapper" style="background: #0d5c4a; color: #fff; padding: 8px 0; overflow: hidden; width: 100%; position: relative; z-index: 1000; display: flex; height: 35px; box-sizing: border-box;">
-    <div class="ticker-track seamless-track" style="display: flex; white-space: nowrap; width: max-content;">
-        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #f0a500;"></i> 174 Chesterton Road, Cambridge</span>
-        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scolarslift.com</span>
-        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-phone-alt" style="margin-right: 5px; color: #f0a500;"></i> +44 7386814150</span>
-        
-        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #f0a500;"></i> 174 Chesterton Road, Cambridge</span>
-        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scolarslift.com</span>
-        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-phone-alt" style="margin-right: 5px; color: #f0a500;"></i> +44 7386814150</span>
-        
-        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #f0a500;"></i> 174 Chesterton Road, Cambridge</span>
-        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scolarslift.com</span>
-        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-phone-alt" style="margin-right: 5px; color: #f0a500;"></i> +44 7386814150</span>
-        
-        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #f0a500;"></i> 174 Chesterton Road, Cambridge</span>
-        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scolarslift.com</span>
-        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-phone-alt" style="margin-right: 5px; color: #f0a500;"></i> +44 7386814150</span>
-    </div>
-  </div>
-
-  <div id="header-placeholder"></div>
+    <div id="header-placeholder"></div>
 
     <header class="editorial-page-header">
         <div class="editorial-container">
             <div class="editorial-eyebrow"><a href="/programs/bachelor.html">PROGRAMMES · BACHELOR · BUSINESS ADMINISTRATION</a></div>
             <h1 class="editorial-title">Business Administration</h1>
-            <p class="editorial-desc">A grounding in how organisations think, decide, and grow.</p>
+            <p class="editorial-desc">Official Degree Programme</p>
             <div class="editorial-accent"></div>
         </div>
     </header>
 
-    <section class="sp-overview">
-        <div class="sp-overview-container">
-            <div class="sp-overview-left">
-                <div class="sp-label">PROGRAMME OVERVIEW</div>
-                <p>Business administration is not just about understanding finance or marketing in isolation; it is about grasping how all the interconnected parts of an organisation function together to create value. This programme is designed to bridge the gap between academic theory and real-world commercial realities.</p>
-                <p>You will explore the fundamental dynamics of global markets, consumer behaviour, and corporate strategy. Beyond textbook learning, the curriculum is heavily focused on critical thinking, ethical decision-making, and the leadership skills required to manage complex teams.</p>
-                <p>Whether your ambition is to launch a disruptive startup, drive innovation within an established multinational, or transition into management consulting, this degree provides the robust intellectual framework and practical toolkit necessary to navigate an ever-evolving corporate landscape.</p>
-            </div>
-            <div class="sp-overview-right">
-                <div class="sp-info-box">
-                    <div class="sp-info-row">
-                        <span class="sp-info-key">Duration</span>
-                        <span class="sp-info-val">3 years</span>
-                    </div>
-                    <div class="sp-info-row">
-                        <span class="sp-info-key">Study Mode</span>
-                        <span class="sp-info-val">Full-time, Part-time</span>
-                    </div>
-                    <div class="sp-info-row">
-                        <span class="sp-info-key">Level</span>
-                        <span class="sp-info-val">Undergraduate</span>
-                    </div>
-                    <div class="sp-info-row">
-                        <span class="sp-info-key">Intake</span>
-                        <span class="sp-info-val">September, January</span>
-                    </div>
-                    <div class="sp-info-row">
-                        <span class="sp-info-key">Language</span>
-                        <span class="sp-info-val">English</span>
-                    </div>
-                </div>
-            </div>
+    <section class="detail-section">
+        <div class="detail-container">
+            <div class="detail-label">OBJECTIVES</div>
+            <div class="detail-content"><p>To integrate Christian faith with business principles, enabling students to grow into ethical and moral business leaders.</p><p>To cultivate excellent leadership skills in the field of business.</p></div>
         </div>
     </section>
 
-    <section class="sp-study">
-        <div class="sp-study-container">
-            <div class="sp-label">CORE AREAS OF STUDY</div>
-            <h2>What you will study</h2>
-            <div class="sp-study-grid">
-                <div class="sp-study-item">Business Strategy</div><div class="sp-study-item">Financial Accounting</div><div class="sp-study-item">Marketing Management</div><div class="sp-study-item">Organisational Behaviour</div><div class="sp-study-item">Business Law</div><div class="sp-study-item">Operations Management</div><div class="sp-study-item">Entrepreneurship</div><div class="sp-study-item">Business Analytics</div>
-            </div>
+    <section class="detail-section">
+        <div class="detail-container">
+            <div class="detail-label">ACADEMIC CURRICULUM</div>
+            <div class="detail-content"><ul class="course-list">
+            <li class="course-item">
+                <span class="course-code">BDBA 101</span>
+                <span class="course-name">The Foundations</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 102</span>
+                <span class="course-name">Effective Communication I</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 103</span>
+                <span class="course-name">Effective Communication II</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 104</span>
+                <span class="course-name">Christian Worldview</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 105</span>
+                <span class="course-name">Critical Thinking</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 106</span>
+                <span class="course-name">Global Awareness, Perspective, and Ethics</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 107</span>
+                <span class="course-name">Introduction to Computer Technology</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 108</span>
+                <span class="course-name">Fundamentals of Accounting II</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 109</span>
+                <span class="course-name">Fundamentals of Accounting II</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 110</span>
+                <span class="course-name">Introduction to Marketing</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 111</span>
+                <span class="course-name">Ethical and Legal Issues in Business</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 112</span>
+                <span class="course-name">Managing Business Communications and Change</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 113</span>
+                <span class="course-name">Servant Leadership</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 114</span>
+                <span class="course-name">Business Statistics I</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 115</span>
+                <span class="course-name">Business Statistics II</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 116</span>
+                <span class="course-name">Global Business</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 117</span>
+                <span class="course-name">Organizational Behavior and Management I</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 118</span>
+                <span class="course-name">Organizational Behavior and Management II</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 119</span>
+                <span class="course-name">Essentials of Economics</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 120</span>
+                <span class="course-name">Fundamentals of Business Finance</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 121</span>
+                <span class="course-name">Production/Operations Management</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 122</span>
+                <span class="course-name">Strategic Management I</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 123</span>
+                <span class="course-name">Strategic Management II</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 124</span>
+                <span class="course-name">Stewardship</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 125</span>
+                <span class="course-name">Reading the Gospels and Acts</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 126</span>
+                <span class="course-name">Reading Paul’s Letters</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 127</span>
+                <span class="course-name">Reading Hebrews to Revelation</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 128</span>
+                <span class="course-name">Reading the Torah</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 129</span>
+                <span class="course-name">Reading the Historical Books</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 130</span>
+                <span class="course-name">Reading the Psalms and Wisdom Literature</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 131</span>
+                <span class="course-name">Reading the Prophets</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 132</span>
+                <span class="course-name">The Christian Life</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 133</span>
+                <span class="course-name">Introduction to Christian Theology</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 134</span>
+                <span class="course-name">The God of the Gospel</span>
+                <span class="course-credits">4</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 135</span>
+                <span class="course-name">Manuscript</span>
+                <span class="course-credits">8</span>
+            </li>
+            <li class="course-item">
+                <span class="course-code">BDBA 136</span>
+                <span class="course-name">PRACTICUM</span>
+                <span class="course-credits">8</span>
+            </li></ul></div>
         </div>
     </section>
 
-    <section class="sp-req">
-        <div class="sp-req-container">
-            <div class="sp-req-col">
-                <h3>Academic Requirements</h3>
-                <p>Applicants must demonstrate a strong academic record consistent with the rigorous demands of this programme. We review previous transcripts, foundational knowledge, and your overall academic trajectory to ensure a successful fit.</p>
-                <p>Relevant professional experience or prerequisite coursework may be required depending on your specific academic background and the exact specialization you intend to pursue.</p>
-            </div>
-            <div class="sp-req-col">
-                <h3>Language &amp; Documentation</h3>
-                <p>Instruction and coursework are conducted entirely in English. Non-native speakers are required to provide recognized proof of English proficiency (e.g., IELTS or equivalent) to ensure they can engage fully with the curriculum.</p>
-                <p>Standard documentation including a statement of purpose, academic references, and a detailed CV will be requested during the application process.</p>
-            </div>
+    <section class="detail-section">
+        <div class="detail-container">
+            <div class="detail-label">LEARNING OUTCOMES</div>
+            <div class="detail-content"><ul><li>Demonstrate a comprehensive understanding of Christian values and their application in the business context.</li><li>Analyze and evaluate ethical dilemmas in business and propose solutions based on moral principles.</li><li>Apply critical thinking and problem-solving skills to address complex business challenges.</li><li>Develop effective communication and interpersonal skills for leadership and teamwork.</li><li>Apply business administration concepts and tools to develop, manage, and sustain ethical and profitable organizations.</li><li>Demonstrate an awareness of global business trends and their impact on decision-making.</li><li>Exhibit proficiency in financial management and ethical financial decision-making.</li><li>Engage in lifelong learning and continuous personal and professional development within the context of Christian faith and values.</li></ul></div>
+        </div>
+    </section>
+
+    <section class="detail-section">
+        <div class="detail-container">
+            <div class="detail-label">ENTRANCE REQUIREMENTS</div>
+            <div class="detail-content"><p>Applicants for admission must be in possession of, or have candidacy for, a high school diploma or GED, and must submit official transcripts and/or copy of diploma for their high school degree, as well as any college level work they have completed, if applicable.</p></div>
+        </div>
+    </section>
+
+    <section class="detail-section">
+        <div class="detail-container">
+            <div class="detail-label">REQUIRED CREDITS</div>
+            <div class="detail-content"><p>143 credits or more</p></div>
+        </div>
+    </section>
+
+    <section class="detail-section">
+        <div class="detail-container">
+            <div class="detail-label">SPECIAL CREDIT RECOGNITION POLICY</div>
+            <div class="detail-content"><p>Field experiences, such as participation in religious activities, work experience, and field activities, may qualify for special credit recognition. Additionally, prior learning may be evaluated for credit beyond standard coursework.</p></div>
         </div>
     </section>
 
@@ -216,13 +350,8 @@
 
     <div id="footer-placeholder"></div>
     
-    <script src="/assets/js/api.js?v=2"></script>
+    <script src="/assets/js/api.js"></script>
     <script src="/assets/js/main.js"></script>
-    <script src="/assets/js/courses.js"></script>
-    <script src="/assets/js/testimonials.js" defer=""></script>
-
-    <script src="/assets/js/contact.js?v=2"></script>
-
-
-
-<script src="/assets/js/components.js"></script></body></html>
+    <script src="/assets/js/components.js"></script>
+</body>
+</html>

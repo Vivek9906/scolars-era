@@ -40,7 +40,7 @@ function initMobileMenu() {
   const toggle = document.querySelector(".mobile-menu-toggle");
   const links = document.querySelector(".nav-links");
   if (!toggle || !links) return;
-  toggle.addEventListener("click", () => {
+  if (toggle) toggle.addEventListener("click", () => {
     links.classList.toggle("active");
     const icon = toggle.querySelector("i");
     if (icon) icon.className = links.classList.contains("active") ? "fas fa-times" : "fas fa-bars";
@@ -93,7 +93,7 @@ function initCounters() {
 /* ── Newsletter form ─────────────────────────────────────────────── */
 function initNewsletter() {
   document.querySelectorAll(".newsletter-form").forEach((form) => {
-    form.addEventListener("submit", (e) => {
+    if (form) form.addEventListener("submit", (e) => {
       e.preventDefault();
       const input = form.querySelector("input[type=email]");
       if (input && input.value) {
@@ -145,7 +145,7 @@ function initUXEnhancements() {
   backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
   document.body.appendChild(backToTop);
 
-  backToTop.addEventListener("click", () => {
+  if (backToTop) backToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
@@ -210,14 +210,14 @@ function initAdminAccess() {
     // Add event listeners for hover and click
     const closeBtn = toast.querySelector('.btn-close-toast');
     if (closeBtn) {
-      closeBtn.addEventListener('click', function() {
+      if (closeBtn) closeBtn.addEventListener('click', function() {
         toast.remove();
       });
     }
     
     const adminLink = toast.querySelector('.admin-toast-link');
     if (adminLink) {
-      adminLink.addEventListener('mouseover', function() {
+      if (adminLink) adminLink.addEventListener('mouseover', function() {
         this.style.background = 'rgba(255,255,255,.25)';
       });
       adminLink.addEventListener('mouseout', function() {
@@ -252,7 +252,7 @@ function initAdminAccess() {
   if (footer) {
     let clickCount = 0, clickTimer = null;
     footer.style.cursor = "default";
-    footer.addEventListener("click", () => {
+    if (footer) footer.addEventListener("click", () => {
       clickCount++;
       clearTimeout(clickTimer);
       clickTimer = setTimeout(() => { clickCount = 0; }, 600);
@@ -270,7 +270,8 @@ document.querySelectorAll('.has-dropdown > .nav-link').forEach(link => {
         if (window.innerWidth < 992) {
             e.preventDefault();
             const dropdown = this.nextElementSibling;
-            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+            dropdown.classList.toggle('show');
         }
     });
 });
+

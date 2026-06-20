@@ -45,7 +45,7 @@ async function api(method, url, body = null, isForm = false) {
   try {
     res = await fetch(url, opts);
   } catch {
-    throw new Error("Network error — server may be down");
+    throw new Error("Network error - server may be down");
   }
   if (res.status === 401) {
     Auth.clear();

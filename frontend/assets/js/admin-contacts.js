@@ -64,7 +64,7 @@ function renderRows(contacts) {
   if (!contacts.length) {
     emptyRow("contacts-tbody", 7,
       curTab === "pending"
-        ? "No pending contacts — inbox is clear 🎉"
+        ? "No pending contacts - inbox is clear 🎉"
         : `No ${curTab} contacts.`);
     return;
   }

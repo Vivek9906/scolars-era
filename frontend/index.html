@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/style.css?v=1781470800761">
+    <link rel="stylesheet" href="/assets/css/style.css?v=20260621_0152">
     <link rel="stylesheet" href="university.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -214,7 +214,7 @@
 
         .home-hero h1 {
             max-width: 760px;
-            font-size: 64px;
+            font-size: 72px;
             line-height: 1.05;
             font-weight: 800;
             margin-bottom: 22px;
@@ -284,8 +284,9 @@
 
         .service-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 18px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 0;
         }
 
         .service-card {
@@ -1144,8 +1145,8 @@
             z-index: 999;
         }
 
-        .float-right {
-            right: 28px;
+        .float-left {
+            left: 28px;
         }
 
         .floating-btn {
@@ -1162,6 +1163,8 @@
 
         .whatsapp-btn {
             background: linear-gradient(135deg, #25D366, #128C7E);
+            left: 28px !important;
+            right: auto !important;
         }
 
         .footer-brand-copy {
@@ -1194,7 +1197,7 @@
             }
 
             .home-hero h1 {
-                font-size: 42px;
+                font-size: 38px;
             }
 
             .hero-lead {
@@ -1268,7 +1271,7 @@
 
         @media (max-width: 1200px) {
             .home-hero h1 {
-                font-size: clamp(44px, 6vw, 58px);
+                font-size: clamp(48px, 7vw, 72px);
             }
 
             .service-grid,
@@ -1391,12 +1394,15 @@
             }
 
             .home-hero {
-                min-height: 600px;
-                padding: 92px 0 70px;
+                min-height: 850px;
+                padding: 10px 0 70px;
+            }
+            .hero-copy {
+                padding-top: 60px;
             }
 
             .home-hero h1 {
-                font-size: 36px;
+                font-size: 32px;
                 line-height: 1.12;
             }
 
@@ -1406,10 +1412,15 @@
             }
 
             .hero-actions,
-            .hero-trust-row,
             .about-actions {
                 flex-direction: column;
                 align-items: stretch;
+            }
+            .hero-trust-row {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
             }
 
             .hero-actions .btn,
@@ -1424,7 +1435,6 @@
                 padding-top: 34px;
             }
 
-            .service-grid,
             .process-grid.clean-grid,
             .why-cards,
             .why-image-grid,
@@ -1432,6 +1442,11 @@
             .country-grid,
             .form-row {
                 grid-template-columns: 1fr !important;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr 1fr !important;
+                gap: 15px;
             }
 
             .service-card,
@@ -1515,8 +1530,8 @@
                 bottom: 18px;
             }
 
-            .float-right {
-                right: 18px;
+            .float-left {
+                left: 18px;
             }
 
             .floating-btn {
@@ -1528,7 +1543,7 @@
 
         @media (max-width: 380px) {
             .home-hero h1 {
-                font-size: 31px;
+                font-size: 28px;
             }
 
             .brand-logo-text {
@@ -1550,26 +1565,7 @@
         }
     
         
-.universities-list-grid {
-    display: flex !important;
-    justify-content: center !important;
-    flex-wrap: wrap !important;
-    gap: 30px !important;
-    max-width: 1000px !important;
-    margin: 0 auto !important;
-    width: 100% !important;
-}
-.university-card {
-    width: calc(50% - 15px) !important;
-    max-width: none !important;
-    box-sizing: border-box !important;
-    flex: 0 0 auto !important;
-}
-@media (max-width: 768px) {
-    .university-card {
-        width: 100% !important;
-    }
-}
+
 
     
     .ticker-track {
@@ -1627,6 +1623,53 @@
         justify-content: space-between !important;
         align-items: center !important;
     }
+    
+        /* --- TASK 3 LAYOUT FIXES --- */
+        @media (max-width: 768px) {
+            .service-grid, .programmes-grid {
+                display: flex !important;
+                flex-wrap: nowrap !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory;
+                padding-bottom: 15px !important;
+                -webkit-overflow-scrolling: touch;
+                gap: 15px !important;
+            }
+            .service-card, .programme-card {
+                min-width: 260px !important;
+                max-width: 300px !important;
+                scroll-snap-align: center;
+                flex-shrink: 0;
+            }
+        }
+        .programme-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .programme-card:hover { transform: translateY(-4px); }
+        .map-section {
+            padding-top: 40px;
+            padding-bottom: 60px;
+        }
+        .map-section img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 12px;
+        }
+        @media (max-width: 768px) {
+            .map-section .split-layout {
+                flex-direction: column;
+                gap: 32px;
+            }
+        }
     </style>
 
     <script type="application/ld+json">
@@ -1731,7 +1774,7 @@
 <style>
 /* ── SEAMLESS TICKER FIX ──────────────────────────────────────────────── */
 .seamless-track {
-    animation: seamlessScroll 25s linear infinite !important;
+    animation: seamlessScroll 12s linear infinite !important;
 }
 @keyframes seamlessScroll {
     0% { transform: translate3d(0, 0, 0); }
@@ -1752,20 +1795,24 @@
   <!-- Top Bar -->
     <!-- Top Bar -->
     <!-- Top Bar -->
-  <div class="ticker-wrapper" style="background: #0d5c4a; color: #fff; padding: 8px 0; overflow: hidden; width: 100%; position: relative; z-index: 1000; display: flex; height: 35px; box-sizing: border-box;">
-    <div class="ticker-track seamless-track" style="display: flex; white-space: nowrap; width: max-content;">
+  <div class="ticker-wrapper" style="background: #0d5c4a; color: #fff; padding: 8px 0; overflow: hidden; width: 100%; position: relative; z-index: 1000; height: 35px; box-sizing: border-box; display: block;">
+    <div class="ticker-track seamless-track" style="display: flex; white-space: nowrap; width: max-content; flex-shrink: 0;">
+        <!-- Set 1 -->
         <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #f0a500;"></i> 174 Chesterton Road, Cambridge</span>
         <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scolarslift.com</span>
         <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-phone-alt" style="margin-right: 5px; color: #f0a500;"></i> +44 7386814150</span>
         
+        <!-- Set 2 -->
         <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #f0a500;"></i> 174 Chesterton Road, Cambridge</span>
         <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scolarslift.com</span>
         <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-phone-alt" style="margin-right: 5px; color: #f0a500;"></i> +44 7386814150</span>
         
+        <!-- Set 3 -->
         <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #f0a500;"></i> 174 Chesterton Road, Cambridge</span>
         <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scolarslift.com</span>
         <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-phone-alt" style="margin-right: 5px; color: #f0a500;"></i> +44 7386814150</span>
         
+        <!-- Set 4 -->
         <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #f0a500;"></i> 174 Chesterton Road, Cambridge</span>
         <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scolarslift.com</span>
         <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-phone-alt" style="margin-right: 5px; color: #f0a500;"></i> +44 7386814150</span>
@@ -1775,7 +1822,7 @@
 
   <div id="header-placeholder"></div>
 
-    <main>
+        <main>
         <header class="home-hero" id="mainHeroCarousel">
             
             <div class="hero-slide active">
@@ -2187,14 +2234,15 @@
                 margin-bottom: 28px;
             }
             .mv-editorial-quote {
-                display: flex;
-                align-items: flex-start;
-                gap: 10px;
-                padding: 16px 20px;
-                background: rgba(255,255,255,0.05);
-                border-radius: 10px;
-                border-left: 3px solid rgba(255,193,7,0.4);
-            }
+            background: rgba(255,255,255,0.08);
+            border-left: 4px solid #f5a623;
+            border-radius: 8px;
+            padding: 24px;
+            font-style: italic;
+            color: rgba(255,255,255,0.9);
+            margin-top: 20px;
+            position: relative;
+        }
             .mv-editorial-quote i {
                 color: rgba(255,193,7,0.5);
                 font-size: 16px;
@@ -2265,77 +2313,130 @@
             }
         </style>
 
-        <!-- Courses section removed from homepage as requested -->
-
         <section class="clean-partners">
             <div class="container">
                 <h2 class="section-title centered">Learning built for professional outcomes</h2>
                 <p class="section-text centered">Our programs and guidance help learners build stronger academic and
                     career profiles for competitive opportunities.</p>
             </div>
-            <div class="logo-carousel-viewport" aria-label="Hiring partner logo carousel">
-                    <div class="partner-logos">
-                        <div class="partner-logo-card"><img src="https://www.google.com/s2/favicons?domain=google.com&sz=128" alt="Google" loading="eager" ></div>
-                        <div class="partner-logo-card"><img src="https://www.google.com/s2/favicons?domain=microsoft.com&sz=128" alt="Microsoft" loading="eager" ></div>
-                        <div class="partner-logo-card"><img src="https://www.google.com/s2/favicons?domain=amazon.com&sz=128" alt="Amazon" loading="eager" ></div>
-                        <div class="partner-logo-card"><img src="https://www.google.com/s2/favicons?domain=ibm.com&sz=128" alt="IBM" loading="eager" ></div>
-                        <div class="partner-logo-card"><img src="https://www.google.com/s2/favicons?domain=meta.com&sz=128" alt="Meta" loading="eager" ></div>
-                        <div class="partner-logo-card"><img src="https://www.google.com/s2/favicons?domain=netflix.com&sz=128" alt="Netflix" loading="eager" ></div>
-                        <div class="partner-logo-card"><img src="https://www.google.com/s2/favicons?domain=adobe.com&sz=128" alt="Adobe" loading="eager" ></div>
-                        <div class="partner-logo-card"><img src="https://www.google.com/s2/favicons?domain=salesforce.com&sz=128" alt="Salesforce" loading="eager" ></div>
-                        <div class="partner-logo-card"><img src="https://www.google.com/s2/favicons?domain=oracle.com&sz=128" alt="Oracle" loading="eager" ></div>
-                        <div class="partner-logo-card"><img src="https://www.google.com/s2/favicons?domain=samsung.com&sz=128" alt="Samsung" loading="eager" ></div>
-                        <div class="partner-logo-card"><img src="https://www.google.com/s2/favicons?domain=deloitte.com&sz=128" alt="Deloitte" loading="eager" ></div>
-                        <div class="partner-logo-card"><img src="https://www.google.com/s2/favicons?domain=accenture.com&sz=128" alt="Accenture" loading="eager" ></div>
+            <div class="carousel-wrapper" aria-label="Hiring partner logo carousel">
+                    <div class="carousel-track">
+                        <!-- Original Set -->
+                        <div class="logo-item"><img src="https://www.google.com/s2/favicons?domain=google.com&sz=128" alt="Google" loading="eager" ></div>
+                        <div class="logo-item"><img src="https://www.google.com/s2/favicons?domain=microsoft.com&sz=128" alt="Microsoft" loading="eager" ></div>
+                        <div class="logo-item"><img src="https://www.google.com/s2/favicons?domain=amazon.com&sz=128" alt="Amazon" loading="eager" ></div>
+                        <div class="logo-item"><img src="https://www.google.com/s2/favicons?domain=ibm.com&sz=128" alt="IBM" loading="eager" ></div>
+                        <div class="logo-item"><img src="https://www.google.com/s2/favicons?domain=meta.com&sz=128" alt="Meta" loading="eager" ></div>
+                        <div class="logo-item"><img src="https://www.google.com/s2/favicons?domain=netflix.com&sz=128" alt="Netflix" loading="eager" ></div>
+                        <div class="logo-item"><img src="https://www.google.com/s2/favicons?domain=adobe.com&sz=128" alt="Adobe" loading="eager" ></div>
+                        <div class="logo-item"><img src="https://www.google.com/s2/favicons?domain=salesforce.com&sz=128" alt="Salesforce" loading="eager" ></div>
+                        <div class="logo-item"><img src="https://www.google.com/s2/favicons?domain=oracle.com&sz=128" alt="Oracle" loading="eager" ></div>
+                        <div class="logo-item"><img src="https://www.google.com/s2/favicons?domain=samsung.com&sz=128" alt="Samsung" loading="eager" ></div>
+                        <div class="logo-item"><img src="https://www.google.com/s2/favicons?domain=deloitte.com&sz=128" alt="Deloitte" loading="eager" ></div>
+                        <div class="logo-item"><img src="https://www.google.com/s2/favicons?domain=accenture.com&sz=128" alt="Accenture" loading="eager" ></div>
                         
-                        <div class="partner-logo-card" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=google.com&sz=128" alt="Google" loading="eager" ></div>
-                        <div class="partner-logo-card" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=microsoft.com&sz=128" alt="Microsoft" loading="eager" ></div>
-                        <div class="partner-logo-card" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=amazon.com&sz=128" alt="Amazon" loading="eager" ></div>
-                        <div class="partner-logo-card" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=ibm.com&sz=128" alt="IBM" loading="eager" ></div>
-                        <div class="partner-logo-card" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=meta.com&sz=128" alt="Meta" loading="eager" ></div>
-                        <div class="partner-logo-card" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=netflix.com&sz=128" alt="Netflix" loading="eager" ></div>
-                        <div class="partner-logo-card" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=adobe.com&sz=128" alt="Adobe" loading="eager" ></div>
-                        <div class="partner-logo-card" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=salesforce.com&sz=128" alt="Salesforce" loading="eager" ></div>
-                        <div class="partner-logo-card" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=oracle.com&sz=128" alt="Oracle" loading="eager" ></div>
-                        <div class="partner-logo-card" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=samsung.com&sz=128" alt="Samsung" loading="eager" ></div>
-                        <div class="partner-logo-card" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=deloitte.com&sz=128" alt="Deloitte" loading="eager" ></div>
-                        <div class="partner-logo-card" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=accenture.com&sz=128" alt="Accenture" loading="eager" ></div>
+                        <!-- Duplicate Set 1 -->
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=google.com&sz=128" alt="Google" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=microsoft.com&sz=128" alt="Microsoft" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=amazon.com&sz=128" alt="Amazon" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=ibm.com&sz=128" alt="IBM" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=meta.com&sz=128" alt="Meta" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=netflix.com&sz=128" alt="Netflix" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=adobe.com&sz=128" alt="Adobe" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=salesforce.com&sz=128" alt="Salesforce" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=oracle.com&sz=128" alt="Oracle" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=samsung.com&sz=128" alt="Samsung" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=deloitte.com&sz=128" alt="Deloitte" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=accenture.com&sz=128" alt="Accenture" loading="eager" ></div>
+                        
+                        <!-- Duplicate Set 2 -->
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=google.com&sz=128" alt="Google" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=microsoft.com&sz=128" alt="Microsoft" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=amazon.com&sz=128" alt="Amazon" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=ibm.com&sz=128" alt="IBM" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=meta.com&sz=128" alt="Meta" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=netflix.com&sz=128" alt="Netflix" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=adobe.com&sz=128" alt="Adobe" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=salesforce.com&sz=128" alt="Salesforce" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=oracle.com&sz=128" alt="Oracle" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=samsung.com&sz=128" alt="Samsung" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=deloitte.com&sz=128" alt="Deloitte" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=accenture.com&sz=128" alt="Accenture" loading="eager" ></div>
+                        
+                        <!-- Duplicate Set 3 -->
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=google.com&sz=128" alt="Google" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=microsoft.com&sz=128" alt="Microsoft" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=amazon.com&sz=128" alt="Amazon" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=ibm.com&sz=128" alt="IBM" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=meta.com&sz=128" alt="Meta" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=netflix.com&sz=128" alt="Netflix" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=adobe.com&sz=128" alt="Adobe" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=salesforce.com&sz=128" alt="Salesforce" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=oracle.com&sz=128" alt="Oracle" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=samsung.com&sz=128" alt="Samsung" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=deloitte.com&sz=128" alt="Deloitte" loading="eager" ></div>
+                        <div class="logo-item" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=accenture.com&sz=128" alt="Accenture" loading="eager" ></div>
                     </div>
                 </div>
         </section>
 
-        <section class="partners-section clean-partners">
+        <section class="partners-section clean-partners courses-section" id="courses">
             <div class="container">
-                <div class="partners-header align-items center">
-                    <!-- <h5 class="section-subtitle centered"><i class="fas fa-globe"></i> University Network</h5> -->
-                    <h2 class="section-title centered">Explore our university partners</h2>
-                    <p class="section-text centered">Browse partner institutions and choose the route that fits your
-                        academic goals, eligibility, and preferred study mode.</p>
+                <div class="partners-header align-items center" style="margin-bottom: 40px;">
+                    <h2 class="section-title centered">Explore our programmes</h2>
+                    <p class="section-text centered">Choose from a variety of academic pathways designed for students, researchers, and working professionals.</p>
                 </div>
             </div>
-            <div id="universities-grid" class="universities-list-grid">
-        <div class="university-card">
-            <img src="/assets/images/kennedy_logo.jpeg" class="uni-logo" onerror="this.outerHTML='<div class=\'uni-logo-text\'>Kennedy University</div>'" loading="eager">
-            <div class="uni-meta" style="margin-top: 15px; font-size: 13px; color: #666;">
-                <span class="uni-type">Private International University</span>
+            
+            <div class="container">
+                <div class="programmes-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto;">
+                    
+                    <!-- Card 1 -->
+                    <a href="/programs/bachelor.html" style="text-decoration: none; color: inherit; display: block;">
+                        <div class="programme-card" style="height: 100%;">
+                            <div style="margin-bottom: 20px; display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: rgba(13, 92, 74, 0.1); border-radius: 50%; color: #0d5c4a;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap"><path d="M21.42 10.922a2 2 0 0 0-.019-3.838L12.83 4.34a2 2 0 0 0-1.66 0L2.6 7.08a2 2 0 0 0 0 3.832l8.57 2.751a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+                            </div>
+                            <h3 style="margin-bottom: 15px; font-size: 22px; color: #0d5c4a;">Bachelor's Programmes</h3>
+                            <p style="font-size: 14px; line-height: 1.6; color: #555; margin-bottom: 0;">Foundational undergraduate degrees across various disciplines.</p>
+                        </div>
+                    </a>
+
+                    <!-- Card 2 -->
+                    <a href="/programs/master.html" style="text-decoration: none; color: inherit; display: block;">
+                        <div class="programme-card" style="height: 100%;">
+                            <div style="margin-bottom: 20px; display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: rgba(13, 92, 74, 0.1); border-radius: 50%; color: #0d5c4a;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                            </div>
+                            <h3 style="margin-bottom: 15px; font-size: 22px; color: #0d5c4a;">Master's Programmes</h3>
+                            <p style="font-size: 14px; line-height: 1.6; color: #555; margin-bottom: 0;">Advanced postgraduate studies to accelerate your career.</p>
+                        </div>
+                    </a>
+
+                    <!-- Card 3 -->
+                    <a href="/programs/doctoral.html" style="text-decoration: none; color: inherit; display: block;">
+                        <div class="programme-card" style="height: 100%;">
+                            <div style="margin-bottom: 20px; display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: rgba(13, 92, 74, 0.1); border-radius: 50%; color: #0d5c4a;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-microscope"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></svg>
+                            </div>
+                            <h3 style="margin-bottom: 15px; font-size: 22px; color: #0d5c4a;">PhD / Doctoral</h3>
+                            <p style="font-size: 14px; line-height: 1.6; color: #555; margin-bottom: 0;">Rigorous research-led doctoral programmes for academic excellence.</p>
+                        </div>
+                    </a>
+
+                    <!-- Card 4 -->
+                    <a href="/programs/honorary-awards.html" style="text-decoration: none; color: inherit; display: block;">
+                        <div class="programme-card" style="height: 100%;">
+                            <div style="margin-bottom: 20px; display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: rgba(13, 92, 74, 0.1); border-radius: 50%; color: #0d5c4a;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-medal"><path d="M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15"/><path d="M11 12 5.12 2.2"/><path d="M13 12l5.88-9.8"/><path d="M8 7h8"/><circle cx="12" cy="17" r="5"/><path d="M12 18v-2h-.5"/></svg>
+                            </div>
+                            <h3 style="margin-bottom: 15px; font-size: 22px; color: #0d5c4a;">Honorary Awards</h3>
+                            <p style="font-size: 14px; line-height: 1.6; color: #555; margin-bottom: 0;">Professional recognition for outstanding achievements.</p>
+                        </div>
+                    </a>
+
+                </div>
             </div>
-            <h3>Kennedy University</h3>
-            <p><i class="fas fa-map-marker-alt"></i> Europe</p>
-            <p style="font-size: 14px; line-height: 1.6; color: #555; margin-bottom: 20px;">Kennedy University is an internationally recognised institution offering accredited programmes across business, education, health, law and social sciences. Its diverse global community and research-led environment attract students from over 60 countries worldwide.</p>
-            <a href="/university-detail.html?slug=kennedy-university" class="btn-view-details" style="position: relative; z-index: 100; pointer-events: auto;">View Details &rarr;</a>
-        </div>
-    
-        <div class="university-card">
-            <img src="/assets/images/kennedy_baptist_logo.png" class="uni-logo" onerror="this.outerHTML='<div class=\'uni-logo-text\'>Kennedy University of Baptist</div>'" loading="eager">
-            <div class="uni-meta" style="margin-top: 15px; font-size: 13px; color: #666;">
-                <span class="uni-type">Accredited Private University</span>
-            </div>
-            <h3>Kennedy University of Baptist</h3>
-            <p><i class="fas fa-map-marker-alt"></i> International</p>
-            <p style="font-size: 14px; line-height: 1.6; color: #555; margin-bottom: 20px;">Kennedy University of Baptist delivers academically rigorous programmes with a foundation in ethical leadership, research excellence and professional development. Students benefit from dedicated faculty mentorship and a strong academic community.</p>
-            <a href="/university-detail.html?slug=kennedy-university-of-baptist" class="btn-view-details" style="position: relative; z-index: 100; pointer-events: auto;">View Details &rarr;</a>
-        </div>
-    </div>
         </section>
 
         <section class="global-band">
@@ -2517,8 +2618,8 @@
         </section>
     </main>
 
-    <div class="floating-buttons float-right">
-        <a href="https://wa.me/91+44 7386814150" class="floating-btn whatsapp-btn" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+    <div class="floating-buttons float-left">
+        <a href="https://wa.me/447386814150" class="floating-btn whatsapp-btn" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
@@ -2532,50 +2633,53 @@
     
     <script src="/assets/js/contact.js?v=2"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let currentSlide = 0;
-            const slides = document.querySelectorAll(".hero-slide");
-            const indicators = document.querySelectorAll(".hero-indicator");
-            const prevBtn = document.getElementById("heroPrevBtn");
-            const nextBtn = document.getElementById("heroNextBtn");
-            let slideInterval;
-
-            function updateCarousel() {
-                slides.forEach((s, i) => {
-                    s.classList.toggle("active", i === currentSlide);
-                });
-                indicators.forEach((ind, i) => {
-                    ind.classList.toggle("active", i === currentSlide);
-                });
-            }
-
-            function moveHeroSlide(step) {
-                currentSlide = (currentSlide + step + slides.length) % slides.length;
-                updateCarousel();
-                resetInterval();
-            }
-
-            function setHeroSlide(index) {
-                currentSlide = index;
-                updateCarousel();
-                resetInterval();
-            }
-
-            function resetInterval() {
-                clearInterval(slideInterval);
-                slideInterval = setInterval(() => {
-                    moveHeroSlide(1);
-                }, 6000);
-            }
-
-            if (prevBtn) prevBtn.addEventListener("click", () => moveHeroSlide(-1));
-            if (nextBtn) nextBtn.addEventListener("click", () => moveHeroSlide(1));
-            indicators.forEach((ind, i) => {
-                ind.addEventListener("click", () => setHeroSlide(i));
-            });
-
-            resetInterval();
+    (function() {
+      const track = document.getElementById('mainHeroCarousel');
+      if (!track) return;
+      
+      const slides = Array.from(track.children).filter(
+        el => el.classList.contains('hero-slide')
+      );
+      
+      if (slides.length === 0) return;
+      
+      let current = 0;
+      const total = slides.length;
+      
+      function goTo(index) {
+        slides.forEach((slide) => {
+          slide.classList.remove('active');
         });
+        slides[index].classList.add('active');
+      }
+      
+      function next() {
+        current = (current + 1) % total;
+        goTo(current);
+      }
+      
+      goTo(0);
+      let interval = setInterval(next, 6000);
+      
+      const prevBtn = document.getElementById('heroPrevBtn');
+      const nextBtn = document.getElementById('heroNextBtn');
+      
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function() {
+          clearInterval(interval);
+          current = (current - 1 + total) % total;
+          goTo(current);
+          interval = setInterval(next, 6000);
+        });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function() {
+          clearInterval(interval);
+          next();
+          interval = setInterval(next, 6000);
+        });
+      }
+    })();
     </script>
 
 

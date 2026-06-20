@@ -40,8 +40,17 @@ document.addEventListener("DOMContentLoaded", async () => {
       const logo = u.logoUrl ? `<img src="${escapeHtml(u.logoUrl)}" class="uni-logo" alt="${escapeHtml(u.name)}">` : `<div class="uni-logo-text">${escapeHtml(u.name)}</div>`;
   
       
+      let targetUrl = 'https://www.kennedy.edu.eu/';
+      if (u.name && u.name.includes('Baptist')) {
+        targetUrl = 'https://www.kennedy.edu.eu/'; // Placeholder as requested
+      } else if (u.name && u.name.includes('Kennedy University')) {
+        targetUrl = 'https://www.kennedy.edu.eu/';
+      } else {
+        targetUrl = u.website || '#';
+      }
+      
       return `
-        <div class="university-card">
+        <div class="university-card" onclick="window.open('${targetUrl}', '_blank')" style="cursor: pointer;">
           ${logo}
           <div class="uni-meta" style="margin-top: 15px; font-size: 13px; color: #666;">
               <span class="uni-type">${type}</span>
@@ -51,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           <p style="font-size: 14px; line-height: 1.6; color: #555; margin-bottom: 20px;">
             ${escapeHtml(u.shortDescription || u.description || 'A globally recognized institution offering accredited programmes across various disciplines.')}
           </p>
-          <a href="${detailUrl}" class="btn-view-details" style="position: relative; z-index: 100; pointer-events: auto;">View Details &rarr;</a>
+
         </div>
       `;
     }).join('');
