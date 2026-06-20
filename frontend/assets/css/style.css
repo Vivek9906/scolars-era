@@ -3583,3 +3583,46 @@ DESIGN BRIEF (INNER PAGE HEADER)
         display: none !important;
     }
 }
+
+/* 6. SERVICE PAGES FIX */
+.uni-editorial-list .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+.uni-editorial-list .uni-editorial-item {
+    background: #fff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+}
+.uni-editorial-list .uni-editorial-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+.uni-editorial-list .editorial-name {
+    color: #0d5c4a !important;
+    font-size: 24px;
+    margin-top: 15px;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+.uni-editorial-list .editorial-desc {
+    color: #4a5568 !important;
+    font-size: 16px !important;
+    line-height: 1.7 !important;
+    max-width: 100% !important;
+}
+.uni-editorial-list .editorial-accent {
+    width: 40px;
+    height: 3px;
+    background: #f0a500;
+}
+
+@media (max-width: 768px) {
+    .uni-editorial-list .container {
+        grid-template-columns: 1fr;
+    }
+}
