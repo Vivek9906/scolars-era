@@ -1,4 +1,4 @@
-// scolars-era/backend/middleware/securityHeaders.js
+// scholars-era/backend/middleware/securityHeaders.js
 "use strict";
 
 /**

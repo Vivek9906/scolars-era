@@ -1,4 +1,4 @@
-// scolars-era/backend/routes/auth.js
+// scholars-era/backend/routes/auth.js
 "use strict";
 
 const express = require("express");

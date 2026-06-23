@@ -1,4 +1,4 @@
-// scolars-era/backend/services/recaptchaService.js
+// scholars-era/backend/services/recaptchaService.js
 "use strict";
 
 const axios = require("axios");

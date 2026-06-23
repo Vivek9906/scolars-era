@@ -1,4 +1,4 @@
-// scolars-era/backend/routes/courses.js
+// scholars-era/backend/routes/courses.js
 "use strict";
 
 const express = require("express");

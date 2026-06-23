@@ -28,19 +28,19 @@ const seamlessTicker = `  <!-- Top Bar -->
   <div class="ticker-wrapper" style="background: #0d5c4a; color: #fff; padding: 8px 0; overflow: hidden; width: 100%; position: relative; z-index: 1000; display: flex; height: 35px; box-sizing: border-box;">
     <div class="ticker-track seamless-track" style="display: flex; white-space: nowrap; width: max-content;">
         <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #f0a500;"></i> 174 Chesterton Road, Cambridge</span>
-        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scolarslift.com</span>
+        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scholarslift.com</span>
         <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-phone-alt" style="margin-right: 5px; color: #f0a500;"></i> +44 7386814150</span>
         
         <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #f0a500;"></i> 174 Chesterton Road, Cambridge</span>
-        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scolarslift.com</span>
+        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scholarslift.com</span>
         <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-phone-alt" style="margin-right: 5px; color: #f0a500;"></i> +44 7386814150</span>
         
         <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #f0a500;"></i> 174 Chesterton Road, Cambridge</span>
-        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scolarslift.com</span>
+        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scholarslift.com</span>
         <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-phone-alt" style="margin-right: 5px; color: #f0a500;"></i> +44 7386814150</span>
         
         <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #f0a500;"></i> 174 Chesterton Road, Cambridge</span>
-        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scolarslift.com</span>
+        <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scholarslift.com</span>
         <span class="ticker-item" style="padding: 0 3rem;"><i class="fas fa-phone-alt" style="margin-right: 5px; color: #f0a500;"></i> +44 7386814150</span>
     </div>
   </div>`;
@@ -66,13 +66,13 @@ const seamlessCSS = `
 for (const file of htmlFiles) {
   let html = fs.readFileSync(file, 'utf8');
   let originalHtml = html;
-  
+
   // Replace the old ticker wrapper with the new seamless one
   html = html.replace(/<div class="ticker-wrapper" style="background: #0d5c4a;[^>]+>[\s\S]*?<\/div>\s*<\/div>/, seamlessTicker);
 
   // Inject seamless CSS right before </head> if not already there
   if (!html.includes('/* ── SEAMLESS TICKER FIX ──')) {
-      html = html.replace('</head>', seamlessCSS + '\n</head>');
+    html = html.replace('</head>', seamlessCSS + '\n</head>');
   }
 
   if (html !== originalHtml) {

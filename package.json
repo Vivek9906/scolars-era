@@ -1,7 +1,7 @@
 {
-  "name": "scolars-era",
+  "name": "scholars-era",
   "version": "1.0.0",
-  "description": "Scolars Fix — Full-Stack Education Platform",
+  "description": "scholars Fix — Full-Stack Education Platform",
   "main": "backend/server.js",
   "scripts": {
     "start": "node backend/server.js",

@@ -1,4 +1,4 @@
-# 🎓 Scolars Fix — Full-Stack MERN Application
+# 🎓 scholars Fix — Full-Stack MERN Application
 
 > A production-ready educational platform built with Node.js, Express, MongoDB, and a fully-functional admin panel. Migrated from a static HTML site to a secure, scalable single-origin architecture.
 
@@ -7,7 +7,7 @@
 ## 📁 Project Structure
 
 ```
-scolars-era/
+scholars-era/
 ├── backend/
 │   ├── server.js                 ← HTTP server + graceful shutdown
 │   ├── app.js                    ← Express app (security, middleware, routes)
@@ -100,7 +100,7 @@ scolars-era/
 
 ### 1. Install Dependencies
 ```bash
-cd scolars-era
+cd scholars-era
 npm install
 ```
 
@@ -149,7 +149,7 @@ This creates:
 - 6 partner universities
 - 6 courses (B.Ed, M.Ed, B.Sc, M.Sc, M.Tech, General)
 - 8 testimonials (4 featured)
-- 1 admin user: `admin@scolarsfix.com` / `Admin@Scolars1`
+- 1 admin user: `admin@scholarsfix.com` / `Admin@scholars1`
 
 > ⚠️ **Change the default admin password immediately after first login!**
 
@@ -171,8 +171,8 @@ Navigate to `http://localhost:3000/admin/index.html`
 
 | Field | Value |
 |---|---|
-| Email | `admin@scolarsfix.com` |
-| Password | `Admin@Scolars1` |
+| Email | `admin@scholarsfix.com` |
+| Password | `Admin@scholars1` |
 
 ### Admin Pages
 
@@ -282,7 +282,7 @@ docker-compose exec app node backend/utils/seeder.js --import
 
 ### MongoDB Connection String for Docker
 ```
-MONGODB_URI=mongodb://root:rootpassword@mongo:27017/scolars-era?authSource=admin
+MONGODB_URI=mongodb://root:rootpassword@mongo:27017/scholars-era?authSource=admin
 ```
 
 ---
@@ -305,8 +305,8 @@ sudo systemctl enable mongod && sudo systemctl start mongod
 
 ### Step 3 — Deploy App
 ```bash
-sudo mkdir -p /var/www/scolars-era
-cd /var/www/scolars-era
+sudo mkdir -p /var/www/scholars-era
+cd /var/www/scholars-era
 git clone <your-repo-url> .
 npm install --omit=dev
 cp .env.example .env
@@ -317,21 +317,21 @@ npm run seed
 ### Step 4 — PM2 Process Manager
 ```bash
 npm install -g pm2
-pm2 start backend/server.js --name scolars-era
+pm2 start backend/server.js --name scholars-era
 pm2 startup && pm2 save
 ```
 
 ### Step 5 — Nginx Reverse Proxy
 ```bash
 sudo apt install -y nginx
-sudo nano /etc/nginx/sites-available/scolars-era
+sudo nano /etc/nginx/sites-available/scholars-era
 ```
 
 Nginx config:
 ```nginx
 server {
     listen 80;
-    server_name scolarsfix.com www.scolarsfix.com;
+    server_name scholarsfix.com www.scholarsfix.com;
 
     location / {
         proxy_pass http://localhost:3000;
@@ -348,14 +348,14 @@ server {
 ```
 
 ```bash
-sudo ln -s /etc/nginx/sites-available/scolars-era /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/scholars-era /etc/nginx/sites-enabled/
 sudo nginx -t && sudo systemctl reload nginx
 ```
 
 ### Step 6 — SSL Certificate (Free)
 ```bash
 sudo apt install -y certbot python3-certbot-nginx
-sudo certbot --nginx -d scolarsfix.com -d www.scolarsfix.com
+sudo certbot --nginx -d scholarsfix.com -d www.scholarsfix.com
 ```
 
 ---
@@ -374,7 +374,7 @@ npm run seed:delete
 
 ### Connect to MongoDB shell
 ```bash
-mongosh "mongodb://localhost:27017/scolars-era"
+mongosh "mongodb://localhost:27017/scholars-era"
 ```
 
 ---
@@ -399,7 +399,7 @@ SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_USER=your@gmail.com
 SMTP_PASS=your_16_char_app_password
-ADMIN_EMAIL=admin@scolarsfix.com
+ADMIN_EMAIL=admin@scholarsfix.com
 ```
 
 ---
@@ -451,11 +451,11 @@ npm run seed:delete  # Clear all seeded data
 
 | Type | Email | Password |
 |---|---|---|
-| Admin | `admin@scolarsfix.com` | `Admin@Scolars1` |
+| Admin | `admin@scholarsfix.com` | `Admin@scholars1` |
 
 > ⚠️ **Change the admin password immediately** in production. You can update it via MongoDB shell:
 > ```js
-> db.users.updateOne({email:"admin@scolarsfix.com"},{$set:{password:"<bcrypt_hash>"}})
+> db.users.updateOne({email:"admin@scholarsfix.com"},{$set:{password:"<bcrypt_hash>"}})
 > ```
 > Or implement a "Change Password" endpoint.
 
@@ -467,4 +467,4 @@ See `.env.example` for full list with inline comments.
 
 ---
 
-*Built with ❤️ for Scolars Fix. For support, contact admin@scolarsfix.com.*
+*Built with ❤️ for scholars Fix. For support, contact admin@scholarsfix.com.*

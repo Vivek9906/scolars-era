@@ -1,4 +1,4 @@
-// scolars-era/backend/controllers/authController.js
+// scholars-era/backend/controllers/authController.js
 "use strict";
 
 const jwt = require("jsonwebtoken");

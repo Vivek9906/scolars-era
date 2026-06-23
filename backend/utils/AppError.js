@@ -1,4 +1,4 @@
-// scolars-era/backend/utils/AppError.js
+// scholars-era/backend/utils/AppError.js
 "use strict";
 
 /**

@@ -1,4 +1,4 @@
-// scolars-era/backend/routes/admin.js
+// scholars-era/backend/routes/admin.js
 "use strict";
 
 const express = require("express");
@@ -8,8 +8,8 @@ const path = require("path");
 const fs = require("fs");
 const { protect, restrictTo } = require("../middleware/auth");
 
-const uploadDir = process.env.VERCEL 
-  ? path.join("/tmp", "uploads") 
+const uploadDir = process.env.VERCEL
+  ? path.join("/tmp", "uploads")
   : path.join(__dirname, "../../frontend/assets/images");
 
 if (!fs.existsSync(uploadDir)) {
@@ -39,7 +39,7 @@ function parseFormData(req, res, next) {
       req.body.features = req.body.features.split('\n').map(s => s.trim()).filter(Boolean);
     }
   }
-  
+
   if (req.file) {
     if (req.file.fieldname === 'thumbnail') req.body.thumbnail = `/assets/images/${req.file.filename}`;
     if (req.file.fieldname === 'logo') req.body.logo = `/assets/images/${req.file.filename}`;

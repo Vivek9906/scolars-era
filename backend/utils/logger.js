@@ -1,4 +1,4 @@
-// scolars-era/backend/utils/logger.js
+// scholars-era/backend/utils/logger.js
 "use strict";
 
 const path = require("path");

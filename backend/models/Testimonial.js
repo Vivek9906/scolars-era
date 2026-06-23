@@ -1,4 +1,4 @@
-// scolars-era/backend/models/Testimonial.js
+// scholars-era/backend/models/Testimonial.js
 "use strict";
 
 const mongoose = require("mongoose");
