@@ -1,4 +1,4 @@
-// scolars-era/backend/controllers/testimonialsController.js
+// scholars-era/backend/controllers/testimonialsController.js
 "use strict";
 
 const Testimonial = require("../models/Testimonial");

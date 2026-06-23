@@ -1,4 +1,4 @@
-// scolars-era/backend/middleware/rateLimiter.js
+// scholars-era/backend/middleware/rateLimiter.js
 "use strict";
 
 const rateLimit = require("express-rate-limit");

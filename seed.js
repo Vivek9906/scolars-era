@@ -39,7 +39,7 @@ const seedData = async () => {
     console.log("Seeding admin user...");
     await User.create({
       name: "Super Admin",
-      email: "admin@scolarsfix.com",
+      email: "admin@scholarsfix.com",
       password: "password123", // Will be hashed automatically by the pre-save hook
       role: "admin",
       isEmailVerified: true,
@@ -99,7 +99,7 @@ const seedData = async () => {
       },
     ]);
 
-    console.log("✅ Seed completed successfully! You can now log in with admin@scolarsfix.com / password123");
+    console.log("✅ Seed completed successfully! You can now log in with admin@scholarsfix.com / password123");
     process.exit(0);
   } catch (err) {
     console.error("❌ Seeding failed:", err);

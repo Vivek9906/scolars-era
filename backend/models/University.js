@@ -1,4 +1,4 @@
-// scolars-era/backend/models/University.js
+// scholars-era/backend/models/University.js
 "use strict";
 
 const mongoose = require("mongoose");

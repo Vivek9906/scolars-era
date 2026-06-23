@@ -1,4 +1,4 @@
-// scolars-era/backend/routes/testimonials.js
+// scholars-era/backend/routes/testimonials.js
 "use strict";
 
 const express = require("express");

@@ -7,7 +7,7 @@ const coursesFile = path.join(frontendDir, 'courses.html');
 
 let uniContent = fs.readFileSync(universityFile, 'utf8');
 
-uniContent = uniContent.replace('<title>University Details — Scolars Fix</title>', '<title>Courses — Scolars Fix</title>');
+uniContent = uniContent.replace('<title>University Details — scholars Fix</title>', '<title>Courses — scholars Fix</title>');
 
 const coursesHtml = `
     <!-- Courses Header -->
@@ -15,7 +15,7 @@ const coursesHtml = `
         <div class="container">
             <h5 class="section-subtitle centered"><i class="fas fa-star"></i> OUR COURSES</h5>
             <h2 class="section-title centered">What We Do... <span class="highlight">Courses</span></h2>
-            <p class="section-text centered">At <b style="color: orange;">SCOLARS FIX </b>, we function as a comprehensive academic facilitation, education consulting, and professional recognition platform. Our core focus is to bridge the gap between aspirational learners and globally aligned academic opportunities, especially for working professionals and accomplished individuals who seek advanced qualifications or academic recognition.
+            <p class="section-text centered">At <b style="color: orange;">scholars FIX </b>, we function as a comprehensive academic facilitation, education consulting, and professional recognition platform. Our core focus is to bridge the gap between aspirational learners and globally aligned academic opportunities, especially for working professionals and accomplished individuals who seek advanced qualifications or academic recognition.
 
 We do not operate as a traditional college or university. Instead, we act as an <b style="color: orange;">academic enabler and consulting partner</b>, guiding learners through structured, credible, and transparent pathways toward doctoral education and academic distinction.</p>
         </div>

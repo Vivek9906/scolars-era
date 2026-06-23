@@ -1,4 +1,4 @@
-// scolars-era/backend/middleware/auth.js
+// scholars-era/backend/middleware/auth.js
 "use strict";
 
 const jwt = require("jsonwebtoken");

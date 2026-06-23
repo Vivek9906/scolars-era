@@ -1,4 +1,4 @@
-// scolars-era/backend/server.js
+// scholars-era/backend/server.js
 "use strict";
 
 require('dotenv').config({ path: __dirname + '/../.env' });
@@ -16,7 +16,7 @@ process.on("uncaughtException", (err) => {
 
 // Start the HTTP server first, then try MongoDB
 const server = app.listen(PORT, () => {
-  logger.info(`✅ Scolars Lift running on http://localhost:${PORT} [${process.env.NODE_ENV || 'development'}]`);
+  logger.info(`✅ scholars Lift running on http://localhost:${PORT} [${process.env.NODE_ENV || 'development'}]`);
 });
 
 // Try connecting to MongoDB (non-fatal if unavailable)

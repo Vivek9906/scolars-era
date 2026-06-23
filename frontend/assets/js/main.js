@@ -122,7 +122,21 @@ document.addEventListener("DOMContentLoaded", () => {
   initNewsletter();
   initAdminAccess();
   initUXEnhancements();
+  initBannerLoop();
 });
+
+/* ── Fix Top Banner Loop ─────────────────────────────────────────── */
+function initBannerLoop() {
+  const track = document.querySelector('.banner-track');
+  if (track) {
+    // Clone all current items to double the length for seamless ultra-wide scrolling
+    const items = track.querySelectorAll('.banner-items');
+    items.forEach(item => {
+      const clone = item.cloneNode(true);
+      track.appendChild(clone);
+    });
+  }
+}
 
 /* ── UX Enhancements (Part 3C) ───────────────────────────────────── */
 function initUXEnhancements() {

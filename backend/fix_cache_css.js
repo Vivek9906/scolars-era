@@ -86,13 +86,13 @@ const cacheBustStr = '?v=' + Date.now();
 for (const file of htmlFiles) {
   let html = fs.readFileSync(file, 'utf8');
   let originalHtml = html;
-  
+
   // 1. Cache bust style.css
   html = html.replace(/href="(\/assets\/css\/style\.css)(?:\?v=\d+)?"/g, 'href="$1' + cacheBustStr + '"');
-  
+
   // 2. Inject guaranteed CSS right before </head>
   if (!html.includes('/* ── GUARANTEED GLOBAL FIXES')) {
-      html = html.replace('</head>', guaranteedCSS + '\n</head>');
+    html = html.replace('</head>', guaranteedCSS + '\n</head>');
   }
 
   // 3. Fix the ticker again just to be 100% sure the HTML is correct and visible
@@ -101,14 +101,14 @@ for (const file of htmlFiles) {
   <div class="ticker-wrapper" style="background: #0d5c4a; color: #fff; padding: 8px 0; overflow: hidden; white-space: nowrap; width: 100%; position: relative; z-index: 1000; display: block; height: 35px; box-sizing: border-box;">
     <div class="ticker-track" style="display: inline-block; white-space: nowrap;">
         <span class="ticker-item" style="display: inline-block; padding: 0 2rem;"><i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #f0a500;"></i> 174 Chesterton Road, Cambridge</span>
-        <span class="ticker-item" style="display: inline-block; padding: 0 2rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scolarslift.com</span>
+        <span class="ticker-item" style="display: inline-block; padding: 0 2rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scholarslift.com</span>
         <span class="ticker-item" style="display: inline-block; padding: 0 2rem;"><i class="fas fa-phone-alt" style="margin-right: 5px; color: #f0a500;"></i> +44 7386814150</span>
         <span class="ticker-item" style="display: inline-block; padding: 0 2rem; font-weight: bold;"><i class="fas fa-bullhorn" style="margin-right: 5px; color: #f0a500;"></i> Admissions open for 2025 intake</span>
         <span class="ticker-item" style="display: inline-block; padding: 0 2rem;"><i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #f0a500;"></i> 174 Chesterton Road, Cambridge</span>
-        <span class="ticker-item" style="display: inline-block; padding: 0 2rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scolarslift.com</span>
+        <span class="ticker-item" style="display: inline-block; padding: 0 2rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scholarslift.com</span>
     </div>
   </div>`;
-  
+
   // Replace the ticker we added in the previous step
   html = html.replace(/<div class="ticker-wrapper" style="background: #0d5c4a;[^>]+>[\s\S]*?<\/div>\s*<\/div>/, fixedTicker);
 

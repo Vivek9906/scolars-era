@@ -111,21 +111,30 @@
 
     <!-- Top Bar -->
     <!-- Top Bar -->
-    <div class="ticker-wrapper"
-        style="background: #0d5c4a; color: #fff; padding: 8px 0; overflow: hidden; white-space: nowrap; width: 100%; position: relative; z-index: 1000; display: block; height: 35px; box-sizing: border-box;">
-        <div class="ticker-track" style="display: inline-block; white-space: nowrap;">
-            <span class="ticker-item" style="display: inline-block; padding: 0 2rem;"><i class="fas fa-map-marker-alt"
-                    style="margin-right: 5px; color: #f0a500;"></i> 174 Chesterton Road, Cambridge</span>
-            <span class="ticker-item" style="display: inline-block; padding: 0 2rem;"><i class="fas fa-envelope"
-                    style="margin-right: 5px; color: #f0a500;"></i> info@scolarslift.com</span>
-            <span class="ticker-item" style="display: inline-block; padding: 0 2rem;"><i class="fas fa-phone-alt"
-                    style="margin-right: 5px; color: #f0a500;"></i> +44 7386814150</span>
-            <span class="ticker-item" style="display: inline-block; padding: 0 2rem;"><i class="fas fa-map-marker-alt"
-                    style="margin-right: 5px; color: #f0a500;"></i> 174 Chesterton Road, Cambridge</span>
-            <span class="ticker-item" style="display: inline-block; padding: 0 2rem;"><i class="fas fa-envelope"
-                    style="margin-right: 5px; color: #f0a500;"></i> info@scolarslift.com</span>
-        </div>
-    </div>
+    <div class="top-banner">
+  <div class="banner-track">
+    <span class="banner-items">
+      <span><i class="fas fa-map-marker-alt"></i> 174 Chesterton Road, Cambridge</span>
+      <span><i class="fas fa-envelope"></i> info@scholarslift.com</span>
+      <span><i class="fas fa-phone-alt"></i> +44 7386814150</span>
+    </span>
+    <span class="banner-items">
+      <span><i class="fas fa-map-marker-alt"></i> 174 Chesterton Road, Cambridge</span>
+      <span><i class="fas fa-envelope"></i> info@scholarslift.com</span>
+      <span><i class="fas fa-phone-alt"></i> +44 7386814150</span>
+    </span>
+    <span class="banner-items">
+      <span><i class="fas fa-map-marker-alt"></i> 174 Chesterton Road, Cambridge</span>
+      <span><i class="fas fa-envelope"></i> info@scholarslift.com</span>
+      <span><i class="fas fa-phone-alt"></i> +44 7386814150</span>
+    </span>
+    <span class="banner-items">
+      <span><i class="fas fa-map-marker-alt"></i> 174 Chesterton Road, Cambridge</span>
+      <span><i class="fas fa-envelope"></i> info@scholarslift.com</span>
+      <span><i class="fas fa-phone-alt"></i> +44 7386814150</span>
+    </span>
+  </div>
+</div>
 
     <div id="header-placeholder"></div>
 
@@ -549,8 +558,8 @@
                 font-family: 'Outfit', sans-serif;
             }
 
-            .stack-title {
-                font-size: clamp(2.5rem, 6vw, 4.5rem);
+            .stack-title { word-break: keep-all; overflow-wrap: break-word; 
+                font-size: clamp(1.8rem, 6vw, 4.5rem);
                 font-weight: 800;
                 color: #0d5c4a;
                 text-transform: uppercase;

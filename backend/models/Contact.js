@@ -1,4 +1,4 @@
-// scolars-era/backend/models/Contact.js
+// scholars-era/backend/models/Contact.js
 "use strict";
 
 const mongoose = require("mongoose");

@@ -1,4 +1,4 @@
-// scolars-era/backend/controllers/contactController.js
+// scholars-era/backend/controllers/contactController.js
 "use strict";
 
 const { body, validationResult } = require("express-validator");

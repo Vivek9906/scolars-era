@@ -21,7 +21,7 @@ const coursesHtml = coursesMatch[0];
 
 // Remove the courses section from index.html (and the weird closing tags )
 const cleanedIndexContent = indexContent.replace(coursesRegex, '')
-                                       .replace(/<\/div>\s*<\/div>\s*<\/section>\s*(?=<style>\s*\/\* ============================\s*Process Section Styles)/, '');
+    .replace(/<\/div>\s*<\/div>\s*<\/section>\s*(?=<style>\s*\/\* ============================\s*Process Section Styles)/, '');
 
 fs.writeFileSync(indexFile, cleanedIndexContent);
 
@@ -29,7 +29,7 @@ fs.writeFileSync(indexFile, cleanedIndexContent);
 let uniContent = fs.readFileSync(universityFile, 'utf8');
 
 // Replace title
-uniContent = uniContent.replace('<title>University Details — Scolars Fix</title>', '<title>Courses — Scolars Fix</title>');
+uniContent = uniContent.replace('<title>University Details — scholars Fix</title>', '<title>Courses — scholars Fix</title>');
 
 // Replace the main container in university.html
 // In university.html: <div class="container" style="padding: 100px 0;">...</div>

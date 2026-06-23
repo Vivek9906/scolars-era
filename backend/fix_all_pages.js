@@ -23,7 +23,7 @@ const htmlFiles = walk('frontend');
 const fixedTicker = `  <div class="ticker-wrapper" style="background: #0d5c4a; color: #fff; padding: 8px 0; overflow: hidden; white-space: nowrap; width: 100%; position: relative; z-index: 1000; display: block; height: 35px; box-sizing: border-box;">
     <div class="ticker-track" style="display: inline-block; white-space: nowrap; padding-left: 100%;">
         <span class="ticker-item" style="display: inline-block; padding: 0 2rem;"><i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #f0a500;"></i> 174 Chesterton Road, Cambridge</span>
-        <span class="ticker-item" style="display: inline-block; padding: 0 2rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scolarslift.com</span>
+        <span class="ticker-item" style="display: inline-block; padding: 0 2rem;"><i class="fas fa-envelope" style="margin-right: 5px; color: #f0a500;"></i> info@scholarslift.com</span>
         <span class="ticker-item" style="display: inline-block; padding: 0 2rem;"><i class="fas fa-phone-alt" style="margin-right: 5px; color: #f0a500;"></i> +44 7386814150</span>
         <span class="ticker-item" style="display: inline-block; padding: 0 2rem; font-weight: bold;"><i class="fas fa-bullhorn" style="margin-right: 5px; color: #f0a500;"></i> Admissions open for 2025 intake</span>
     </div>
@@ -33,17 +33,17 @@ let modifiedCount = 0;
 
 for (const file of htmlFiles) {
   let html = fs.readFileSync(file, 'utf8');
-  
+
   // Replace the broken ticker wrapper
   // Note: the original had weird characters and was badly formatted, we match from <div class="ticker-wrapper"> up to the matching </div></div> or similar.
   // A safer regex is to match <div class="ticker-wrapper"> until the NEXT <div id="header-placeholder"> or <main>
-  
+
   let newHtml = html.replace(/<div class="ticker-wrapper">[\s\S]*?(?:<\/div>\s*<\/div>|<\/div>\s*<div id="header-placeholder">|<\/div>\s*<nav|<\/div>\s*<main)/, match => {
-      // Find what it stopped at to preserve it
-      if (match.includes('<div id="header-placeholder">')) return fixedTicker + '\n  <div id="header-placeholder">';
-      if (match.includes('<nav')) return fixedTicker + '\n  <nav';
-      if (match.includes('<main')) return fixedTicker + '\n  <main';
-      return fixedTicker;
+    // Find what it stopped at to preserve it
+    if (match.includes('<div id="header-placeholder">')) return fixedTicker + '\n  <div id="header-placeholder">';
+    if (match.includes('<nav')) return fixedTicker + '\n  <nav';
+    if (match.includes('<main')) return fixedTicker + '\n  <main';
+    return fixedTicker;
   });
 
   if (html !== newHtml) {
@@ -118,7 +118,7 @@ const globalFixes = `
 `;
 
 if (!css.includes('/* ── GLOBAL FIXES FOR ALL PAGES')) {
-    css += globalFixes;
-    fs.writeFileSync('frontend/assets/css/style.css', css);
-    console.log('Fixed style.css');
+  css += globalFixes;
+  fs.writeFileSync('frontend/assets/css/style.css', css);
+  console.log('Fixed style.css');
 }

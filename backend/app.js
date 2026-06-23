@@ -1,4 +1,4 @@
-// scolars-era/backend/app.js
+// scholars-era/backend/app.js
 "use strict";
 
 const path = require("path");
@@ -17,12 +17,12 @@ const { notFound, errorHandler } = require("./middleware/errorHandler");
 const logger = require("./utils/logger");
 
 // Route imports
-const contactRoutes      = require("./routes/contact");
-const coursesRoutes      = require("./routes/courses");
+const contactRoutes = require("./routes/contact");
+const coursesRoutes = require("./routes/courses");
 const testimonialsRoutes = require("./routes/testimonials");
 const universitiesRoutes = require("./routes/universities");
-const authRoutes         = require("./routes/auth");
-const adminRoutes        = require("./routes/admin");
+const authRoutes = require("./routes/auth");
+const adminRoutes = require("./routes/admin");
 
 const app = express();
 
@@ -34,18 +34,18 @@ app.use(
   helmet({
     contentSecurityPolicy: {
       directives: {
-        defaultSrc:  ["'self'"],
-        scriptSrc:   ["'self'", "'unsafe-inline'",
-                      "https://cdnjs.cloudflare.com",
-                      "https://www.google.com", "https://www.gstatic.com"],
-        styleSrc:    ["'self'", "'unsafe-inline'",
-                      "https://fonts.googleapis.com",
-                      "https://cdnjs.cloudflare.com"],
-        fontSrc:     ["'self'", "https://fonts.gstatic.com",
-                      "https://cdnjs.cloudflare.com"],
-        imgSrc:      ["'self'", "data:", "https:", "blob:"],
-        connectSrc:  ["'self'"],
-        frameSrc:    ["'self'", "https://www.google.com"],
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "'unsafe-inline'",
+          "https://cdnjs.cloudflare.com",
+          "https://www.google.com", "https://www.gstatic.com"],
+        styleSrc: ["'self'", "'unsafe-inline'",
+          "https://fonts.googleapis.com",
+          "https://cdnjs.cloudflare.com"],
+        fontSrc: ["'self'", "https://fonts.gstatic.com",
+          "https://cdnjs.cloudflare.com"],
+        imgSrc: ["'self'", "data:", "https:", "blob:"],
+        connectSrc: ["'self'"],
+        frameSrc: ["'self'", "https://www.google.com"],
       },
     },
     crossOriginEmbedderPolicy: false,
@@ -110,16 +110,16 @@ app.use("/api/contact", contactLimiter);
 app.use("/api/auth", authLimiter);
 
 // ── 12. API routes ────────────────────────────────────────────────────────────
-app.use("/api/contact",      contactRoutes);
-app.use("/api/courses",      coursesRoutes);
+app.use("/api/contact", contactRoutes);
+app.use("/api/courses", coursesRoutes);
 app.use("/api/testimonials", testimonialsRoutes);
 app.use("/api/universities", universitiesRoutes);
-app.use("/api/auth",         authRoutes);
-app.use("/api/admin",        adminRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/admin", adminRoutes);
 
 // ── 13. Redirect helpers ──────────────────────────────────────────────────────
-app.get("/admin",            (req, res) => res.redirect(301, "/admin/index.html"));
-app.get("/admin.html",       (req, res) => res.redirect(301, "/admin/index.html"));
+app.get("/admin", (req, res) => res.redirect(301, "/admin/index.html"));
+app.get("/admin.html", (req, res) => res.redirect(301, "/admin/index.html"));
 app.get("/book-appointment", (req, res) =>
   res.sendFile(path.join(__dirname, "..", "frontend", "book-appointment.html"))
 );

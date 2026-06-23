@@ -1,4 +1,4 @@
-// scolars-era/backend/services/emailService.js
+// scholars-era/backend/services/emailService.js
 "use strict";
 
 const nodemailer = require("nodemailer");
@@ -40,7 +40,7 @@ async function sendContactEmail({ name, email, phone, subject, message, submissi
             📬 New Contact Form Submission
           </h1>
           <p style="margin:8px 0 0;color:rgba(255,255,255,0.75);font-size:13px;">
-            Scolars Fix — Contact Notification
+            scholars Fix — Contact Notification
           </p>
         </td></tr>
         <!-- Body -->
@@ -90,7 +90,7 @@ async function sendContactEmail({ name, email, phone, subject, message, submissi
 </html>`;
 
     await transporter.sendMail({
-      from: process.env.EMAIL_FROM || '"Scolars Fix" <noreply@scolarsfix.com>',
+      from: process.env.EMAIL_FROM || '"scholars Fix" <noreply@scholarsfix.com>',
       to: process.env.ADMIN_EMAIL,
       subject: `[Contact] ${subject} — from ${name}`,
       html,
@@ -116,14 +116,14 @@ async function sendConfirmationEmail({ name, email }) {
         <!-- Header -->
         <tr><td style="background:${BRAND_DARK_TEAL};padding:36px 40px;text-align:center;">
           <div style="font-size:36px;margin-bottom:12px;">🎓</div>
-          <h1 style="margin:0;color:#ffffff;font-size:24px;font-weight:800;letter-spacing:-0.5px;">Scolars Fix</h1>
+          <h1 style="margin:0;color:#ffffff;font-size:24px;font-weight:800;letter-spacing:-0.5px;">scholars Fix</h1>
           <p style="margin:6px 0 0;color:${BRAND_GOLD};font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:600;">We Fix Learnings</p>
         </td></tr>
         <!-- Body -->
         <tr><td style="padding:40px 40px 30px;">
           <h2 style="margin:0 0 16px;font-size:22px;font-weight:700;color:#1a1a1a;">Hi ${name}! 👋</h2>
           <p style="margin:0 0 20px;font-size:16px;line-height:1.7;color:#555;">
-            Thank you for reaching out to <strong style="color:${BRAND_DARK_TEAL};">Scolars Fix</strong>. We've received your message and one of our academic counsellors will get back to you within <strong>24 hours</strong>.
+            Thank you for reaching out to <strong style="color:${BRAND_DARK_TEAL};">scholars Fix</strong>. We've received your message and one of our academic counsellors will get back to you within <strong>24 hours</strong>.
           </p>
           <div style="background:#FFFBF0;border:1px solid rgba(255,193,7,0.3);border-radius:10px;padding:20px 24px;margin:24px 0;">
             <p style="margin:0;font-size:14px;color:#555;line-height:1.7;">
@@ -136,7 +136,7 @@ async function sendConfirmationEmail({ name, email }) {
             While you wait, feel free to explore our courses and university partnerships on our website.
           </p>
           <div style="text-align:center;">
-            <a href="${process.env.NODE_ENV === "production" ? "https://scolarsfix.com" : "http://localhost:" + (process.env.PORT || 3000)}" 
+            <a href="${process.env.NODE_ENV === "production" ? "https://scholarsfix.com" : "http://localhost:" + (process.env.PORT || 3000)}" 
                style="display:inline-block;padding:13px 32px;background:linear-gradient(90deg,${BRAND_GOLD},${BRAND_GOLD_DARK});color:#ffffff;font-size:14px;font-weight:700;text-decoration:none;border-radius:50px;letter-spacing:0.5px;">
               Visit Our Website →
             </a>
@@ -145,7 +145,7 @@ async function sendConfirmationEmail({ name, email }) {
         <!-- Footer -->
         <tr><td style="background:${BRAND_DARK_TEAL};padding:24px 40px;text-align:center;">
           <p style="margin:0 0 8px;font-size:13px;color:rgba(255,255,255,0.6);">
-            © ${new Date().getFullYear()} Scolars Fix. All rights reserved.
+            © ${new Date().getFullYear()} scholars Fix. All rights reserved.
           </p>
           <p style="margin:0;font-size:12px;color:rgba(255,255,255,0.4);">
             FLAT 2, 8 LYNFORD GARDEN 1G3 9LY
@@ -158,9 +158,9 @@ async function sendConfirmationEmail({ name, email }) {
 </html>`;
 
     await transporter.sendMail({
-      from: process.env.EMAIL_FROM || '"Scolars Fix" <noreply@scolarsfix.com>',
+      from: process.env.EMAIL_FROM || '"scholars Fix" <noreply@scholarsfix.com>',
       to: email,
-      subject: "✅ We received your message — Scolars Fix",
+      subject: "✅ We received your message — scholars Fix",
       html,
     });
 

@@ -1,4 +1,4 @@
-// scolars-era/backend/controllers/universitiesController.js
+// scholars-era/backend/controllers/universitiesController.js
 "use strict";
 
 const University = require("../models/University");

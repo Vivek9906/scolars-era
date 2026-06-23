@@ -1,4 +1,4 @@
-// scolars-era/backend/middleware/errorHandler.js
+// scholars-era/backend/middleware/errorHandler.js
 "use strict";
 
 const AppError = require("../utils/AppError");

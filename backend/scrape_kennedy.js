@@ -51,15 +51,15 @@ const programs = {
 // Generate HTML from template
 function generateHTML(category, level, name, data) {
     const ucLevel = level.charAt(0).toUpperCase() + level.slice(1);
-    
-    const objectivesHTML = data.objectives.length > 0 
+
+    const objectivesHTML = data.objectives.length > 0
         ? data.objectives.map(o => `<p>${o}</p>`).join('')
         : '<p>To cultivate excellent leadership skills in the field of study.</p>';
-        
+
     const outcomesHTML = data.outcomes.length > 0
         ? `<ul>` + data.outcomes.map(o => `<li>${o}</li>`).join('') + `</ul>`
         : `<p>Upon completion of the program, students will demonstrate comprehensive understanding of their field.</p>`;
-        
+
     const curriculumHTML = data.curriculum.length > 0
         ? `<ul class="course-list">` + data.curriculum.map(c => `
             <li class="course-item">
@@ -68,7 +68,7 @@ function generateHTML(category, level, name, data) {
                 <span class="course-credits">${c.credits}</span>
             </li>`).join('') + `</ul>`
         : `<p>Curriculum details are currently being updated.</p>`;
-        
+
     const entranceHTML = data.entrance || "Applicants for admission must be in possession of, or have candidacy for, a high school diploma or GED, and must submit official transcripts.";
     const creditsHTML = data.credits || "143 credits or more";
     const specialCreditHTML = data.special || "Field experiences, such as participation in religious activities, work experience, and field activities, may qualify for special credit recognition.";
@@ -79,7 +79,7 @@ function generateHTML(category, level, name, data) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${ucLevel} Programmes | Scolars Lift</title>
+    <title>${ucLevel} Programmes | scholars Lift</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -263,16 +263,16 @@ async function scrapePage(url) {
         special: '',
         faith: ''
     };
-    
+
     // If no URL is provided, return empty data to trigger fallbacks
     if (!url) return data;
-    
+
     try {
         const response = await axios.get(url);
         const $ = cheerio.load(response.data);
-        
+
         let texts = [];
-        
+
         // We will collect both text and raw html to split the curriculum correctly
         $('span[style*="font-family"]').each((i, el) => {
             const htmlContent = $(el).html() || '';
@@ -281,20 +281,20 @@ async function scrapePage(url) {
                 const lines = htmlContent.split(/<br[^>]*>/gi);
                 lines.forEach(line => {
                     const cleanText = cheerio.load(line).text().replace(/&nbsp;/g, ' ').trim();
-                    if(cleanText) texts.push(cleanText);
+                    if (cleanText) texts.push(cleanText);
                 });
             } else {
                 const text = $(el).text().replace(/&nbsp;/g, ' ').trim();
-                if(text) texts.push(text);
+                if (text) texts.push(text);
             }
         });
-        
+
         let currentSection = null;
-        
+
         for (let i = 0; i < texts.length; i++) {
             let t = texts[i];
             t = t.replace(/\u00A0/g, ' ').replace(/\s+/g, ' ').trim(); // normalize whitespace
-            
+
             // Detect sections
             if (t === 'OBJECTIVES') { currentSection = 'objectives'; continue; }
             if (t === 'ACADEMIC CURRICULUM') { currentSection = 'curriculum'; continue; }
@@ -303,19 +303,19 @@ async function scrapePage(url) {
             if (t === 'REQUIRED CREDITS') { currentSection = 'credits'; continue; }
             if (t === 'SPECIAL CREDIT RECOGNITION POLICY') { currentSection = 'special'; continue; }
             if (t === 'FAITH BASED EDUCATION') { currentSection = 'faith'; continue; }
-            
+
             // Skip useless headers
             if (t.includes('Kennedy University') || t.includes('HOME') || t.includes('ACADEMICS') || t === '｜') continue;
             if (t.startsWith('Bachelor of') || t.startsWith('Master of') || t.startsWith('Doctor of')) continue;
             if (t.startsWith('BACHELOR OF') || t.startsWith('MASTER OF') || t.startsWith('DOCTOR OF')) continue;
             if (t.includes('Necessary Credits for Graduating')) continue;
-            
+
             // Collect data based on section
             if (currentSection === 'objectives') {
-                if(t.length > 10) data.objectives.push(t);
+                if (t.length > 10) data.objectives.push(t);
             }
             else if (currentSection === 'outcomes') {
-                if(t.length > 10 && !t.includes('students will be able to')) data.outcomes.push(t);
+                if (t.length > 10 && !t.includes('students will be able to')) data.outcomes.push(t);
             }
             else if (currentSection === 'curriculum') {
                 // Parse course items like "BDBA 101 The Foundations 4"
@@ -325,8 +325,8 @@ async function scrapePage(url) {
                 } else if (t.match(/\d+$/) && t.match(/^[A-Z]+\s*\d+/)) {
                     // Fallback for weird spacing
                     let parts = t.split(/\s{2,}/);
-                    if(parts.length >= 3) {
-                        data.curriculum.push({ code: parts[0], name: parts.slice(1, -1).join(' '), credits: parts[parts.length-1] });
+                    if (parts.length >= 3) {
+                        data.curriculum.push({ code: parts[0], name: parts.slice(1, -1).join(' '), credits: parts[parts.length - 1] });
                     } else {
                         // Even weirder spacing, extract using regex
                         let reMatch = t.match(/^([A-Z]+\s*\d+)\s+(.*)\s+(\d+)$/);
@@ -337,23 +337,23 @@ async function scrapePage(url) {
                 }
             }
             else if (currentSection === 'entrance') {
-                if(!data.entrance) data.entrance = t;
+                if (!data.entrance) data.entrance = t;
             }
             else if (currentSection === 'credits') {
-                if(!data.credits && t.match(/\d+/)) data.credits = t;
+                if (!data.credits && t.match(/\d+/)) data.credits = t;
             }
             else if (currentSection === 'special') {
-                if(!data.special) data.special = t;
+                if (!data.special) data.special = t;
             }
             else if (currentSection === 'faith') {
-                if(!data.faith) data.faith = t;
+                if (!data.faith) data.faith = t;
             }
         }
-        
+
     } catch (e) {
         console.error("Failed to scrape " + url, e.message);
     }
-    
+
     return data;
 }
 
@@ -361,7 +361,7 @@ async function run() {
     for (const [level, courses] of Object.entries(programs)) {
         console.log(`Processing ${level} programs...`);
         const dir = path.join(__dirname, '..', 'frontend', 'programs', level);
-        if (!fs.existsSync(dir)) fs.mkdirSync(dir, {recursive: true});
+        if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 
         let stackCardsHTML = '';
 
@@ -369,16 +369,16 @@ async function run() {
             const course = courses[i];
             console.log(`- Scraping ${course.name}`);
             const data = await scrapePage(course.url);
-            const html = generateHTML(category='programs', level, course.name, data);
-            
+            const html = generateHTML(category = 'programs', level, course.name, data);
+
             fs.writeFileSync(path.join(dir, course.file), html);
-            
+
             const bgColor = (i % 2 === 0) ? '#ffffff' : '#f9f9f9';
             stackCardsHTML += `
-            <div class="project-stack-card" style="background-color: ${bgColor}; z-index: ${i+1};">
+            <div class="project-stack-card" style="background-color: ${bgColor}; z-index: ${i + 1};">
                 <div class="stack-card-inner">
                     <div class="stack-left">
-                        <span class="stack-num">${i < 9 ? '0'+(i+1) : i+1}</span>
+                        <span class="stack-num">${i < 9 ? '0' + (i + 1) : i + 1}</span>
                         <h3 class="stack-title">${course.name}</h3>
                         <span class="stack-type">(Academic Pathway)</span>
                         <p class="stack-desc">Official Degree Programme</p>
@@ -392,7 +392,7 @@ async function run() {
                 </div>
             </div>\n`;
         }
-        
+
         // Update the category page (e.g. bachelor.html)
         const catPagePath = path.join(__dirname, '..', 'frontend', 'programs', `${level}.html`);
         if (fs.existsSync(catPagePath)) {
@@ -405,7 +405,7 @@ async function run() {
             </div>
             ${stackCardsHTML}
         </div>\n\n        <section class="section-req">`;
-            
+
             catHTML = catHTML.replace(/<div class="stack-container">[\s\S]*?<section class="section-req">/, newStackContainer.trim());
             fs.writeFileSync(catPagePath, catHTML);
             console.log(`Updated ${level}.html`);
