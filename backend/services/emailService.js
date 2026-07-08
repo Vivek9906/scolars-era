@@ -4,16 +4,31 @@
 const nodemailer = require("nodemailer");
 const logger = require("../utils/logger");
 
-// ── Create reusable transporter ───────────────────────────────────────────────
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: parseInt(process.env.SMTP_PORT || "587", 10),
-  secure: parseInt(process.env.SMTP_PORT || "587", 10) === 465,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
+// ── Create reusable transporter (lazy — only if credentials are configured) ───
+const PLACEHOLDER_USERS = ['your@gmail.com', 'your_email@gmail.com', ''];
+
+function isSmtpConfigured() {
+  const user = (process.env.SMTP_USER || '').trim();
+  const pass = (process.env.SMTP_PASS || '').trim();
+  return user && pass && !PLACEHOLDER_USERS.includes(user) && pass !== 'your_app_password';
+}
+
+let _transporter = null;
+function getTransporter() {
+  if (!isSmtpConfigured()) return null;
+  if (!_transporter) {
+    _transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: parseInt(process.env.SMTP_PORT || '587', 10),
+      secure: parseInt(process.env.SMTP_PORT || '587', 10) === 465,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    });
+  }
+  return _transporter;
+}
 
 // ── Brand colors (matched to style.css) ──────────────────────────────────────
 const BRAND_DARK_TEAL = "#004D40";
@@ -89,7 +104,12 @@ async function sendContactEmail({ name, email, phone, subject, message, submissi
 </body>
 </html>`;
 
-    await transporter.sendMail({
+    const mailer = getTransporter();
+    if (!mailer) {
+      logger.warn('sendContactEmail: SMTP not configured — skipping email (set SMTP_USER and SMTP_PASS in .env)');
+      return;
+    }
+    await mailer.sendMail({
       from: process.env.EMAIL_FROM || '"scholars Fix" <noreply@scholarsfix.com>',
       to: process.env.ADMIN_EMAIL,
       subject: `[Contact] ${subject} — from ${name}`,
@@ -157,7 +177,12 @@ async function sendConfirmationEmail({ name, email }) {
 </body>
 </html>`;
 
-    await transporter.sendMail({
+    const mailer = getTransporter();
+    if (!mailer) {
+      logger.warn('sendConfirmationEmail: SMTP not configured — skipping email (set SMTP_USER and SMTP_PASS in .env)');
+      return;
+    }
+    await mailer.sendMail({
       from: process.env.EMAIL_FROM || '"scholars Fix" <noreply@scholarsfix.com>',
       to: email,
       subject: "✅ We received your message — scholars Fix",

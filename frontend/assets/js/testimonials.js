@@ -9,21 +9,34 @@ document.addEventListener("DOMContentLoaded", async () => {
     const isHome = window.location.pathname === "/" || window.location.pathname.endsWith("index.html");
     const testimonialsToDisplay = isHome ? data.data.slice(0, 5) : data.data;
 
-    // Professional avatar fallbacks from Unsplash
-    const avatarFallbacks = [
-      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80',
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80',
-      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80',
-      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80',
-      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
-      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80'
-    ];
-
     // Remove the original grid class so it doesn't mess with our deck layout
     container.className = "testimonials-deck-wrapper";
 
+    const maleAvatars = [
+      'https://randomuser.me/api/portraits/men/32.jpg',
+      'https://randomuser.me/api/portraits/men/46.jpg',
+      'https://randomuser.me/api/portraits/men/22.jpg',
+      'https://randomuser.me/api/portraits/men/50.jpg'
+    ];
+    
+    const femaleAvatars = [
+      'https://randomuser.me/api/portraits/women/44.jpg',
+      'https://randomuser.me/api/portraits/women/68.jpg',
+      'https://randomuser.me/api/portraits/women/24.jpg',
+      'https://randomuser.me/api/portraits/women/60.jpg'
+    ];
+
     const cards = testimonialsToDisplay.map((t, i) => {
-      const avatar = t.studentAvatar || avatarFallbacks[i % avatarFallbacks.length];
+      // Intelligently map gender based on known names to avoid any mismatch regardless of DB order
+      const firstName = (t.studentName || '').split(' ')[0].toLowerCase();
+      const isFemale = ['sarah', 'emily', 'priya', 'anita', 'elena', 'jessica', 'mary'].includes(firstName);
+      
+      const avatarList = isFemale ? femaleAvatars : maleAvatars;
+      
+      // Use a simple hash of the name to consistently pick the same image for the same person
+      const hash = t.studentName ? t.studentName.charCodeAt(0) + t.studentName.charCodeAt(t.studentName.length - 1) : i;
+      const avatar = avatarList[hash % avatarList.length];
+
       const stars = '★'.repeat(5);
       const role = t.studentRole || 'Student';
       const initials = t.studentName ? t.studentName.split(' ').map(n => n[0]).join('').toUpperCase() : '?';
@@ -41,8 +54,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           <p class="deck-content">"${t.content}"</p>
           <div class="deck-author">
             <div class="deck-avatar">
-              <img src="${avatar}" alt="${t.studentName}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" loading="lazy">
-              <span class="tcard-avatar-fallback" style="display:none; width: 100%; height: 100%; border-radius: 50%; background: #004D40; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; border: 3px solid #fff;">${initials}</span>
+              <img src="${avatar}" alt="${t.studentName}" onerror="this.onerror=null; this.src='/assets/images/user.png';" loading="lazy">
             </div>
             <div class="deck-author-info">
               <strong>${t.studentName}</strong>
@@ -63,6 +75,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Calculate relative position based on current index
         let relIndex = index - currentIndex;
         if (relIndex < 0) relIndex += cards.length;
+        
+        // Clear any inline styles left over from the throw out animation
+        card.style.transform = "";
+        card.style.opacity = "";
         
         card.className = "testimonials-deck-card"; // reset
         if (relIndex === 0) {
