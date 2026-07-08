@@ -87,7 +87,16 @@ function initCounters() {
       io.unobserve(el);
     });
   }, { threshold: 0.5 });
-  counters.forEach((el) => { el.dataset.target = parseInt(el.textContent, 10); io.observe(el); });
+  counters.forEach((el) => {
+    const raw = el.textContent.trim();
+    const num = parseInt(raw, 10);
+    // Extract suffix: everything after the numeric part (e.g. "50+" → "+", "98%" → "%", "5,000+" → "+")
+    const suffixMatch = raw.match(/[\d,]+\s*(.*)/);
+    const suffix = suffixMatch ? suffixMatch[1] : "";
+    el.dataset.target = num;
+    el.dataset.suffix = suffix;
+    io.observe(el);
+  });
 }
 
 /* ── Newsletter form ─────────────────────────────────────────────── */

@@ -23,14 +23,24 @@
 }
 
 .university-card .uni-logo {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   object-fit: contain;
   border-radius: 50%;
   margin-bottom: 15px;
   background: #fff;
   box-shadow: 0 5px 15px rgba(0,0,0,0.05);
   transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Kennedy University logos — render larger */
+.university-card .uni-logo.kennedy-logo {
+  width: 160px;
+  height: 160px;
+  border-radius: 16px;
+  padding: 10px;
+  background: #fff;
+  border: 2px solid rgba(0,77,64,0.1);
 }
 
 .university-card:hover .uni-logo {

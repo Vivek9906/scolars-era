@@ -223,7 +223,7 @@ const testimonialSeedData = [
   {
     studentName: "Sarah Johnson",
     studentRole: "Web Developer",
-    studentAvatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80",
+    studentAvatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80",
     content: "scholars Fix has completely transformed my career path. The counsellors are knowledgeable and supportive. They helped me secure admission to my dream university without any stress. I highly recommend their services to anyone looking for genuine academic guidance.",
     rating: 5,
     isFeatured: true,
@@ -231,7 +231,7 @@ const testimonialSeedData = [
   {
     studentName: "Michael Chen",
     studentRole: "Data Analyst",
-    studentAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80",
+    studentAvatar: "https://images.unsplash.com/photo-1506863530036-1ef8d1644ce8?auto=format&fit=crop&w=400&q=80",
     content: "The flexibility of the guidance process allowed me to work and pursue my M.Sc simultaneously. scholars Fix's team was always available to answer my queries. Their university partnerships are world-class and the admission support is second to none.",
     rating: 5,
     isFeatured: true,
@@ -239,7 +239,7 @@ const testimonialSeedData = [
   {
     studentName: "Emily Davis",
     studentRole: "Graphic Designer",
-    studentAvatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80",
+    studentAvatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
     content: "I love the community here. The resources are endless and the support team is always there to help. Getting into my B.Ed program felt impossible before I found scholars Fix. They made the entire admission journey smooth and stress-free.",
     rating: 5,
     isFeatured: true,
@@ -247,7 +247,7 @@ const testimonialSeedData = [
   {
     studentName: "Rajesh Kumar",
     studentRole: "School Principal",
-    studentAvatar: "/assets/images/00.jpeg",
+    studentAvatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80",
     content: "After 15 years in teaching, I wanted a M.Ed to advance to school leadership. scholars Fix guided me through every step — from selecting the right university to completing my documentation. The support was exceptional throughout.",
     rating: 5,
     isFeatured: true,
@@ -255,7 +255,7 @@ const testimonialSeedData = [
   {
     studentName: "Priya Sharma",
     studentRole: "Research Scholar",
-    studentAvatar: "/assets/images/00.jpeg",
+    studentAvatar: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?auto=format&fit=crop&w=400&q=80",
     content: "scholars Fix's PhD guidance program is outstanding. My mentor helped me identify a unique research topic, assisted with journal publications, and prepared me thoroughly for my viva. I successfully defended my thesis after 3 years.",
     rating: 5,
     isFeatured: false,
@@ -263,7 +263,7 @@ const testimonialSeedData = [
   {
     studentName: "James Wilson",
     studentRole: "Software Engineer",
-    studentAvatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80",
+    studentAvatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=400&q=80",
     content: "The M.Tech program support from scholars Fix was fantastic. They matched me with the right university for my specialization in AI and helped me throughout the admission process. Highly professional team.",
     rating: 4,
     isFeatured: false,
@@ -271,7 +271,7 @@ const testimonialSeedData = [
   {
     studentName: "Anita Patel",
     studentRole: "Science Teacher",
-    studentAvatar: "/assets/images/00.jpeg",
+    studentAvatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80",
     content: "I enrolled in the B.Sc program through scholars Fix's guidance. The counsellors were patient, knowledgeable, and genuinely cared about my success. The university they recommended was perfect for my career goals.",
     rating: 5,
     isFeatured: false,
@@ -279,11 +279,11 @@ const testimonialSeedData = [
   {
     studentName: "David Thompson",
     studentRole: "Education Consultant",
-    studentAvatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80",
+    studentAvatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80",
     content: "Outstanding platform for academic guidance. scholars Fix helped me understand the entire landscape of postgraduate education in the UK and India. Their research support services are particularly impressive.",
     rating: 4,
     isFeatured: false,
-  },
+  }
 ];
 
 // ── Seeder functions ───────────────────────────────────────────────────────────

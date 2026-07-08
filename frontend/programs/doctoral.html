@@ -2,7 +2,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bachelor Programmes | Scholars Lift</title>
+    <title>Doctoral Programmes | Scholars Lift</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
@@ -97,22 +97,18 @@
   <div class="top-banner">
   <div class="banner-track">
     <span class="banner-items">
-      <span><i class="fas fa-map-marker-alt"></i> 174 Chesterton Road, Cambridge</span>
       <span><i class="fas fa-envelope"></i> info@scholarslift.com</span>
       <span><i class="fas fa-phone-alt"></i> +44 7386814150</span>
     </span>
     <span class="banner-items">
-      <span><i class="fas fa-map-marker-alt"></i> 174 Chesterton Road, Cambridge</span>
       <span><i class="fas fa-envelope"></i> info@scholarslift.com</span>
       <span><i class="fas fa-phone-alt"></i> +44 7386814150</span>
     </span>
     <span class="banner-items">
-      <span><i class="fas fa-map-marker-alt"></i> 174 Chesterton Road, Cambridge</span>
       <span><i class="fas fa-envelope"></i> info@scholarslift.com</span>
       <span><i class="fas fa-phone-alt"></i> +44 7386814150</span>
     </span>
     <span class="banner-items">
-      <span><i class="fas fa-map-marker-alt"></i> 174 Chesterton Road, Cambridge</span>
       <span><i class="fas fa-envelope"></i> info@scholarslift.com</span>
       <span><i class="fas fa-phone-alt"></i> +44 7386814150</span>
     </span>
@@ -201,281 +197,395 @@
 
 
 <style>
-/* New Stacked Card Layout */
-.stack-container {
-    position: relative;
-    background: #ffffff;
+/* ─── IMAGE-FREE COURSE LISTING ────────────────────────────────────── */
+.courses-section {
+    padding: 80px 0;
+    background: #f5f7f6;
 }
-.stack-header {
-    background: #ffffff;
-    padding: 100px 20px 60px;
+.courses-section .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+.courses-section-header {
+    margin-bottom: 56px;
     text-align: center;
 }
-.stack-header h2 {
-    font-size: clamp(2rem, 5vw, 4rem);
-    color: #0d5c4a;
+.courses-section-header h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
+    color: #0d5c4a;
+    margin-bottom: 12px;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    letter-spacing: -1px;
 }
-.stack-header p {
-    color: #555;
-    font-size: 18px;
-    max-width: 600px;
+.courses-section-header p {
+    color: #666;
+    font-size: 17px;
+    max-width: 560px;
     margin: 0 auto;
+    line-height: 1.7;
 }
-.project-stack-card {
-    position: sticky;
-    top: 0; 
-    min-height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    padding: 80px 0;
-    box-shadow: 0 -10px 40px rgba(0,0,0,0.08);
-    border-top: 1px solid #eee;
-}
-.stack-card-inner {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 40px;
-    width: 100%;
+.courses-grid {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 0;
+    border-top: 2px solid #e0e7e5;
 }
-@media (min-width: 1024px) {
-    .stack-card-inner {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 100px;
+.course-card-link {
+    display: block;
+    text-decoration: none;
+    border-bottom: 1px solid #e0e7e5;
+    transition: background 0.25s;
+}
+.course-card-link:hover,
+.course-card-link:focus {
+    background: #fff;
+    outline: none;
+}
+.course-card-link:hover .course-card-arrow,
+.course-card-link:focus .course-card-arrow {
+    transform: translateX(6px);
+    color: #0d5c4a;
+}
+.course-card-link:hover .course-card-title {
+    color: #0a4437;
+}
+.course-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 28px 24px;
+    cursor: pointer;
+}
+.course-card-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    flex: 1;
+}
+.course-card-num {
+    font-size: 13px;
+    font-weight: 800;
+    color: #c9d8d4;
+    letter-spacing: 1px;
+    min-width: 28px;
+    padding-top: 4px;
+    font-family: 'Outfit', sans-serif;
+}
+.course-card-icon {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #0d5c4a, #1a8066);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+    box-shadow: 0 4px 14px rgba(13,92,74,0.22);
+    transition: transform 0.3s;
+}
+.course-card-link:hover .course-card-icon {
+    transform: scale(1.1) rotate(-5deg);
+}
+.course-card-text {
+    flex: 1;
+}
+.course-card-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0d5c4a;
+    margin: 0 0 6px 0;
+    line-height: 1.2;
+    transition: color 0.25s;
+    font-family: 'Outfit', sans-serif;
+}
+.course-card-desc {
+    font-size: 14px;
+    color: #777;
+    line-height: 1.6;
+    margin: 0;
+}
+.course-card-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+}
+.course-card-badge {
+    font-size: 11px;
+    font-weight: 700;
+    color: #f0a500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: rgba(240,165,0,0.1);
+    padding: 5px 12px;
+    border-radius: 50px;
+    border: 1px solid rgba(240,165,0,0.25);
+    white-space: nowrap;
+}
+.course-card-arrow {
+    font-size: 16px;
+    color: #c9d8d4;
+    transition: transform 0.3s, color 0.3s;
+}
+@media (max-width: 640px) {
+    .course-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px 14px;
+    }
+    .course-card-left {
+        gap: 12px;
+    }
+    .course-card-num {
+        min-width: 18px;
+        font-size: 11px;
+        padding-top: 2px;
+    }
+    .course-card-icon {
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+    .course-card-title {
+        font-size: 16px;
+        margin-bottom: 4px;
+    }
+    .course-card-desc {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+    .course-card-right {
+        align-self: flex-end;
+        margin-top: -10px;
+    }
+    .course-card-badge {
+        display: none;
     }
 }
-.stack-left { flex: 1.2; display: flex; flex-direction: column; }
-.stack-right { flex: 1; display: flex; align-items: center; justify-content: center; }
-.stack-num { font-size: clamp(4rem, 8vw, 6rem); font-weight: 900; color: rgba(13,92,74,0.08); line-height: 0.9; margin-bottom: 30px; font-family: 'Outfit', sans-serif; }
-.stack-title { word-break: keep-all; overflow-wrap: break-word;  font-size: clamp(1.8rem, 6vw, 4.5rem); font-weight: 800; color: #0d5c4a; text-transform: uppercase; margin-bottom: 15px; line-height: 1; font-family: 'Outfit', sans-serif; letter-spacing: -1px; }
-.stack-type { font-size: 14px; color: #f0a500; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 30px; font-weight: 700; }
-.stack-desc { font-size: 18px; color: #555; line-height: 1.6; max-width: 500px; margin-bottom: 40px; }
-.stack-btn { display: inline-flex; align-items: center; gap: 10px; border: 1px solid #0d5c4a; color: #0d5c4a; padding: 15px 35px; border-radius: 50px; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.4s ease; width: fit-content; }
-.stack-btn:hover { background: #0d5c4a; color: #fff; border-color: #0d5c4a; transform: translateY(-3px); }
-.stack-img-wrapper { width: 100%; aspect-ratio: 4/3; border-radius: 16px; overflow: hidden; border: 1px solid #ddd; background: #ffffff; }
-.stack-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease; filter: brightness(0.8) contrast(1.1); }
-.project-stack-card:hover .stack-img-wrapper img { transform: scale(1.05); filter: brightness(1) contrast(1.1); }
 </style>
 
-<div class="stack-container">
-            <div class="stack-header">
-                <h2>Doctoral disciplines</h2>
-                <p>Select a discipline to explore programme details, entry requirements, and how to apply.</p>
-            </div>
-            
-            <div class="project-stack-card" style="background-color: #ffffff; z-index: 1;">
-                <div class="stack-card-inner">
-                    <div class="stack-left">
-                        <span class="stack-num">01</span>
-                        <h3 class="stack-title">Business Administration</h3>
-                        <span class="stack-type">(Academic Pathway)</span>
-                        <p class="stack-desc">Official Degree Programme</p>
-                        <a href="/programs/doctoral/business-administration.html" class="stack-btn">View Programme <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="stack-right">
-                        <div class="stack-img-wrapper">
-                            <img src="/assets/images/course_tech.png" alt="Business Administration" loading="lazy">
+        <section class="courses-section">
+            <div class="container">
+                <div class="courses-section-header">
+                    <h2>Doctoral Disciplines</h2>
+                    <p>Select a discipline to explore programme details, entry requirements, and how to apply.</p>
+                </div>
+                <div class="courses-grid">
+
+            <a href="/programs/doctoral/business-administration.html" class="course-card-link">
+                <article class="course-card" tabindex="0">
+                    <div class="course-card-left">
+                        <span class="course-card-num">01</span>
+                        <div class="course-card-icon"><i class="fas fa-briefcase"></i></div>
+                        <div class="course-card-text">
+                            <h3 class="course-card-title">Business Administration</h3>
+                            <p class="course-card-desc">Develop strategic thinking and business acumen through rigorous training in management, finance, and organisational leadership.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="project-stack-card" style="background-color: #f9f9f9; z-index: 2;">
-                <div class="stack-card-inner">
-                    <div class="stack-left">
-                        <span class="stack-num">02</span>
-                        <h3 class="stack-title">Public Administration</h3>
-                        <span class="stack-type">(Academic Pathway)</span>
-                        <p class="stack-desc">Official Degree Programme</p>
-                        <a href="/programs/doctoral/public-administration.html" class="stack-btn">View Programme <i class="fas fa-arrow-right"></i></a>
+                    <div class="course-card-right">
+                        <span class="course-card-badge">Doctoral</span>
+                        <span class="course-card-arrow"><i class="fas fa-arrow-right"></i></span>
                     </div>
-                    <div class="stack-right">
-                        <div class="stack-img-wrapper">
-                            <img src="/assets/images/course_campus.png" alt="Public Administration" loading="lazy">
+                </article>
+            </a>
+
+            <a href="/programs/doctoral/public-administration.html" class="course-card-link">
+                <article class="course-card" tabindex="0">
+                    <div class="course-card-left">
+                        <span class="course-card-num">02</span>
+                        <div class="course-card-icon"><i class="fas fa-landmark"></i></div>
+                        <div class="course-card-text">
+                            <h3 class="course-card-title">Public Administration</h3>
+                            <p class="course-card-desc">Explore governance, policy-making, and civic leadership to prepare for impactful roles in the public sector.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="project-stack-card" style="background-color: #ffffff; z-index: 3;">
-                <div class="stack-card-inner">
-                    <div class="stack-left">
-                        <span class="stack-num">03</span>
-                        <h3 class="stack-title">Education</h3>
-                        <span class="stack-type">(Academic Pathway)</span>
-                        <p class="stack-desc">Official Degree Programme</p>
-                        <a href="/programs/doctoral/education.html" class="stack-btn">View Programme <i class="fas fa-arrow-right"></i></a>
+                    <div class="course-card-right">
+                        <span class="course-card-badge">Doctoral</span>
+                        <span class="course-card-arrow"><i class="fas fa-arrow-right"></i></span>
                     </div>
-                    <div class="stack-right">
-                        <div class="stack-img-wrapper">
-                            <img src="/assets/images/course1.jpeg" alt="Education" loading="lazy">
+                </article>
+            </a>
+
+            <a href="/programs/doctoral/education.html" class="course-card-link">
+                <article class="course-card" tabindex="0">
+                    <div class="course-card-left">
+                        <span class="course-card-num">03</span>
+                        <div class="course-card-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="course-card-text">
+                            <h3 class="course-card-title">Education</h3>
+                            <p class="course-card-desc">Gain advanced pedagogical skills and educational leadership expertise to shape learning environments worldwide.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="project-stack-card" style="background-color: #f9f9f9; z-index: 4;">
-                <div class="stack-card-inner">
-                    <div class="stack-left">
-                        <span class="stack-num">04</span>
-                        <h3 class="stack-title">Media Communication</h3>
-                        <span class="stack-type">(Academic Pathway)</span>
-                        <p class="stack-desc">Official Degree Programme</p>
-                        <a href="/programs/doctoral/media-communication.html" class="stack-btn">View Programme <i class="fas fa-arrow-right"></i></a>
+                    <div class="course-card-right">
+                        <span class="course-card-badge">Doctoral</span>
+                        <span class="course-card-arrow"><i class="fas fa-arrow-right"></i></span>
                     </div>
-                    <div class="stack-right">
-                        <div class="stack-img-wrapper">
-                            <img src="/assets/images/course_edu.png" alt="Media Communication" loading="lazy">
+                </article>
+            </a>
+
+            <a href="/programs/doctoral/media-communication.html" class="course-card-link">
+                <article class="course-card" tabindex="0">
+                    <div class="course-card-left">
+                        <span class="course-card-num">04</span>
+                        <div class="course-card-icon"><i class="fas fa-satellite-dish"></i></div>
+                        <div class="course-card-text">
+                            <h3 class="course-card-title">Media Communication</h3>
+                            <p class="course-card-desc">Examine modern media landscapes and develop strategic communication competencies for a connected world.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="project-stack-card" style="background-color: #ffffff; z-index: 5;">
-                <div class="stack-card-inner">
-                    <div class="stack-left">
-                        <span class="stack-num">05</span>
-                        <h3 class="stack-title">Counseling Psychology</h3>
-                        <span class="stack-type">(Academic Pathway)</span>
-                        <p class="stack-desc">Official Degree Programme</p>
-                        <a href="/programs/doctoral/counseling-psychology.html" class="stack-btn">View Programme <i class="fas fa-arrow-right"></i></a>
+                    <div class="course-card-right">
+                        <span class="course-card-badge">Doctoral</span>
+                        <span class="course-card-arrow"><i class="fas fa-arrow-right"></i></span>
                     </div>
-                    <div class="stack-right">
-                        <div class="stack-img-wrapper">
-                            <img src="/assets/images/course_sci.png" alt="Counseling Psychology" loading="lazy">
+                </article>
+            </a>
+
+            <a href="/programs/doctoral/counseling-psychology.html" class="course-card-link">
+                <article class="course-card" tabindex="0">
+                    <div class="course-card-left">
+                        <span class="course-card-num">05</span>
+                        <div class="course-card-icon"><i class="fas fa-heart"></i></div>
+                        <div class="course-card-text">
+                            <h3 class="course-card-title">Counseling Psychology</h3>
+                            <p class="course-card-desc">Apply psychological theory and clinical skills to support individuals through personal, academic, and professional challenges.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="project-stack-card" style="background-color: #f9f9f9; z-index: 6;">
-                <div class="stack-card-inner">
-                    <div class="stack-left">
-                        <span class="stack-num">06</span>
-                        <h3 class="stack-title">Human Arts</h3>
-                        <span class="stack-type">(Academic Pathway)</span>
-                        <p class="stack-desc">Official Degree Programme</p>
-                        <a href="/programs/doctoral/human-arts.html" class="stack-btn">View Programme <i class="fas fa-arrow-right"></i></a>
+                    <div class="course-card-right">
+                        <span class="course-card-badge">Doctoral</span>
+                        <span class="course-card-arrow"><i class="fas fa-arrow-right"></i></span>
                     </div>
-                    <div class="stack-right">
-                        <div class="stack-img-wrapper">
-                            <img src="/assets/images/course_tech.png" alt="Human Arts" loading="lazy">
+                </article>
+            </a>
+
+            <a href="/programs/doctoral/human-arts.html" class="course-card-link">
+                <article class="course-card" tabindex="0">
+                    <div class="course-card-left">
+                        <span class="course-card-num">06</span>
+                        <div class="course-card-icon"><i class="fas fa-palette"></i></div>
+                        <div class="course-card-text">
+                            <h3 class="course-card-title">Human Arts</h3>
+                            <p class="course-card-desc">Explore humanities, culture, and critical thinking through interdisciplinary academic study of the human experience.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="project-stack-card" style="background-color: #ffffff; z-index: 7;">
-                <div class="stack-card-inner">
-                    <div class="stack-left">
-                        <span class="stack-num">07</span>
-                        <h3 class="stack-title">Fine Arts</h3>
-                        <span class="stack-type">(Academic Pathway)</span>
-                        <p class="stack-desc">Official Degree Programme</p>
-                        <a href="/programs/doctoral/fine-arts.html" class="stack-btn">View Programme <i class="fas fa-arrow-right"></i></a>
+                    <div class="course-card-right">
+                        <span class="course-card-badge">Doctoral</span>
+                        <span class="course-card-arrow"><i class="fas fa-arrow-right"></i></span>
                     </div>
-                    <div class="stack-right">
-                        <div class="stack-img-wrapper">
-                            <img src="/assets/images/course_campus.png" alt="Fine Arts" loading="lazy">
+                </article>
+            </a>
+
+            <a href="/programs/doctoral/fine-arts.html" class="course-card-link">
+                <article class="course-card" tabindex="0">
+                    <div class="course-card-left">
+                        <span class="course-card-num">07</span>
+                        <div class="course-card-icon"><i class="fas fa-paint-brush"></i></div>
+                        <div class="course-card-text">
+                            <h3 class="course-card-title">Fine Arts</h3>
+                            <p class="course-card-desc">Cultivate creative excellence and artistic expression through studio practice, critique, and art history.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="project-stack-card" style="background-color: #f9f9f9; z-index: 8;">
-                <div class="stack-card-inner">
-                    <div class="stack-left">
-                        <span class="stack-num">08</span>
-                        <h3 class="stack-title">Social Work</h3>
-                        <span class="stack-type">(Academic Pathway)</span>
-                        <p class="stack-desc">Official Degree Programme</p>
-                        <a href="/programs/doctoral/social-work.html" class="stack-btn">View Programme <i class="fas fa-arrow-right"></i></a>
+                    <div class="course-card-right">
+                        <span class="course-card-badge">Doctoral</span>
+                        <span class="course-card-arrow"><i class="fas fa-arrow-right"></i></span>
                     </div>
-                    <div class="stack-right">
-                        <div class="stack-img-wrapper">
-                            <img src="/assets/images/course1.jpeg" alt="Social Work" loading="lazy">
+                </article>
+            </a>
+
+            <a href="/programs/doctoral/social-work.html" class="course-card-link">
+                <article class="course-card" tabindex="0">
+                    <div class="course-card-left">
+                        <span class="course-card-num">08</span>
+                        <div class="course-card-icon"><i class="fas fa-hands-helping"></i></div>
+                        <div class="course-card-text">
+                            <h3 class="course-card-title">Social Work</h3>
+                            <p class="course-card-desc">Prepare for meaningful practice in social justice, community development, and human welfare services.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="project-stack-card" style="background-color: #ffffff; z-index: 9;">
-                <div class="stack-card-inner">
-                    <div class="stack-left">
-                        <span class="stack-num">09</span>
-                        <h3 class="stack-title">Music</h3>
-                        <span class="stack-type">(Academic Pathway)</span>
-                        <p class="stack-desc">Official Degree Programme</p>
-                        <a href="/programs/doctoral/music.html" class="stack-btn">View Programme <i class="fas fa-arrow-right"></i></a>
+                    <div class="course-card-right">
+                        <span class="course-card-badge">Doctoral</span>
+                        <span class="course-card-arrow"><i class="fas fa-arrow-right"></i></span>
                     </div>
-                    <div class="stack-right">
-                        <div class="stack-img-wrapper">
-                            <img src="/assets/images/course_edu.png" alt="Music" loading="lazy">
+                </article>
+            </a>
+
+            <a href="/programs/doctoral/music.html" class="course-card-link">
+                <article class="course-card" tabindex="0">
+                    <div class="course-card-left">
+                        <span class="course-card-num">09</span>
+                        <div class="course-card-icon"><i class="fas fa-music"></i></div>
+                        <div class="course-card-text">
+                            <h3 class="course-card-title">Music</h3>
+                            <p class="course-card-desc">Pursue performance, composition, and musicology with rigorous academic and practical training in musical arts.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="project-stack-card" style="background-color: #f9f9f9; z-index: 10;">
-                <div class="stack-card-inner">
-                    <div class="stack-left">
-                        <span class="stack-num">10</span>
-                        <h3 class="stack-title">Theology</h3>
-                        <span class="stack-type">(Academic Pathway)</span>
-                        <p class="stack-desc">Official Degree Programme</p>
-                        <a href="/programs/doctoral/theology.html" class="stack-btn">View Programme <i class="fas fa-arrow-right"></i></a>
+                    <div class="course-card-right">
+                        <span class="course-card-badge">Doctoral</span>
+                        <span class="course-card-arrow"><i class="fas fa-arrow-right"></i></span>
                     </div>
-                    <div class="stack-right">
-                        <div class="stack-img-wrapper">
-                            <img src="/assets/images/course_sci.png" alt="Theology" loading="lazy">
+                </article>
+            </a>
+
+            <a href="/programs/doctoral/theology.html" class="course-card-link">
+                <article class="course-card" tabindex="0">
+                    <div class="course-card-left">
+                        <span class="course-card-num">10</span>
+                        <div class="course-card-icon"><i class="fas fa-book-open"></i></div>
+                        <div class="course-card-text">
+                            <h3 class="course-card-title">Theology</h3>
+                            <p class="course-card-desc">Engage with religious texts, philosophy, and ethical questions through scholarly exploration of faith and society.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="project-stack-card" style="background-color: #ffffff; z-index: 11;">
-                <div class="stack-card-inner">
-                    <div class="stack-left">
-                        <span class="stack-num">11</span>
-                        <h3 class="stack-title">Science</h3>
-                        <span class="stack-type">(Academic Pathway)</span>
-                        <p class="stack-desc">Official Degree Programme</p>
-                        <a href="/programs/doctoral/science.html" class="stack-btn">View Programme <i class="fas fa-arrow-right"></i></a>
+                    <div class="course-card-right">
+                        <span class="course-card-badge">Doctoral</span>
+                        <span class="course-card-arrow"><i class="fas fa-arrow-right"></i></span>
                     </div>
-                    <div class="stack-right">
-                        <div class="stack-img-wrapper">
-                            <img src="/assets/images/course_tech.png" alt="Science" loading="lazy">
+                </article>
+            </a>
+
+            <a href="/programs/doctoral/science.html" class="course-card-link">
+                <article class="course-card" tabindex="0">
+                    <div class="course-card-left">
+                        <span class="course-card-num">11</span>
+                        <div class="course-card-icon"><i class="fas fa-flask"></i></div>
+                        <div class="course-card-text">
+                            <h3 class="course-card-title">Science</h3>
+                            <p class="course-card-desc">Build a strong foundation in natural and applied sciences, with pathways into research, industry, and academia.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="project-stack-card" style="background-color: #f9f9f9; z-index: 12;">
-                <div class="stack-card-inner">
-                    <div class="stack-left">
-                        <span class="stack-num">12</span>
-                        <h3 class="stack-title">Programs in Other Areas</h3>
-                        <span class="stack-type">(Academic Pathway)</span>
-                        <p class="stack-desc">Official Degree Programme</p>
-                        <a href="/programs/doctoral/other-areas.html" class="stack-btn">View Programme <i class="fas fa-arrow-right"></i></a>
+                    <div class="course-card-right">
+                        <span class="course-card-badge">Doctoral</span>
+                        <span class="course-card-arrow"><i class="fas fa-arrow-right"></i></span>
                     </div>
-                    <div class="stack-right">
-                        <div class="stack-img-wrapper">
-                            <img src="/assets/images/course_campus.png" alt="Programs in Other Areas" loading="lazy">
+                </article>
+            </a>
+
+            <a href="/programs/doctoral/programs-in-other-areas.html" class="course-card-link">
+                <article class="course-card" tabindex="0">
+                    <div class="course-card-left">
+                        <span class="course-card-num">12</span>
+                        <div class="course-card-icon"><i class="fas fa-layer-group"></i></div>
+                        <div class="course-card-text">
+                            <h3 class="course-card-title">Programs in Other Areas</h3>
+                            <p class="course-card-desc">Explore a wide range of interdisciplinary programmes designed to meet diverse academic and professional aspirations.</p>
                         </div>
                     </div>
+                    <div class="course-card-right">
+                        <span class="course-card-badge">Doctoral</span>
+                        <span class="course-card-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </article>
+            </a>
                 </div>
             </div>
-
-        </div>
+        </section>
 
         <section class="section-req">
     <div class="container">

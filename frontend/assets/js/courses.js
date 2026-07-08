@@ -117,10 +117,12 @@ function coursePageUrl(slug) {
 }
 
 const REALISTIC_THUMBNAILS = [
-  "/assets/images/course_edu.png",
-  "/assets/images/course_sci.png",
-  "/assets/images/course_tech.png",
-  "/assets/images/course_campus.png"
+  "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=600&q=80", // Science Lab
+  "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80", // Real Seminar/Classroom
+  "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=600&q=80", // Students in Library
+  "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80", // Real Student Collaboration
+  "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80", // Writing/Research
+  "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&q=80"  // Real Campus exterior
 ];
 let thumbIndex = 0;
 
