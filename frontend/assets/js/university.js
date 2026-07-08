@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (loader) loader.classList.add("fade-out");
     return;
   }
-  
+
   grid.innerHTML = '<div style="text-align:center;width:100%;padding:40px;">Loading universities...</div>';
 
   try {
@@ -24,26 +24,28 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!res.ok) throw new Error("Failed to fetch");
     const result = await res.json();
     const universities = result.data || [];
-    
+
     if (universities.length === 0) {
       grid.innerHTML = '<div style="text-align:center;width:100%;padding:40px;">No universities found.</div>';
       return;
     }
-    
+
     grid.innerHTML = universities.map(u => {
       const detailUrl = u.slug ? `/university-detail.html?slug=${encodeURIComponent(u.slug)}` : `/university-detail.html?id=${encodeURIComponent(u._id)}`;
       const type = u.partnershipType ? escapeHtml(u.partnershipType) : 'Partner University';
-      
+
       // Force logos for specific universities to bypass DB issues
+      const isKennedy = u.name && (u.name.includes('Baptist') || u.name.includes('Kennedy University'));
       if (u.name && u.name.includes('Baptist')) {
         u.logoUrl = '/assets/images/kennedy_baptist_logo.png';
       } else if (u.name && u.name.includes('Kennedy University')) {
-        u.logoUrl = '/assets/images/kennedy_logo.jpeg';
+        u.logoUrl = '/assets/images/kennedy_logo.png';
       }
-      
-      const logo = u.logoUrl ? `<img src="${escapeHtml(u.logoUrl)}" class="uni-logo" alt="${escapeHtml(u.name)}">` : `<div class="uni-logo-text">${escapeHtml(u.name)}</div>`;
-  
-      
+
+      const logoClass = isKennedy ? 'uni-logo kennedy-logo' : 'uni-logo';
+      const logo = u.logoUrl ? `<img src="${escapeHtml(u.logoUrl)}" class="${logoClass}" alt="${escapeHtml(u.name)}">` : `<div class="uni-logo-text">${escapeHtml(u.name)}</div>`;
+
+
       let targetUrl = 'https://www.kennedy.edu.eu/';
       if (u.name && u.name.includes('Baptist')) {
         targetUrl = 'https://www.kennedy.edu.eu/'; // Placeholder as requested
@@ -52,7 +54,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       } else {
         targetUrl = u.website || '#';
       }
-      
+
       return `
         <div class="university-card" onclick="window.open('${targetUrl}', '_blank')" style="cursor: pointer;">
           ${logo}
@@ -68,7 +70,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         </div>
       `;
     }).join('');
-    
+
   } catch (err) {
     console.error(err);
     grid.innerHTML = '<div style="text-align:center;width:100%;padding:40px;color:red;">Error loading universities. Please try again later.</div>';

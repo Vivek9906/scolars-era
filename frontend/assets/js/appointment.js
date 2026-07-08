@@ -1,39 +1,68 @@
 // frontend/assets/js/appointment.js
 "use strict";
 
+// ── Course data for cascading dropdown (shared with contact.js) ─────────────
+const APPOINTMENT_COURSES = {
+  "Bachelor's": [
+    "Education (B.Ed)", "Science (B.Sc)", "Business Administration (BBA)",
+    "Counseling Psychology", "Media & Communication", "Public Administration",
+    "Fine Arts (BFA)", "Human Arts (BA)", "Music", "Social Work (BSW)",
+    "Theology", "Other Areas"
+  ],
+  "Master's": [
+    "Education (M.Ed)", "Science (M.Sc)", "Business Administration (MBA)",
+    "Counseling Psychology", "Media & Communication", "Public Administration (MPA)",
+    "Fine Arts (MFA)", "Human Arts (MA)", "Music", "Social Work (MSW)",
+    "Theology", "Technology (M.Tech)", "Other Areas"
+  ],
+  "Doctoral/PhD": [
+    "Education (Ph.D)", "Science (Ph.D)", "Business Administration (DBA)",
+    "Counseling Psychology (Ph.D)", "Media & Communication (Ph.D)",
+    "Public Administration (Ph.D)", "Fine Arts (Ph.D)", "Human Arts (Ph.D)",
+    "Music (Ph.D)", "Social Work (Ph.D)", "Theology (Ph.D)", "Other Areas"
+  ],
+  "Honorary Awards": [
+    "Honorary Doctorate (D.Litt)", "Honorary Doctorate (D.Sc)",
+    "Professional Recognition Award", "Lifetime Achievement Award"
+  ]
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("appointmentForm");
   const successCard = document.getElementById("successCard");
-  const courseSelect = document.getElementById("courseSelect");
+  const programSelect = document.getElementById("appointmentProgramSelect");
+  const courseSelect = document.getElementById("appointmentCourseSelect");
   const dateInput = document.getElementById("prefDate");
   const errorDiv = document.getElementById("formError");
 
   // Set minimum date to today
-  const today = new Date().toISOString().split('T')[0];
-  dateInput.setAttribute('min', today);
-  dateInput.value = today;
+  if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today);
+    dateInput.value = today;
+  }
 
-  // Load courses
-  fetch("/api/courses")
-    .then(res => res.json())
-    .then(data => {
-      courseSelect.innerHTML = '<option value="" disabled selected>Select a course</option>';
-      if (data.data && data.data.length) {
-        data.data.forEach(c => {
-          const opt = document.createElement("option");
-          opt.value = c.title;
-          opt.textContent = c.title;
-          courseSelect.appendChild(opt);
-        });
-      }
+  // Cascading dropdown
+  if (programSelect && courseSelect) {
+    programSelect.addEventListener("change", function () {
+      const program = this.value;
+      const courses = APPOINTMENT_COURSES[program] || [];
+      courseSelect.innerHTML = '<option value="" disabled selected>Select Course</option>';
+      courses.forEach(c => {
+        const opt = document.createElement("option");
+        opt.value = c;
+        opt.textContent = c;
+        courseSelect.appendChild(opt);
+      });
       const optNotSure = document.createElement("option");
       optNotSure.value = "Not sure yet";
       optNotSure.textContent = "Not sure yet";
       courseSelect.appendChild(optNotSure);
-    })
-    .catch(() => {
-      courseSelect.innerHTML = '<option value="Not sure yet">Not sure yet (Failed to load courses)</option>';
+      courseSelect.disabled = false;
     });
+  }
+
+  if (!form) return;
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -46,7 +75,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const formData = new FormData(form);
     
     // Construct message string from preferences
-    const message = `Course Interest: ${formData.get("course")}
+    const message = `Programme: ${formData.get("program") || "N/A"}
+Course Interest: ${formData.get("course") || "N/A"}
 Qualification: ${formData.get("qualification")}
 Looking For: ${formData.get("lookingFor")}
 Preferred Date: ${formData.get("prefDate")}
@@ -97,9 +127,14 @@ Additional: ${formData.get("additional") || "None"}`;
       const today = new Date().toISOString().split('T')[0];
       document.getElementById("prefDate").value = today;
       
+      // Reset course dropdown
+      if (courseSelect) {
+        courseSelect.innerHTML = '<option value="" disabled selected>Select Programme first</option>';
+        courseSelect.disabled = true;
+      }
+      
       successCard.classList.remove("active");
       form.style.display = "block";
     });
   }
 });
-

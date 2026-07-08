@@ -1,6 +1,55 @@
 // scolars-era/frontend/assets/js/contact.js
 "use strict";
 
+// ── Course data for cascading dropdown ──────────────────────────────────────
+const PROGRAM_COURSES = {
+  "Bachelor's": [
+    "Education (B.Ed)", "Science (B.Sc)", "Business Administration (BBA)",
+    "Counseling Psychology", "Media & Communication", "Public Administration",
+    "Fine Arts (BFA)", "Human Arts (BA)", "Music", "Social Work (BSW)",
+    "Theology", "Other Areas"
+  ],
+  "Master's": [
+    "Education (M.Ed)", "Science (M.Sc)", "Business Administration (MBA)",
+    "Counseling Psychology", "Media & Communication", "Public Administration (MPA)",
+    "Fine Arts (MFA)", "Human Arts (MA)", "Music", "Social Work (MSW)",
+    "Theology", "Technology (M.Tech)", "Other Areas"
+  ],
+  "Doctoral/PhD": [
+    "Education (Ph.D)", "Science (Ph.D)", "Business Administration (DBA)",
+    "Counseling Psychology (Ph.D)", "Media & Communication (Ph.D)",
+    "Public Administration (Ph.D)", "Fine Arts (Ph.D)", "Human Arts (Ph.D)",
+    "Music (Ph.D)", "Social Work (Ph.D)", "Theology (Ph.D)", "Other Areas"
+  ],
+  "Honorary Awards": [
+    "Honorary Doctorate (D.Litt)", "Honorary Doctorate (D.Sc)",
+    "Professional Recognition Award", "Lifetime Achievement Award"
+  ]
+};
+
+function initCascadingDropdown(programSelectId, courseSelectId) {
+  const programSelect = document.getElementById(programSelectId);
+  const courseSelect = document.getElementById(courseSelectId);
+  if (!programSelect || !courseSelect) return;
+
+  programSelect.addEventListener("change", function () {
+    const program = this.value;
+    const courses = PROGRAM_COURSES[program] || [];
+    courseSelect.innerHTML = '<option value="" disabled selected>Select Course</option>';
+    courses.forEach(c => {
+      const opt = document.createElement("option");
+      opt.value = c;
+      opt.textContent = c;
+      courseSelect.appendChild(opt);
+    });
+    const optOther = document.createElement("option");
+    optOther.value = "Not sure yet";
+    optOther.textContent = "Not sure yet";
+    courseSelect.appendChild(optOther);
+    courseSelect.disabled = false;
+  });
+}
+
 function showStatus(form, type, message) {
   let status = form.querySelector(".form-status");
   if (!status) {
@@ -71,17 +120,18 @@ async function handleContactSubmit(e) {
   const statusEl = form.querySelector(".form-status");
   if (statusEl) statusEl.remove();
 
+  // Build subject from program + course + qualification
   const qual = form.querySelector('[name="qualification"]')?.value || "";
-  let subj = form.querySelector('[name="subject"]')?.value.trim() || "";
-  if (qual && qual !== "") {
-    subj = qual + (subj ? " " + subj : "");
-  }
+  const prog = form.querySelector('[name="program"]')?.value || "";
+  const course = form.querySelector('[name="course"]')?.value || "";
+  let subj = [prog, course, qual].filter(Boolean).join(" — ");
+  if (!subj) subj = "General Inquiry";
 
   const body = {
     name: form.querySelector('[name="name"]')?.value.trim() || "",
     email: form.querySelector('[name="email"]')?.value.trim() || "",
     phone: form.querySelector('[name="phone"]')?.value.trim() || "",
-    subject: subj || "No Subject provided",
+    subject: subj,
     message: form.querySelector('[name="message"]')?.value.trim() || "",
   };
 
@@ -94,6 +144,12 @@ async function handleContactSubmit(e) {
     await window.ScolarAPI.submitContact(body);
     showStatus(form, "success", "✅ Thank you! We'll respond within 24 hours.");
     form.reset();
+    // Reset course dropdown
+    const courseSelect = form.querySelector('[name="course"]');
+    if (courseSelect) {
+      courseSelect.innerHTML = '<option value="" disabled selected>Select Course</option>';
+      courseSelect.disabled = true;
+    }
     const textarea = form.querySelector('textarea[name="message"]');
     if (textarea) textarea.dispatchEvent(new Event('input')); // Reset counter
   } catch (err) {
@@ -113,6 +169,10 @@ async function handleContactSubmit(e) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Init cascading dropdowns
+  initCascadingDropdown("homeProgramSelect", "homeCourseSelect");
+  initCascadingDropdown("popupProgramSelect", "popupCourseSelect");
+
   document.querySelectorAll(".contact-form, .apply-form").forEach((form) => {
     initCharCounter(form);
     if (form) form.addEventListener("submit", handleContactSubmit);

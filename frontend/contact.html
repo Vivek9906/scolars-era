@@ -389,10 +389,19 @@
         <h3 class="form-section-title"><i class="fas fa-graduation-cap"></i> Your Interests</h3>
         <div class="form-grid">
           <div class="form-group">
+            <label>Programme *</label>
+            <select name="program" id="appointmentProgramSelect" required="">
+              <option value="" disabled="" selected="">Select Programme</option>
+              <option value="Bachelor's">Bachelor's Programmes</option>
+              <option value="Master's">Master's Programmes</option>
+              <option value="Doctoral/PhD">Doctoral / PhD</option>
+              <option value="Honorary Awards">Honorary Awards</option>
+            </select>
+          </div>
+          <div class="form-group">
             <label>Interested Course *</label>
-            <select name="course" id="courseSelect" required="">
-              <option value="" disabled="" selected="">Loading courses...</option>
-              <option value="Not sure yet">Not sure yet</option>
+            <select name="course" id="appointmentCourseSelect" required="" disabled="">
+              <option value="" disabled="" selected="">Select Programme first</option>
             </select>
           </div>
           <div class="form-group">
