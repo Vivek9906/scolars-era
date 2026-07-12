@@ -68,3 +68,43 @@
         </div>
     </div>
 </footer>
+
+<!-- ── CONTACT POPUP MODAL ────────────────────────────────────────────── -->
+<div id="contactPopupOverlay" class="popup-overlay" style="display:none;">
+    <div class="popup-modal">
+        <button class="popup-close" id="popupCloseBtn" aria-label="Close">&times;</button>
+        <div class="popup-header">
+            <div class="popup-icon"><i class="fas fa-graduation-cap"></i></div>
+            <h3>Get Free Academic Guidance</h3>
+            <p>Share your details and our expert counsellors will help you find the right academic pathway.</p>
+        </div>
+        <form class="popup-form" id="popupContactForm" novalidate>
+            <div class="form-row">
+                <div class="field-wrap"><input type="text" id="pcf-name" name="name" placeholder="Your Name" required><span class="field-error" id="pcf-name-err"></span></div>
+                <div class="field-wrap"><input type="email" id="pcf-email" name="email" placeholder="Your Email" required><span class="field-error" id="pcf-email-err"></span></div>
+            </div>
+            <input type="tel" name="phone" placeholder="Phone Number" style="width: 100%; padding: 12px 16px; border: 1.5px solid #E2E8F0; border-radius: 10px; font-family: 'Outfit', sans-serif; font-size: 14px; margin-bottom: 12px; transition: border-color 0.3s; background: #FAFAFA; box-sizing: border-box;">
+            <div class="form-row">
+                <select name="program" class="form-select" id="popupProgramSelect">
+                    <option value="" disabled selected>Select Programme</option>
+                    <option value="Bachelor's">Bachelor's Programmes</option>
+                    <option value="Master's">Master's Programmes</option>
+                    <option value="Doctoral/PhD">Doctoral / PhD</option>
+                    <option value="Honorary Awards">Honorary Awards</option>
+                </select>
+                <select name="course" class="form-select" id="popupCourseSelect" disabled>
+                    <option value="" disabled selected>Select Course</option>
+                </select>
+            </div>
+            <div class="field-wrap"><textarea id="pcf-message" name="message" rows="3" placeholder="Tell us about your academic goal" required></textarea><span class="field-error" id="pcf-message-err"></span></div>
+            <button type="submit" class="btn btn-primary" id="popupSubmitBtn" style="width:100%;">Get Free Counselling <i class="fas fa-arrow-right" style="margin-left:8px;"></i></button>
+        </form>
+        <!-- Success state shown INSIDE the popup modal -->
+        <div class="popup-success" id="popupSuccess" style="display:none;">
+            <div class="popup-success-icon"><i class="fas fa-check-circle"></i></div>
+            <h3>You're all set! 🎓</h3>
+            <p>Thank you for reaching out. Our expert counsellors will contact you within <strong>24 hours</strong>.</p>
+            <button class="btn btn-primary" id="popupSuccessClose" style="margin-top:24px;">Close</button>
+        </div>
+    </div>
+</div>
