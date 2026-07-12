@@ -3,39 +3,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (!container) return;
 
   try {
-    const res = await fetch("/api/testimonials");
+    const res = await fetch("/api/testimonials?t=" + new Date().getTime());
     const data = await res.json();
 
-    const isHome = window.location.pathname === "/" || window.location.pathname.endsWith("index.html");
-    const testimonialsToDisplay = isHome ? data.data.slice(0, 5) : data.data;
+    const testimonialsToDisplay = data.data;
 
     // Remove the original grid class so it doesn't mess with our deck layout
     container.className = "testimonials-deck-wrapper";
 
-    const maleAvatars = [
-      'https://randomuser.me/api/portraits/men/32.jpg',
-      'https://randomuser.me/api/portraits/men/46.jpg',
-      'https://randomuser.me/api/portraits/men/22.jpg',
-      'https://randomuser.me/api/portraits/men/50.jpg'
-    ];
-    
-    const femaleAvatars = [
-      'https://randomuser.me/api/portraits/women/44.jpg',
-      'https://randomuser.me/api/portraits/women/68.jpg',
-      'https://randomuser.me/api/portraits/women/24.jpg',
-      'https://randomuser.me/api/portraits/women/60.jpg'
-    ];
-
     const cards = testimonialsToDisplay.map((t, i) => {
-      // Intelligently map gender based on known names to avoid any mismatch regardless of DB order
-      const firstName = (t.studentName || '').split(' ')[0].toLowerCase();
-      const isFemale = ['sarah', 'emily', 'priya', 'anita', 'elena', 'jessica', 'mary'].includes(firstName);
-      
-      const avatarList = isFemale ? femaleAvatars : maleAvatars;
-      
-      // Use a simple hash of the name to consistently pick the same image for the same person
-      const hash = t.studentName ? t.studentName.charCodeAt(0) + t.studentName.charCodeAt(t.studentName.length - 1) : i;
-      const avatar = avatarList[hash % avatarList.length];
+      const avatar = t.studentAvatar || '/assets/images/user.png';
 
       const stars = '★'.repeat(5);
       const role = t.studentRole || 'Student';
