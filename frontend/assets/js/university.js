@@ -66,7 +66,6 @@ document.addEventListener("DOMContentLoaded", async () => {
               <span class="uni-type">${type}</span>
           </div>
           <h3>${escapeHtml(u.name)}</h3>
-          <p><i class="fas fa-map-marker-alt"></i> ${escapeHtml(u.country || 'Global')}</p>
           <p style="font-size: 14px; line-height: 1.6; color: #555; margin-bottom: 20px;">
             ${escapeHtml(u.shortDescription || u.description || 'A globally recognized institution offering accredited programmes across various disciplines.')}
           </p>
