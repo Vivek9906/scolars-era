@@ -34,6 +34,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       const detailUrl = u.slug ? `/university-detail.html?slug=${encodeURIComponent(u.slug)}` : `/university-detail.html?id=${encodeURIComponent(u._id)}`;
       const type = u.partnershipType ? escapeHtml(u.partnershipType) : 'Partner University';
 
+      // Map DB field names to what the template expects
+      if (u.logo && !u.logoUrl) u.logoUrl = u.logo;
+      if (u.websiteUrl && !u.website) u.website = u.websiteUrl;
+
       // Force logos for specific universities to bypass DB issues
       const isKennedy = u.name && (u.name.includes('Baptist') || u.name.includes('Kennedy University'));
       if (u.name && u.name.includes('Baptist')) {
